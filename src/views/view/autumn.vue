@@ -65,6 +65,15 @@ export default {
         { url: '', image: 'AutumnShopping/images/s200.png', menu: 7382 },
         { url: '', image: 'AutumnShopping/images/s100.png', menu: 7383 }
       ],
+      sales_after: [
+        { url: '', image: 'AutumnShopping/images/s1000.png', menu: 7413 },
+        { url: '', image: 'AutumnShopping/images/s700.png', menu: 7414 },
+        { url: '', image: 'AutumnShopping/images/s600.png', menu: 7415 },
+        { url: '', image: 'AutumnShopping/images/s500.png', menu: 7416 },
+        { url: '', image: 'AutumnShopping/images/s499.png', menu: 7417 },
+        { url: '', image: 'AutumnShopping/images/s200.png', menu: 7418 },
+        { url: '', image: 'AutumnShopping/images/s100.png', menu: 7419 }
+      ],
       icons: [
         {
           url: 'https://events.tk3c.com/events_net/24_99shopping/index.html',
@@ -98,9 +107,14 @@ export default {
     }
   },
   mounted() {
-    const { menuBank } = this
+    const { menuBank, today } = this
 
     document.querySelectorAll('.wrapper')[1].innerHTML = ''
+
+    // 9/18更換現折券商品
+    if (today >= new Date('2024/09/18')) {
+      this.sales[0].menu = this.sales_after[0].menu
+    }
 
     //撈取現折樓層商品
     this.getFloorSingle(this.sales[0].menu)
