@@ -1,44 +1,37 @@
-# vue-project
+# VUE VITE專案
 
 This template should help get you started developing with Vue 3 in Vite.
 
-## Recommended IDE Setup
+## 架構
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+src/main.ts 主要設定
+src/views/view 各頁面撰寫區
+src/views/layout 共用版型(商品樓層與手機版選單)
+src/views/floor 樓層區
 
-## Type Support for `.vue` Imports in TS
+src/AppComponent.vue 以這個vue來引入各頁面
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+src/globalMixin.js 撈取樓層商品api
 
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
+## 此專案讀套件安裝指令
 
 ```sh
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### 此專案在本機運作指令
 
 ```sh
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
+### 此專案打包匯出檔案指令
 
 ```sh
 npm run build
 ```
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
-
-```sh
-npm run test:unit
-```
-
-### Lint with [ESLint](https://eslint.org/)
+### 專案初始化
 
 ```sh
 npm run lint
