@@ -1,0 +1,94 @@
+<script>
+import { globalMixin } from '../../globalMixin.js'
+export default {
+  mixins: [globalMixin],
+  props: ['pro', 'isSwiper', 'name']
+}
+</script>
+
+<!-- 商品樓層list_F版型 4小 -->
+<template>
+  <!-- 有輪播 -->
+  <div class="bg01 list_F" v-if="isSwiper == true">
+    <ul v-if="pro != undefined" :class="[name != undefined ? name : '']">
+      <swiper-container
+        class="pro overflow:hidden"
+        :loop="true"
+        :autoplay="{
+          delay: 2500,
+          disableOnInteraction: false
+        }"
+        :observer="true"
+        :space-between="10"
+        :navigation="{
+          nextEl: `${name} .next`,
+          prevEl: `${name} .prev`
+        }"
+        :breakpoints="{
+          0: {
+            slidesPerView: 2
+          },
+          601: {
+            slidesPerView: 3
+          },
+          992: {
+            slidesPerView: 4
+          }
+        }"
+      >
+        <li v-for="(proA, p) in pro" class="swiper-slide">
+          <a
+            :href="$filters.addGALink('https://www.tk3c.com/pt.aspx?pid=' + proA.productid)"
+            :id="'prod' + proA.productid"
+            :name="'prod' + proA.productid"
+          >
+            <p class="itemF_img"><img onerror="ImgError(this);" :src="proA.ImgUrl" border="0" /></p>
+            <storg>{{ proA.productname }}</storg>
+            <h4 :class="[proA.Promote.trim() == '' ? 'empty' : '']">{{ proA.Promote }}</h4>
+            <div class="boxF_price">
+              <p class="iconF_pro" v-if="getProPercent(proA) != 100">
+                <span>{{ getProPercent(proA) }}</span
+                >折
+              </p>
+
+              <strong class="txt_red fred">
+                <em>市價${{ addNumComma(proA.nonmemberprice) }}</em>
+                <i>活動價$</i>{{ addNumComma(proA.realprice) }}
+              </strong>
+            </div>
+          </a>
+        </li>
+      </swiper-container>
+      <div class="swiper-button-prev prev"></div>
+      <div class="swiper-button-next next"></div>
+    </ul>
+  </div>
+
+  <!-- 無輪播 -->
+  <div class="bg01 list_F" v-else>
+    <ul v-if="pro != undefined">
+      <li v-for="(proA, p) in pro">
+        <a
+          :href="$filters.addGALink('https://www.tk3c.com/pt.aspx?pid=' + proA.productid)"
+          :id="'prod' + proA.productid"
+          :name="'prod' + proA.productid"
+        >
+          <p class="itemF_img"><img onerror="ImgError(this);" :src="proA.ImgUrl" border="0" /></p>
+          <storg>{{ proA.productname }}</storg>
+          <h4 :class="[proA.Promote.trim() == '' ? 'empty' : '']">{{ proA.Promote }}</h4>
+          <div class="boxF_price">
+            <p class="iconF_pro" v-if="getProPercent(proA) != 100">
+              <span>{{ getProPercent(proA) }}</span
+              >折
+            </p>
+
+            <strong class="txt_red fred">
+              <em>市價${{ addNumComma(proA.nonmemberprice) }}</em>
+              <i>活動價$</i>{{ addNumComma(proA.realprice) }}
+            </strong>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+</template>
