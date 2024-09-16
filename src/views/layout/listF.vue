@@ -2,7 +2,7 @@
 import { globalMixin } from '../../globalMixin.js'
 export default {
   mixins: [globalMixin],
-  props: ['pro', 'isSwiper', 'name']
+  props: ['pro', 'isSwiper', 'name', 'incoming']
 }
 </script>
 
@@ -21,8 +21,8 @@ export default {
         :observer="true"
         :space-between="10"
         :navigation="{
-          nextEl: `${name} .next`,
-          prevEl: `${name} .prev`
+          nextEl: `.${name} .next`,
+          prevEl: `.${name} .prev`
         }"
         :breakpoints="{
           0: {
@@ -36,7 +36,7 @@ export default {
           }
         }"
       >
-        <li v-for="(proA, p) in pro" class="swiper-slide">
+        <li :class="[incoming ? 'before' : '']" v-for="(proA, p) in pro" class="swiper-slide">
           <a
             :href="$filters.addGALink('https://www.tk3c.com/pt.aspx?pid=' + proA.productid)"
             :id="'prod' + proA.productid"
@@ -59,8 +59,8 @@ export default {
           </a>
         </li>
       </swiper-container>
-      <div class="swiper-button-prev prev"></div>
-      <div class="swiper-button-next next"></div>
+      <div v-if="pro.length > 4" class="swiper-button-prev prev"></div>
+      <div v-if="pro.length > 4" class="swiper-button-next next"></div>
     </ul>
   </div>
 
