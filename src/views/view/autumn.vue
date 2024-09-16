@@ -66,13 +66,12 @@ export default {
         { url: '', image: 'AutumnShopping/images/s100.png', menu: 7383 }
       ],
       sales_after: [
-        { url: '', image: 'AutumnShopping/images/s1000.png', menu: 7413 },
-        { url: '', image: 'AutumnShopping/images/s700.png', menu: 7414 },
-        { url: '', image: 'AutumnShopping/images/s600.png', menu: 7415 },
-        { url: '', image: 'AutumnShopping/images/s500.png', menu: 7416 },
-        { url: '', image: 'AutumnShopping/images/s499.png', menu: 7417 },
-        { url: '', image: 'AutumnShopping/images/s200.png', menu: 7418 },
-        { url: '', image: 'AutumnShopping/images/s100.png', menu: 7419 }
+        { url: '', image: 'AutumnShopping/images/s999_918.png', menu: 7413 },
+        { url: '', image: 'AutumnShopping/images/s699_918.png', menu: 7414 },
+        { url: '', image: 'AutumnShopping/images/s599_918.png', menu: 7415 },
+        { url: '', image: 'AutumnShopping/images/s500_918.png', menu: 7416 },
+        { url: '', image: 'AutumnShopping/images/s399_918.png', menu: 7417 },
+        { url: '', image: 'AutumnShopping/images/s100_918.png', menu: 7419 }
       ],
       icons: [
         {
@@ -101,6 +100,7 @@ export default {
       status: 0,
       statusSale: 0,
       today: new Date(),
+      future: new Date('2024/09/18'),
       pro: [],
       sale: null,
       menuBank: 7337
@@ -258,7 +258,8 @@ export default {
   <div id="computer-container" v-cloak>
     <div class="background">
       <h2 class="title animate__animated animate__backInLeft">
-        <img :src="$filters.siteUrl('AutumnShopping/images/title.png')" />
+        <img v-if="today < future" :src="$filters.siteUrl('AutumnShopping/images/title.png')" />
+        <img v-else :src="$filters.siteUrl('AutumnShopping/images/title_918.png')" />
       </h2>
 
       <div class="product">
@@ -293,15 +294,21 @@ export default {
     <section class="sale-box">
       <h2 class="title">
         <a
+          v-if="today < future"
           :href="$filters.addGALink('https://www.tk3c.com/dictitleurl.aspx?cid=123738')"
           target="_blank"
         >
+          <img :src="$filters.siteUrl('AutumnShopping/images/S02.png')" />
+        </a>
+
+        <a v-else :href="$filters.addGALink('https://www.tk3c.com/dictitleurl.aspx?cid=123798')">
           <img :src="$filters.siteUrl('AutumnShopping/images/S02.png')" />
         </a>
       </h2>
 
       <ul class="tab">
         <swiper
+          class="overflow:hidden"
           @swiper="onSwiper"
           :loop="false"
           :space-between="10"
@@ -334,7 +341,7 @@ export default {
           :is="listF"
           :pro="product2[sale.menu]"
           :isSwiper="1"
-          :name="'.sale-box'"
+          :name="'sale-box'"
         ></component>
       </div>
     </section>
@@ -384,8 +391,26 @@ export default {
                 "
                 target="_blank"
               >
-                <img class="pc" :src="$filters.siteUrl('AutumnShopping/images/bank1.png')" />
-                <img class="mobile" :src="$filters.siteUrl('AutumnShopping/images/bank1_M.png')" />
+                <img
+                  v-if="today < future"
+                  class="pc"
+                  :src="$filters.siteUrl('AutumnShopping/images/bank1.png')"
+                />
+                <img
+                  v-else
+                  class="pc"
+                  :src="$filters.siteUrl('AutumnShopping/images/bank1_918.png')"
+                />
+                <img
+                  v-if="today < future"
+                  class="mobile"
+                  :src="$filters.siteUrl('AutumnShopping/images/bank1_M.png')"
+                />
+                <img
+                  v-else
+                  class="mobile"
+                  :src="$filters.siteUrl('AutumnShopping/images/bank1_918M.png')"
+                />
               </a>
             </li>
             <li class="w:45% w:90vw@<992 w:95vw@<576 mb:1%@<992">
@@ -523,7 +548,7 @@ export default {
           :is="listF"
           :pro="product2[menuBank]"
           :isSwiper="1"
-          :name="'.card-group'"
+          :name="'card-group'"
         ></component>
       </div>
 
