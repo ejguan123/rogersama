@@ -113,6 +113,7 @@ export default {
 
     // 9/18更換現折券商品
     if (today >= new Date('2024/09/18')) {
+      this.sales = this.sales_after
       this.sales[0].menu = this.sales_after[0].menu
     }
 
@@ -128,8 +129,10 @@ export default {
     },
     changeSale(id, menu) {
       if (event) {
-        this.showAndHide(Number(id), '.sale-box')
-        this.getFloorSingle(menu)
+        setTimeout(() => {
+          this.showAndHide(Number(id), '.sale-box')
+          this.getFloorSingle(menu)
+        }, 200)
       }
     },
     go(element) {
@@ -330,7 +333,7 @@ export default {
 
       <ul class="tab">
         <swiper
-          class="overflow:hidden"
+          class="w:full"
           @swiper="onSwiper"
           :loop="false"
           :space-between="10"
@@ -342,7 +345,7 @@ export default {
               slidesPerView: 4.3
             },
             992: {
-              slidesPerView: 7
+              slidesPerView: 6
             }
           }"
         >
@@ -546,8 +549,8 @@ export default {
               <img :src="$filters.siteUrl(icon.image)" />
             </a>
           </swiper-slide>
-          <div class="swiper-pagination"></div>
         </swiper>
+        <div class="swiper-pagination"></div>
       </div>
     </section>
 
