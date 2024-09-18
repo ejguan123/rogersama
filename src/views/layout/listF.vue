@@ -67,7 +67,7 @@ export default {
   <!-- 無輪播 -->
   <div class="bg01 list_F" v-else>
     <ul v-if="pro != undefined">
-      <li v-for="(proA, p) in pro">
+      <li :class="[incoming ? 'before' : '']" v-for="(proA, p) in pro">
         <a
           :href="$filters.addGALink('https://www.tk3c.com/pt.aspx?pid=' + proA.productid)"
           :id="'prod' + proA.productid"
