@@ -72,9 +72,10 @@ export default {
       }
     })
 
-    if (today >= new Date('2024/09/16 06:00')) {
+    /* if (today >= new Date('2024/09/16 06:00')) {
       this.isSp = false
-    }
+    }*/
+    this.isSp = true
 
     //加入時間倒數
     if (
@@ -146,7 +147,7 @@ export default {
     <!-- 限時 -->
     <section class="special-box" v-show="isSp">
       <div class="special">
-        <component :is="listF" :pro="product2[menuSp]"></component>
+        <component :is="listF" :pro="product2[menuSP]" :incoming="income"></component>
       </div>
     </section>
 
