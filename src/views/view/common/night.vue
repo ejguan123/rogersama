@@ -1,6 +1,6 @@
 <script setup>
 import { useHead, useScript } from 'unhead'
-import listF from '../layout/listF.vue'
+import listF from '../../layout/listF.vue'
 
 //META DESCRIPTION
 useHead({
@@ -31,7 +31,7 @@ useHead({
 </script>
 
 <script>
-import { globalMixin } from '../../globalMixin.js'
+import { globalMixin } from '../../../globalMixin.js'
 
 export default {
   mixins: [globalMixin],
@@ -48,9 +48,17 @@ export default {
         { image: 'nightsale/images/part3/bar04_b.png', menu: 6154, title: '數位週邊' }
       ],
       today: new Date(),
-      isSp: true,
+      isSp: false,
       income: 0
     }
+  },
+  updated() {
+    document.querySelectorAll('.pro-box').forEach((el, p) => {
+      if (el.querySelectorAll('.bg01 li').length <= 0) {
+        el.classList.add('hide')
+        $all('.aside-container .aside-content li')[p].remove()
+      }
+    })
   },
   mounted() {
     const { today } = this
@@ -66,16 +74,9 @@ export default {
     //撈取其他樓層
     this.getFloorData(this.menus)
 
-    document.querySelectorAll('.pro-box').forEach((el, p) => {
-      if (el.querySelectorAll('.bg01 li').length <= 0) {
-        $all(`.pro${Number(p) + 1}-box`).classList.add('hide')
-      }
-    })
-
-    /* if (today >= new Date('2024/09/16 06:00')) {
-      this.isSp = false
-    }*/
-    this.isSp = true
+    if (today >= new Date('2024/09/19 17:00') && today < new Date('2024/09/25 06:00')) {
+      this.isSp = true
+    }
 
     //加入時間倒數
     if (
