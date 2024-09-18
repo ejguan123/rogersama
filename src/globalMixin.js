@@ -107,6 +107,24 @@ export const globalMixin = {
         el.classList.remove('active');
         $all(`${element} .swiper-slide`)[id].classList.add('active');
       });
+    },
+    /*滑鼠滾動後固定背景
+    *  element: 目標區域 selector
+    *  scrollSelect:滾動後區域
+    */
+    fixedBg(element, scrollSelect) {
+      if ($all(element).length > 0) {
+        document.addEventListener("scroll", (e) => {
+          let scrollTop = window.scrollY,
+            scrollEl = document.querySelector(scrollSelect),
+            elementPos = scrollEl.getBoundingClientRect();
+          if (scrollTop >= elementPos.top - 50) {
+            document.querySelector(element).classList.add('fixed');
+          } else {
+            document.querySelector(element).classList.remove('fixed');
+          }
+        });
+      }
     }
   }
 }
