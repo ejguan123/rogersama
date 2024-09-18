@@ -327,7 +327,7 @@ export default {
         </a>
 
         <a v-else :href="$filters.addGALink('https://www.tk3c.com/dictitleurl.aspx?cid=123798')">
-          <img :src="$filters.siteUrl('AutumnShopping/images/S02.png')" />
+          <img :src="$filters.siteUrl('AutumnShopping/images/S02_918.png')" />
         </a>
       </h2>
 
