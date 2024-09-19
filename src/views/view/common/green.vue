@@ -1,7 +1,7 @@
 <script setup>
 import { useHead, useScript } from 'unhead'
 import { Swiper, SwiperSlide } from 'swiper/vue'
-import listF from '../layout/listF.vue'
+import listF from '../../layout/listF.vue'
 import { ref } from 'vue'
 
 //META DESCRIPTION
@@ -44,7 +44,7 @@ const goSlide = (id) => {
 </script>
 
 <script>
-import { globalMixin } from '../../globalMixin.js'
+import { globalMixin } from '../../../globalMixin.js'
 
 export default {
   mixins: [globalMixin],
@@ -91,8 +91,6 @@ export default {
   mounted() {
     const { menu, tabs, menuSp } = this
     document.querySelectorAll('.wrapper')[1].innerHTML = ''
-
-    //this.greenSlide(0)
 
     //撈取綠點新鮮貨樓層
     this.getFloorSingle(menuSp)
@@ -145,18 +143,14 @@ export default {
 }
 </script>
 
-<style>
-[v-clock] {
-  display: none;
-}
-</style>
-
 <template>
   <div id="green-container" v-cloak>
     <div class="background">
-      <h2 class="title old">
+      <h2
+        class="title w:25% abs right:30% top:20% m:auto w:35vw@<992 w:55vw@<576 left:45vw@<992 left:42vw@<576 top:11vw@<992 top:20vw@<576"
+      >
         <img
-          src="https://events.cdn-tkec.tw/events_net/events_net/green_subsidy/images/title.png"
+          src="https://events.cdn-tkec.tw/events_net/events_net/green_subsidy/images/title_240919.png"
           alt=""
         />
       </h2>
