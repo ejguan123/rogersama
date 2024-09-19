@@ -1,0 +1,445 @@
+<script setup>
+import { useHead, useScript } from 'unhead'
+import { Swiper, SwiperSlide } from 'swiper/vue'
+import { EffectFade, Parallax } from 'swiper/modules'
+import listF from '../../layout/listF.vue'
+import { ref } from 'vue'
+
+//META DESCRIPTION
+useHead({
+  title: '電視主題館 | 燦坤線上購物'
+})
+
+const swiperRef = ref()
+const modules = [EffectFade, Parallax]
+const onSwiper = (swiper) => {
+  swiperRef.value = swiper
+}
+
+const goSlide = (id) => {
+  swiperRef.value.slideTo(id)
+}
+</script>
+
+<script>
+import { globalMixin } from '../../../globalMixin.js'
+
+export default {
+  mixins: [globalMixin],
+  data() {
+    return {
+      proTV: [
+        {
+          url: 'https://www.tk3c.com/pt.aspx?pid=216925',
+          image: '2020TVforever/images/2409/216925.png'
+        },
+        {
+          url: 'https://www.tk3c.com/pt.aspx?pid=240715',
+          image: '2020TVforever/images/2409/240715.png'
+        },
+        {
+          url: 'https://www.tk3c.com/pt.aspx?pid=247190',
+          image: '2020TVforever/images/2409/247190.png'
+        },
+        {
+          url: 'https://www.tk3c.com/pt.aspx?pid=247801',
+          image: '2020TVforever/images/2409/247801.png'
+        },
+        {
+          url: 'https://www.tk3c.com/pt.aspx?pid=249380',
+          image: '2020TVforever/images/2409/249380.png'
+        }
+      ],
+      gifts: [
+        { url: 'https://page.line.me/tid7686u', image: '2020TVforever/images/2409/C1.png' },
+        { url: 'https://page.line.me/tid7686u', image: '2020TVforever/images/2409/C2.png' },
+        { url: 'https://page.line.me/tid7686u', image: '2020TVforever/images/2409/C3_2.png' },
+        {
+          url: 'https://www.tk3c.com/dictitleurl.aspx?cid=11312',
+          image: '2020TVforever/images/2409/C4.png'
+        }
+      ],
+      brands: [
+        {
+          url: 'https://www.tk3c.com/dic2.aspx?cid=11312&aid=4708&hid=40805',
+          image: '2020TVforever/images/2409/JVC.png'
+        },
+        {
+          url: 'https://www.tk3c.com/dic2.aspx?cid=11312&aid=4708&hid=11336',
+          image: '2020TVforever/images/2409/SONY.png'
+        },
+        {
+          url: 'https://www.tk3c.com/dic2.aspx?cid=11312&aid=4708&hid=11340',
+          image: '2020TVforever/images/2409/samsung.png'
+        },
+        {
+          url: 'https://www.tk3c.com/dic2.aspx?cid=11312&aid=4708&hid=60645',
+          image: '2020TVforever/images/2409/philips.png'
+        },
+        {
+          url: 'https://www.tk3c.com/dic2.aspx?cid=11312&aid=4708&hid=11338',
+          image: '2020TVforever/images/2409/pana.png'
+        },
+        {
+          url: 'https://www.tk3c.com/dic2.aspx?cid=11312&aid=4708&hid=11343',
+          image: '2020TVforever/images/2409/LG.png'
+        },
+        {
+          url: 'https://www.tk3c.com/dic2.aspx?cid=11312&aid=4708&hid=11346',
+          image: '2020TVforever/images/2409/sampo.png'
+        },
+        {
+          url: 'https://www.tk3c.com/dic2.aspx?cid=11312&aid=4708&hid=11353',
+          image: '2020TVforever/images/2409/BenQ.png'
+        },
+        {
+          url: 'https://www.tk3c.com/dic2.aspx?cid=11312&aid=4708&hid=112906',
+          image: '2020TVforever/images/2409/AOC.png'
+        },
+        {
+          url: 'https://www.tk3c.com/dic2.aspx?cid=11312&aid=4708&hid=116121',
+          image: '2020TVforever/images/2409/TCL.png'
+        }
+      ],
+      saleTab: [
+        { url: '', image: '2020TVforever/images/2409/logo_01.png', menu: 5977 },
+        { url: '', image: '2020TVforever/images/2409/logo_03.png', menu: 4465 },
+        { url: '', image: '2020TVforever/images/2409/logo_04.png', menu: 4466 },
+        { url: '', image: '2020TVforever/images/2409/logo_02.png', menu: 4463 },
+        { url: '', image: '2020TVforever/images/2409/logo_more.png', menu: 4467 }
+      ],
+      nights: [
+        {
+          url: 'https://www.tk3c.com/dic2.aspx?cid=119275&aid=23434&hid=120453',
+          image: '2020TVforever/images/2409/ncta2.png',
+          menu: 5421
+        },
+        {
+          url: 'https://www.tk3c.com/dic2.aspx?cid=119275&aid=23435&hid=121793',
+          image: '2020TVforever/images/2409/ncta1.png',
+          menu: 5420
+        }
+      ],
+      menuDis: 4328, //現折 清單編號
+      status: 0,
+      statusSale: 0,
+      statusNight: 0,
+      isNight: true
+    }
+  },
+  mounted() {
+    const { saleTab, nights, menuDis } = this
+    document.querySelectorAll('.wrapper')[1].innerHTML = ''
+
+    //背景固定
+    this.fixedBg('.background2', '.sale-group')
+
+    //撈取 現折券樓層商品
+    this.getFloorSingle(menuDis)
+
+    //撈取 品牌樓層商品
+    this.getFloorSingle(saleTab[0].menu)
+
+    //撈取夜間下殺樓層商品
+    this.getFloorSingle(nights[0].menu)
+  },
+  methods: {
+    change(id) {
+      this.status = id
+    },
+    changeSale(id, menu) {
+      if (event) {
+        setTimeout(() => {
+          this.statusSale = id
+          this.getFloorSingle(menu)
+        }, 100)
+      }
+    },
+    changeNight(id, menu) {
+      setTimeout(() => {
+        this.statusNight = id
+        this.getFloorSingle(menu)
+      }, 100)
+    }
+  }
+}
+</script>
+
+<style>
+[v-cloak] {
+  display: none;
+}
+</style>
+
+<template>
+  <div id="tv-container">
+    <div class="background">
+      <h2 class="title animate__animated animate__bounceInDown">
+        <img :src="$filters.siteUrl('2020TVforever/images/2409/title.png')" alt="黑電扛購趴" />
+      </h2>
+      <h5 class="subtitle">
+        <img :src="$filters.siteUrl('2020TVforever/images/2409/subtitle.png')" alt="" />
+      </h5>
+
+      <div class="product animate__animated animate__fadeInRightBig">
+        <swiper
+          :loop="true"
+          :effect="'fade'"
+          :autoplay="{ delay: 1600, disableOnInteraction: false }"
+          :observer="true"
+          :parallax="true"
+          :modules="modules"
+        >
+          <swiper-slide v-for="pro in proTV">
+            <a :href="$filters.addGALink(pro.url)" target="_blank" data-swiper-parallax-opacity="0">
+              <img :src="$filters.siteUrl(pro.image)" alt="" />
+            </a>
+          </swiper-slide>
+        </swiper>
+      </div>
+    </div>
+
+    <div class="background2"></div>
+
+    <section class="gift-box">
+      <ul class="tab gap:10 mb:1% mb:2%@<992">
+        <li class="w:28% w:33vw@<992 w:44vw@<576" :class="[status == 0 ? 'active' : '']">
+          <a @click="change(0)"
+            ><img :src="$filters.siteUrl('2020TVforever/images/2409/btn-a.png')" alt=""
+          /></a>
+        </li>
+        <li class="w:28% w:33vw@&lt;992 w:44vw@&lt;576" :class="[status == 1 ? 'active' : '']">
+          <a @click="change(1)"
+            ><img :src="$filters.siteUrl('2020TVforever/images/2409/btn-b.png')" alt=""
+          /></a>
+        </li>
+      </ul>
+
+      <!-- 獨家活動 -->
+      <div class="tab-content t1 w:90% m:auto" v-show="status == 0">
+        <swiper-container
+          class="overflow:hidden"
+          :space-between="20"
+          :autoplay="{
+            delay: 2200,
+            disableOnInteraction: false
+          }"
+          :breakpoints="{
+            0: {
+              slidesPerView: 2,
+              spaceBetween: 10
+            },
+            601: {
+              slidesPerView: 3
+            },
+            992: {
+              slidesPerView: 4
+            }
+          }"
+        >
+          <swiper-slide v-for="gift in gifts">
+            <a :href="$filters.addGALink(gift.url)" target="_blank">
+              <img :src="$filters.siteUrl(gift.image)" alt="" />
+            </a>
+          </swiper-slide>
+        </swiper-container>
+      </div>
+
+      <!-- 全站活動 -->
+      <div class="tab-content t2 w:90% m:auto" v-show="status == 1"></div>
+    </section>
+
+    <!-- 現折券 -->
+    <section class="discount-box scroll" id="dis">
+      <h2 class="title">
+        <img :src="$filters.siteUrl('2020TVforever/images/2409/S1.png')" alt="" />
+      </h2>
+
+      <div class="discount">
+        <component :is="listF" :pro="product2[menuDis]" :isSwiper="1" :name="'dis'"></component>
+        <a
+          class="more"
+          :href="$filters.addGALink('https://www.tk3c.com/dictitleurl.aspx?cid=123738')"
+          target="_blank"
+        >
+          <img :src="$filters.siteUrl('2020TVforever/images/2409/btn-more.png')" alt="" />
+        </a>
+      </div>
+    </section>
+
+    <!-- 福利 -->
+    <section class="sale-group scroll" id="sale">
+      <h2 class="title">
+        <img :src="$filters.siteUrl('2020TVforever/images/2409/S2.png')" alt="" />
+      </h2>
+
+      <div class="content">
+        <div class="tab">
+          <div id="sale-area">
+            <swiper
+              :space-between="10"
+              :breakpoints="{
+                0: {
+                  slidesPerView: 2.5
+                },
+                600: {
+                  slidesPerView: 4.3
+                },
+                992: {
+                  slidesPerView: 5
+                }
+              }"
+              @swiper="onSwiper"
+            >
+              <swiper-slide
+                v-for="(sale, s) in saleTab"
+                :class="[statusSale == s ? 'active' : '']"
+                @click="goSlide(s)"
+              >
+                <a @click="changeSale(s, sale.menu)"
+                  ><img :src="$filters.siteUrl(sale.image)" alt=""
+                /></a>
+              </swiper-slide>
+            </swiper>
+          </div>
+        </div>
+
+        <div class="tab-content" v-for="(sale, s) in saleTab" v-show="statusSale == s">
+          <component :is="listF" :pro="product2[sale.menu]" :isSwiper="1"></component>
+        </div>
+      </div>
+    </section>
+
+    <!-- 夜間下殺 -->
+    <section class="night-box" v-show="isNight">
+      <h2 class="title">
+        <img :src="$filters.siteUrl('2020TVforever/images/2409/S3.png')" alt="" />
+      </h2>
+
+      <div class="content">
+        <ul class="tab gap:10">
+          <li v-for="(night, n) in nights" :class="[statusNight == n ? 'active' : '']">
+            <a @click="changeNight(n, night.menu)">
+              <img :src="$filters.siteUrl(night.image)" alt="" />
+            </a>
+          </li>
+        </ul>
+
+        <!-- 商品內容 -->
+        <div class="tab-content" v-for="(night, n) in nights" v-show="statusNight == n">
+          <component :is="listF" :pro="product2[night.menu]"></component>
+          <a class="more" :href="$filters.addGALink(night.url)" target="_blank"
+            ><img :src="$filters.siteUrl('2020TVforever/images/2409/btn-more.png')" alt=""
+          /></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 品牌 -->
+    <section class="brand-group">
+      <h2 class="title">
+        <img :src="$filters.siteUrl('2020TVforever/images/2409/S4.png')" alt="" />
+      </h2>
+
+      <swiper-container
+        class="overflow:hidden"
+        :autoplay="{
+          delay: 1800,
+          disableOnInteraction: false
+        }"
+        :space-between="10"
+        :breakpoints="{
+          0: {
+            slidesPerView: 3,
+            grid: {
+              fill: 'row',
+              rows: 2
+            }
+          },
+          600: {
+            slidesPerView: 5,
+            grid: {
+              fill: 'row',
+              rows: 2
+            }
+          },
+          992: {
+            slidesPerView: 5,
+            grid: {
+              fill: 'row',
+              rows: 2
+            }
+          }
+        }"
+        :pagination="{
+          el: '.brand-group .swiper-pagination'
+        }"
+        :style="{
+          '--swiper-pagination-color': '#fff'
+        }"
+      >
+        <swiper-slide v-for="brand in brands">
+          <a :href="$filters.addGALink(brand.url)" target="_blank">
+            <img :src="$filters.siteUrl(brand.image)" alt="" />
+          </a>
+        </swiper-slide>
+      </swiper-container>
+      <div class="swiper-pagination"></div>
+    </section>
+  </div>
+
+  <!-- 右側選單 -->
+  <aside class="aside-container">
+    <span class="collaspe"><i class="fas fa-chevron-right"></i></span>
+    <div class="aside-wrap">
+      <h3 class="aside-header"></h3>
+      <div class="aside-content">
+        <ul>
+          <li class="main"><a href="#dis">領券再現折</a></li>
+          <li class="bank"><a href="#sale">品牌福利出清</a></li>
+          <li>
+            <a href="#pro2751" onclick="ProcessGaEvent('2020TVforever','click','必BUY熱銷排行			')"
+              >必BUY熱銷排行
+            </a>
+          </li>
+          <li>
+            <a href="#pro5613" onclick="ProcessGaEvent('2020TVforever','click','OLED電視最大賞')"
+              >OLED電視最大賞</a
+            >
+          </li>
+          <li class="">
+            <a href="#pro5198" onclick="ProcessGaEvent('2020TVforever','click','大視野加倍過癮')"
+              >大視野加倍過癮</a
+            >
+          </li>
+          <li>
+            <a href="#pro5199" onclick="ProcessGaEvent('2020TVforever','click','QLED極致炫彩')"
+              >QLED極致炫彩</a
+            >
+          </li>
+          <li class="">
+            <a href="#pro4846" onclick="ProcessGaEvent('2020TVforever','click','小資族激省攻略')"
+              >小資族激省攻略</a
+            >
+          </li>
+          <li>
+            <a href="#pro5200" onclick="ProcessGaEvent('2020TVforever','click','投影氣氛嗨翻天')"
+              >投影氣氛嗨翻天</a
+            >
+          </li>
+          <li>
+            <a href="#pro5201" onclick="ProcessGaEvent('2020TVforever','click','聲臨其境更刺激')"
+              >聲臨其境更刺激</a
+            >
+          </li>
+          <li>
+            <a href="#pro5202" onclick="ProcessGaEvent('2020TVforever','click','超給力助攻周邊')"
+              >超給力助攻周邊</a
+            >
+          </li>
+        </ul>
+      </div>
+      <a href="#" class="go-top">GO TOP</a>
+    </div>
+  </aside>
+</template>
