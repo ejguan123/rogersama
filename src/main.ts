@@ -1,12 +1,12 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
-import { createHead } from 'unhead'
+import { createHead } from 'unhead' //新增meta tag
 import { register } from 'swiper/element/bundle'
 import '@master/css'
 
 import App from '@/AppComponent.vue'
 import Mobile from '@/views/MobileComponent.vue'
-import Floor from '@/views/floor/AutumnFloor.vue'
+import Floor from '@/views/floor/TVFloor.vue'
 import router from './router'
 
 const app = createApp(App)
@@ -42,4 +42,5 @@ app.mount('#app')
 mobile.mount('#mobile')
 floor.mount('#floor')
 
+//手機版選單項目
 import './assets/js/mobileText.js'
