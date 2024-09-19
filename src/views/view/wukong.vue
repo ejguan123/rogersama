@@ -15,7 +15,7 @@ export default {
   mixins: [globalMixin],
   data() {
     return {
-      status: 1,
+      status: 0,
       proDatas: [
         { url: 'https://www.tk3c.com/pt.aspx?pid=252002', image: 'WUKONG/images/252002.png' }
       ],
@@ -61,21 +61,7 @@ export default {
             {
               title: 'WUKONG/images/S04.png',
               url: 'https://www.tk3c.com/dictitleurl.aspx?cid=117915',
-              menu: 7435,
-              tag: [
-                {
-                  url: 'https://events.tk3c.com/events_net/screen2308/index.html',
-                  image: 'WUKONG/images/tag3-1_a.png'
-                },
-                {
-                  url: 'https://events.tk3c.com/events_net/screen2308/index.html',
-                  image: 'WUKONG/images/tag3-2_a.png'
-                },
-                {
-                  url: 'https://events.tk3c.com/events_net/screen2308/index.html',
-                  image: 'WUKONG/images/tag3-3_a.png'
-                }
-              ]
+              menu: 7435
             }
           ],
           3: [
@@ -88,7 +74,7 @@ export default {
           4: [
             {
               title: 'WUKONG/images/S06.png',
-              url: 'https://www.tk3c.com/dic1.aspx?cid=117896&aid=23009',
+              url: 'https://www.tk3c.com/dic1.aspx?cid=117896&aid=23009&strPreView=y',
               menu: 7437
             }
           ],
@@ -243,8 +229,8 @@ export default {
         class="tab-area scroll"
         v-for="(tab, t) in tab2[0]"
         :key="t"
-        :class="`tab${Number(t)}-box`"
-        :id="`tab${Number(t + 7) + 1}`"
+        :class="`tab${Number(t) + 7}-box`"
+        :id="`tab${Number(t) + 7}`"
       >
         <h2 class="title">
           <a :href="$filters.addGALink(tab[0].url)" target="_blank">
