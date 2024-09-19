@@ -21,8 +21,8 @@ export default {
         :observer="true"
         :space-between="10"
         :navigation="{
-          nextEl: `.${name} .next`,
-          prevEl: `.${name} .prev`
+          prevEl: `.${name} .prev`,
+          nextEl: `.${name} .next`
         }"
         :breakpoints="{
           0: {
