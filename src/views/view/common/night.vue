@@ -57,6 +57,7 @@ export default {
       if (el.querySelectorAll('.bg01 li').length <= 0) {
         el.classList.add('hide')
         $all('.aside-container .aside-content li')[p].remove()
+        $all('.mobile-for-product ul li')[p].remove()
       }
     })
   },
@@ -131,7 +132,7 @@ export default {
   <div id="night-container" v-cloak>
     <div class="background">
       <h2 class="title">
-        <img :src="$filters.siteUrl('nightsale/images/part3/title.png')" />
+        <img :src="$filters.siteUrl('nightsale/images/part3/title2.png')" />
       </h2>
 
       <div class="product">
