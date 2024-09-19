@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     special = document.querySelectorAll('.special-box .tab li');
 
   if (asideA.length > 0) {
-    change(1);
+    change(0);
     special.forEach((link, s) => {
       link.addEventListener("click", (e) => {
         let id = e.currentTarget.value;
