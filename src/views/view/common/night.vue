@@ -180,7 +180,7 @@ export default {
           <li v-for="floor in proDatas">
             <a
               :href="`#pro${floor.menu}`"
-              onclick="`${ProcessGaEvent('nightsale','click',${floor.title})}`"
+              onclick="`${ProcessGaEvent('nightsale','click',floor.title)}`"
               >{{ floor.title }}</a
             >
           </li>
