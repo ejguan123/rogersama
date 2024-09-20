@@ -4,9 +4,9 @@ import { createHead } from 'unhead' //新增meta tag
 import { register } from 'swiper/element/bundle'
 import '@master/css'
 
-import App from '@/AppComponent.vue'
-import Mobile from '@/views/MobileComponent.vue'
-import Floor from '@/views/floor/TVFloor.vue'
+import App from '@/AppComponent.vue' //主頁面內容
+import Mobile from '@/views/MobileComponent.vue' //手機版
+import Floor from '@/views/floor/TVFloor.vue' //樓層區
 import router from './router'
 
 const app = createApp(App)
