@@ -1,5 +1,5 @@
 <template>
-  <!-- 手機版選單 -->
+  <!-- 手機版選單(有熱門活動版本) -->
   <div class="nav-footer">
     <div class="footer-bg"></div>
     <div class="nav-box">
@@ -10,16 +10,22 @@
     </div>
 
     <div class="box-area event">
-      <ul>
-
-      </ul>
+      <ul></ul>
     </div>
 
     <div class="box-area social">
       <ul>
-        <li><a href="https://reurl.cc/QbZ149" target="_blank"><i class="fa-brands fa-meta"></i></a></li>
-        <li><a href="https://reurl.cc/7pMZVl" target="_blank"><i class="fa-brands fa-line"></i></a></li>
-        <li><a href="https://reurl.cc/3Ye8kX" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+        <li>
+          <a href="https://reurl.cc/QbZ149" target="_blank"><i class="fa-brands fa-meta"></i></a>
+        </li>
+        <li>
+          <a href="https://reurl.cc/7pMZVl" target="_blank"><i class="fa-brands fa-line"></i></a>
+        </li>
+        <li>
+          <a href="https://reurl.cc/3Ye8kX" target="_blank"
+            ><i class="fa-brands fa-instagram"></i
+          ></a>
+        </li>
       </ul>
     </div>
   </div>
@@ -30,9 +36,7 @@
   <div class="mobile-for-product">
     <div class="top-nav">
       <h3 class="title">快速選單</h3>
-      <ul>
-        
-      </ul>
+      <ul></ul>
     </div>
     <a class="switch"><i class="fa-solid fa-angle-down"></i></a>
   </div>
