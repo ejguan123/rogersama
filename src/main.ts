@@ -42,5 +42,10 @@ app.mount('#app')
 mobile.mount('#mobile')
 floor.mount('#floor')
 
+//清空後台過轉後生成的商品樓層
+if (document.querySelectorAll('.wrapper').length > 0) {
+  document.querySelectorAll('.wrapper')[1].innerHTML = ''
+}
+
 //手機版選單項目
 import './assets/js/mobileText.js'
