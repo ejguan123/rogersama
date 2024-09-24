@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
+
   let asides = document.querySelectorAll('.aside-container .aside-content li a'),
     mobileNav = document.querySelector('.nav-footer .box-area.type ul'),
     mobileNav2 = document.querySelector('.mobile-for-product ul'),
@@ -6,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     asideA = document.querySelectorAll('.aside-container .aside-content .a1'),
     special = document.querySelectorAll('.special-box .tab li');
 
+  //切換選單類型
   if (asideA.length > 0) {
     change(0);
     special.forEach((link, s) => {
