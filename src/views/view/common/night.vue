@@ -178,11 +178,7 @@ export default {
       <div class="aside-content">
         <ul>
           <li v-for="floor in proDatas">
-            <a
-              :href="`#pro${floor.menu}`"
-              onclick="`${ProcessGaEvent('nightsale','click',floor.title)}`"
-              >{{ floor.title }}</a
-            >
+            <a :href="`#pro${floor.menu}`">{{ floor.title }}</a>
           </li>
         </ul>
       </div>
