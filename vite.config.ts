@@ -12,16 +12,26 @@ export default defineConfig({
     vue(),
     vueJsx(),
     createHtmlPlugin({
-       minify: true,
-       entry: 'src/main.ts',
+      //minify: true,
+      entry: 'src/main.ts'
     })
   ],
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `
+        //加入 scss 共用
+        @import "./src/assets/sass/module/base";
+        `
+      }
+    }
+  },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
   },
-   build: {
+  build: {
     rollupOptions: {
       output: {
         entryFileNames: 'assets/[name].js',
