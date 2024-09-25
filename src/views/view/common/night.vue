@@ -53,6 +53,7 @@ export default {
     }
   },
   updated() {
+    //若某樓層沒有商品則隱藏此區域、移除右側選單(手機版)項目
     document.querySelectorAll('.pro-box').forEach((el, p) => {
       if (el.querySelectorAll('.bg01 li').length <= 0) {
         el.classList.add('hide')
