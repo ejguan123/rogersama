@@ -438,7 +438,7 @@ export default {
     </p>
 
     <!-- 預約 -->
-    <section class="gift-box scroll" id="gift">
+    <section class="gift-box" id="gift">
       <ul>
         <li class="order">
           <a
@@ -465,7 +465,9 @@ export default {
         <component :is="listF" :pro="product2[menuDis]" :isSwiper="1" :name="'dis'"></component>
         <a
           class="more"
-          :href="$filters.addGALink('https://www.tk3c.com/dictitleurl.aspx?cid=123798')"
+          :href="
+            $filters.addGALink('https://www.tk3c.com/dictitleurl.aspx?cid=123798&strPreView=y')
+          "
           target="_blank"
           >MORE</a
         >
@@ -560,7 +562,7 @@ export default {
     </section>
 
     <!-- 尊榮安裝 -->
-    <section class="air-info">
+    <section class="air-info scroll">
       <a
         id="vvip"
         :href="
@@ -576,7 +578,7 @@ export default {
       </a>
     </section>
 
-    <section class="info-box scroll">
+    <section class="info-box">
       <div class="content">
         <ul class="tab">
           <swiper
@@ -694,7 +696,7 @@ export default {
       class="tab-area scroll"
       v-for="(floor, f) in floors[0]"
       :class="`tab${Number(f) + 1}-box`"
-      :id="`tab${Number(f)}`"
+      :id="`tab${Number(f) + 1}`"
     >
       <h2 class="title">
         <a :href="$filters.addGALink(floor[0].url)" target="_blank">
@@ -735,9 +737,9 @@ export default {
       <h3 class="aside-header"></h3>
       <div class="aside-content">
         <ul>
-          <li><a href="#vvip">VVIP尊榮安裝</a></li>
           <li><a href="#dis">領券再現省</a></li>
           <li><a href="#brand">強檔大牌</a></li>
+          <li><a href="#vvip">VVIP尊榮安裝</a></li>
           <li><a href="#bear">熊速配專區</a></li>
           <li><a href="#tab1">熱銷空調首選</a></li>
           <li><a href="#tab2">分離式空調</a></li>
