@@ -76,7 +76,7 @@ export default {
     //撈取其他樓層
     this.getFloorData(this.menus)
 
-    if (today >= new Date('2024/09/19 17:00') && today < new Date('2024/09/25 06:00')) {
+    if (today >= new Date('2024/09/26 18:00') && today < new Date('2024/10/03 06:00')) {
       this.isSp = true
     }
 
