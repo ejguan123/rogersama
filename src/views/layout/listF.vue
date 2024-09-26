@@ -9,7 +9,7 @@ export default {
 <!-- 商品樓層list_F版型 4小 -->
 <template>
   <!-- 有輪播 -->
-  <div class="bg01 list_F p:1%|1%|0 p:2%|2%|0@<576" v-if="isSwiper == true">
+  <div class="bg01 list_F p:1%|1%|0! p:2%|2%|0!@<576" v-if="isSwiper == true">
     <ul v-if="pro != undefined" :class="[name != undefined ? name : '']">
       <swiper-container
         class="pro overflow:hidden"
