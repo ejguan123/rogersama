@@ -266,7 +266,7 @@ export default {
           <li><a href="#tab6">SSD/RAM</a></li>
         </ul>
         <ul class="a2" v-show="status == 1">
-          <li><a href="#tab7">Wi-PS5 & 週邊</a></li>
+          <li><a href="#tab7">PS5 & 週邊</a></li>
           <li><a href="#tab8">電視</a></li>
           <li><a href="#tab9">聲霸/喇叭</a></li>
         </ul>
