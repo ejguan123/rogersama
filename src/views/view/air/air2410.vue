@@ -1,6 +1,6 @@
 <script setup>
 import { Swiper, SwiperSlide } from 'swiper/vue'
-import { Controller, EffectFade, Parallax } from 'swiper/modules'
+import { Controller, EffectFade, Parallax, EffectCube } from 'swiper/modules'
 import listF from '../../layout/listF.vue'
 import { ref } from 'vue'
 import AirVideo from '../AirVideo.vue'
@@ -40,118 +40,132 @@ export default {
     return {
       proAir: [
         {
-          url: 'https://www.tk3c.com/pt.aspx?pid=225726',
-          image: 'airConditionerLAB/images/2409/225726.png'
+          url: 'https://www.tk3c.com/pt.aspx?pid=238994',
+          image: 'airConditionerLAB/images/2410/238994.png'
+        }
+      ],
+      specials: [
+        {
+          url: '',
+          image: 'airConditionerLAB/images/2410/a01.png'
         },
         {
-          url: 'https://www.tk3c.com/pt.aspx?pid=183904',
-          image: 'airConditionerLAB/images/2409/183904.png'
+          url: '',
+          image: 'airConditionerLAB/images/2410/a02.png'
         },
         {
-          url: 'https://www.tk3c.com/pt.aspx?pid=236926',
-          image: 'airConditionerLAB/images/2409/236926.png'
+          url: '',
+          image: 'airConditionerLAB/images/2410/a03.png'
         },
         {
-          url: 'https://www.tk3c.com/pt.aspx?pid=245235',
-          image: 'airConditionerLAB/images/2409/245235.png'
+          url: '',
+          image: 'airConditionerLAB/images/2410/a04.png'
         },
         {
-          url: 'https://www.tk3c.com/pt.aspx?pid=240642',
-          image: 'airConditionerLAB/images/2409/240642.png'
+          url: '',
+          image: 'airConditionerLAB/images/2410/a05.png'
         },
         {
-          url: 'https://www.tk3c.com/pt.aspx?pid=245513',
-          image: 'airConditionerLAB/images/2409/245513.png'
+          url: '',
+          image: 'airConditionerLAB/images/2410/a06.png'
         },
         {
-          url: 'https://www.tk3c.com/pt.aspx?pid=238438',
-          image: 'airConditionerLAB/images/2409/238438.png'
+          url: '',
+          image: 'airConditionerLAB/images/2410/a07.png'
+        },
+        {
+          url: '',
+          image: 'airConditionerLAB/images/2410/a08.png'
+        },
+        {
+          url: '',
+          image: 'airConditionerLAB/images/2410/a09.png'
         }
       ],
       brands: [
         {
           menu: 4414,
-          image: 'airConditionerLAB/images/2405/pana.png',
+          image: 'airConditionerLAB/images/2410/logo_panasonic.png',
           url: 'https://www.tk3c.com/dic2.aspx?cid=11225&aid=4707&hid=11238',
-          pc: 'airConditionerLAB/images/2405/bn_pana.jpg',
-          mobile: 'airConditionerLAB/images/2405/bn_panaM.jpg'
+          pc: 'airConditionerLAB/images/2410/brand_pana.jpg',
+          mobile: 'airConditionerLAB/images/2405/brand_panaM.jpg'
         },
         {
           menu: 4413,
-          image: 'airConditionerLAB/images/2405/daikin.png',
+          image: 'airConditionerLAB/images/2410/logo_daikin.png',
           url: 'https://www.tk3c.com/dic2.aspx?cid=11225&aid=4707&hid=11237',
-          pc: 'airConditionerLAB/images/2405/bn_daikin.jpg',
-          mobile: 'airConditionerLAB/images/2405/bn_daikinM.jpg'
+          pc: 'airConditionerLAB/images/2410/brand_daikin.jpg',
+          mobile: 'airConditionerLAB/images/2410/brand_daikinM.jpg'
         },
         {
           menu: 4415,
-          image: 'airConditionerLAB/images/2405/hit.png',
+          image: 'airConditionerLAB/images/2410/logo_hitach.png',
           url: 'https://www.tk3c.com/dic2.aspx?cid=11225&aid=23717&hid=123024',
-          pc: 'airConditionerLAB/images/2407/brand_hit2407.jpg',
-          mobile: 'airConditionerLAB/images/2407/brand_hit2407M.jpg'
+          pc: 'airConditionerLAB/images/2410/brand_hit2407.jpg',
+          mobile: 'airConditionerLAB/images/2410/brand_hit2407M.jpg'
         },
         {
           menu: 4417,
-          image: 'airConditionerLAB/images/2405/mit.png',
+          image: 'airConditionerLAB/images/2410/logo_mitsubshi.png',
           url: 'https://www.tk3c.com/dic2.aspx?cid=11225&aid=4707&hid=37503',
-          pc: 'airConditionerLAB/images/2407/brand_mit07.jpg',
-          mobile: 'airConditionerLAB/images/2407/brand_mit07M.jpg'
+          pc: 'airConditionerLAB/images/2410/brand_mit.jpg',
+          mobile: 'airConditionerLAB/images/2410/brand_mitM.jpg'
         },
         {
           menu: 4416,
-          image: 'airConditionerLAB/images/2405/sampo.png',
+          image: 'airConditionerLAB/images/2410/logo_sampo.png',
           url: 'https://www.tk3c.com/dic2.aspx?cid=11225&aid=23717&hid=122551',
-          pc: 'airConditionerLAB/images/2405/bn_sampo.jpg',
-          mobile: 'airConditionerLAB/images/2405/bn_sampoM.jpg'
+          pc: 'airConditionerLAB/images/2410/brand_sampo.jpg',
+          mobile: 'airConditionerLAB/images/2410/brand_sampoM.jpg'
         },
         {
           menu: 5516,
-          image: 'airConditionerLAB/images/2405/teco.png',
+          image: 'airConditionerLAB/images/2410/logo_teco.png',
           url: 'https://www.tk3c.com/dic2.aspx?cid=11225&aid=23717&hid=122552',
-          pc: 'airConditionerLAB/images/2405/bn_teco.jpg',
-          mobile: 'airConditionerLAB/images/2405/bn_tecoM.jpg'
+          pc: 'airConditionerLAB/images/2410/brand_teco.jpg',
+          mobile: 'airConditionerLAB/images/2405/brand_tecoM.jpg'
         },
         {
           menu: 4418,
-          image: 'airConditionerLAB/images/2405/LG.png',
+          image: 'airConditionerLAB/images/2410/logo_lg.png',
           url: 'https://www.tk3c.com/dic2.aspx?cid=11225&aid=23717&hid=122550',
-          pc: 'airConditionerLAB/images/2405/bn_lg2.jpg',
-          mobile: 'airConditionerLAB/images/2405/bn_lg2M.jpg'
+          pc: 'airConditionerLAB/images/2410/brand_lg.jpg',
+          mobile: 'airConditionerLAB/images/2410/brand_lgM.jpg'
         },
         {
           menu: 5517,
-          image: 'airConditionerLAB/images/2405/heran.png',
+          image: 'airConditionerLAB/images/2410/logo_Heran.png',
           url: 'https://www.tk3c.com/dic2.aspx?cid=11225&aid=23717&hid=122553',
-          pc: 'airConditionerLAB/images/2405/bn_heran.jpg',
-          mobile: 'airConditionerLAB/images/2405/bn_heranM.jpg'
+          pc: 'airConditionerLAB/images/2410/brand_her.jpg',
+          mobile: 'airConditionerLAB/images/2410/brand_herM.jpg'
         },
         {
           menu: 4436,
-          image: 'airConditionerLAB/images/2405/fujitsu.png',
+          image: 'airConditionerLAB/images/2410/logo_fujitsu.png',
           url: 'https://www.tk3c.com/dic2.aspx?cid=11225&aid=23717&hid=122554',
-          pc: 'airConditionerLAB/images/2405/bn_fuji.jpg',
-          mobile: 'airConditionerLAB/images/2405/bn_fujiM.jpg'
+          pc: 'airConditionerLAB/images/2410/brand_fuji.jpg',
+          mobile: 'airConditionerLAB/images/2405/brand_fujiM.jpg'
         },
         {
           menu: 4419,
-          image: 'airConditionerLAB/images/2405/chimei.png',
+          image: 'airConditionerLAB/images/2410/logo_chimei.png',
           url: 'https://www.tk3c.com/dic2.aspx?cid=11225&aid=23717&hid=122555',
-          pc: 'airConditionerLAB/images/2402/bn_chimei.jpg',
-          mobile: 'airConditionerLAB/images/2402/bn_chimeiM.jpg'
+          pc: 'airConditionerLAB/images/2410/brand_chimei.jpg',
+          mobile: 'airConditionerLAB/images/2410/brand_chimeiM.jpg'
         },
         {
           menu: 4420,
-          image: 'airConditionerLAB/images/2405/kolin.png',
+          image: 'airConditionerLAB/images/2410/logo_kolin.png',
           url: 'https://www.tk3c.com/dic2.aspx?cid=11225&aid=23717&hid=122558',
           pc: 'airConditionerLAB/images/2402/bn_kolin.jpg',
           mobile: 'airConditionerLAB/images/2402/bn_kolinM.jpg'
         },
         {
           menu: 4655,
-          image: 'airConditionerLAB/images/2405/sharp.png',
+          image: 'airConditionerLAB/images/2410/logo_sharp.png',
           url: 'https://www.tk3c.com/dic2.aspx?cid=11225&aid=23717&hid=122557',
-          pc: 'airConditionerLAB/images/2405/bn_sharp.jpg',
-          mobile: 'airConditionerLAB/images/2405/bn_sharpM.jpg'
+          pc: 'airConditionerLAB/images/2410/brand_sharp.jpg',
+          mobile: 'airConditionerLAB/images/2410/brand_sharpM.jpg'
         }
       ],
       events: [
@@ -168,14 +182,7 @@ export default {
         {
           0: [
             {
-              menu: 4127,
-              title: 'airConditionerLAB/images/2405/S1.png',
-              url: 'https://www.tk3c.com/search.aspx?q=%E7%A9%BA%E8%AA%BF&ec=airConditionerLAB'
-            }
-          ],
-          1: [
-            {
-              title: 'airConditionerLAB/images/2405/S2.png',
+              title: 'airConditionerLAB/images/2410/bra_s5.png',
               url: 'https://www.tk3c.com/dic1.aspx?cid=11225&aid=4704&ec=airConditionerLAB',
               content: [
                 {
@@ -201,9 +208,9 @@ export default {
               ]
             }
           ],
-          2: [
+          1: [
             {
-              title: 'airConditionerLAB/images/2409/S3.png',
+              title: 'airConditionerLAB/images/2410/bra_s6.png',
               url: 'https://www.tk3c.com/dic1.aspx?cid=11225&aid=4702&ec=airConditionerLAB',
               content: [
                 {
@@ -229,10 +236,10 @@ export default {
               ]
             }
           ],
-          3: [
+          2: [
             {
               menu: 4130,
-              title: 'airConditionerLAB/images/2405/S4.png',
+              title: 'airConditionerLAB/images/2410/bra_s7.png',
               url: 'https://www.tk3c.com/dic1.aspx?cid=11225&aid=13580&ec=airConditionerLAB'
             }
           ]
@@ -279,19 +286,32 @@ export default {
       ],
       menuDis: 5515, //現折 清單編號
       menuBear: 4148, //熊速配
+      menuHot: 4127, //熱銷空調首選
+      menuCold: 5518, //冷暖空調
       statusBrand: 0, //品牌區專區
       statusTab: 0, //商品樓層用
-      statusInfo: 0
+      statusInfo: 0,
+      isDis: true,
+      today: new Date()
     }
   },
   mounted() {
-    const { brands, floors, menuDis, menuBear } = this
+    const { brands, floors, menuDis, menuBear, today, menuHot, menuCold } = this
+
+    //固定背景
+    this.fixedBg('.background2', '.special-box')
 
     //撈取 現折券樓層商品
     this.getFloorSingle(menuDis)
 
     //撈取 品牌樓層商品
     this.getFloorSingle(brands[0].menu)
+
+    //撈取 熱銷空調樓層商品
+    this.getFloorSingle(menuHot)
+
+    //撈取 冷暖空調樓層商品
+    this.getFloorSingle(menuCold)
 
     //撈取熊速配樓層商品
     this.getFloorSingle(menuBear)
@@ -312,6 +332,11 @@ export default {
         tab.querySelectorAll('.tab-content')[0].style.display = 'block'
       }
     })
+
+    // 10/4-13 隱藏現折券樓層
+    if (today >= new Date('2024/10/04') && today < new Date('2024/10/14')) {
+      this.isDis = false
+    }
   },
   methods: {
     changeBrand(id, menu) {
@@ -409,16 +434,17 @@ export default {
   <div id="air-container">
     <div class="background">
       <h2 class="title">
-        <img :src="$filters.siteUrl('airConditionerLAB/images/2409/title.png')" alt="黑電扛購趴" />
+        <img :src="$filters.siteUrl('airConditionerLAB/images/2410/title.png')" alt="黑電扛購趴" />
       </h2>
 
       <div class="product">
         <swiper
           :loop="true"
           :parallax="true"
+          :effect="'cude'"
           :observer="true"
-          :autoplay="{ delay: 1600, disableOnInteraction: false }"
-          :modules="[Parallax]"
+          :autoplay="{ delay: 1800, disableOnInteraction: false }"
+          :modules="[Parallax, EffectCube]"
         >
           <swiper-slide v-for="pro in proAir">
             <a :href="$filters.addGALink(pro.url)" target="_blank" data-swiper-parallax-y="-2000">
@@ -427,38 +453,24 @@ export default {
           </swiper-slide>
         </swiper>
       </div>
-
-      <p class="bird">
-        <img :src="$filters.siteUrl('airConditionerLAB/images/2409/bird.png')" alt="" />
-      </p>
     </div>
 
-    <p class="item">
-      <img :src="$filters.siteUrl('airConditionerLAB/images/2409/leaf.png')" alt="" />
-    </p>
+    <div class="background2"></div>
 
     <!-- 預約 -->
     <section class="gift-box" id="gift">
-      <ul>
-        <li class="order">
-          <a
-            href="https://www.tk3c.com/mobile/mob_appointment_page.aspx?BookType=type2"
-            target="_blank"
-            ><img :src="$filters.siteUrl('airConditionerLAB/images/2409/A01.png')" alt="" />
-          </a>
-        </li>
-        <li class="info">
-          <a @click="message(1)"
-            ><img :src="$filters.siteUrl('airConditionerLAB/images/2409/A02.png')" alt="" />
-          </a>
-        </li>
-      </ul>
+      <a
+        class="w:70% w:90vw@<992 w:100%@<576"
+        href="https://www.tk3c.com/mobile/mob_appointment_page.aspx?BookType=type2"
+        target="_blank"
+        ><img :src="$filters.siteUrl('airConditionerLAB/images/2410/bn_Site.png')" alt="" />
+      </a>
     </section>
 
     <!-- 現折券 -->
-    <section class="discount-box scroll" id="dis">
+    <section class="discount-box" id="dis" v-if="isDis">
       <h2 class="title">
-        <img :src="$filters.siteUrl('airConditionerLAB/images/2405/dis_title.png')" alt="" />
+        <img :src="$filters.siteUrl('airConditionerLAB/images/2410/bra_s1.png')" alt="" />
       </h2>
 
       <div class="discount">
@@ -474,15 +486,66 @@ export default {
       </div>
     </section>
 
+    <!-- 精選活動 -->
+    <section class="special-box">
+      <img
+        class="w:full h:full abs top:4% left:0 right:0 m:auto z:-1"
+        :src="$filters.siteUrl('airConditionerLAB/images/2410/box.png')"
+        alt=""
+      />
+      <h2 class="w:23% m:0|auto|3%">
+        <img :src="$filters.siteUrl('airConditionerLAB/images/2410/bra_ss1.png')" alt="" />
+      </h2>
+
+      <div class="special w:90% m:auto">
+        <swiper
+          :space-between="10"
+          :autoplay="{
+            delay: 1400,
+            disableOnInteraction: false
+          }"
+          :breakpoints="{
+            0: {
+              slidesPerView: 2.4,
+              grid: {
+                fill: 'row',
+                rows: 2
+              }
+            },
+            600: {
+              slidesPerView: 3,
+              grid: {
+                fill: 'row',
+                rows: 3
+              }
+            },
+            992: {
+              slidesPerView: 3,
+              grid: {
+                fill: 'row',
+                rows: 3
+              }
+            }
+          }"
+        >
+          <swiper-slide v-for="sp in specials">
+            <a :href="$filters.addGALink(sp.url)" target="_blank">
+              <img :src="$filters.siteUrl(sp.image)" alt="" />
+            </a>
+          </swiper-slide>
+        </swiper>
+      </div>
+    </section>
+
     <!-- 品牌 -->
     <section class="brand-box scroll" id="brand">
       <h2 class="title">
-        <img :src="$filters.siteUrl('airConditionerLAB/images/2409/brand_title.png')" alt="" />
+        <img :src="$filters.siteUrl('airConditionerLAB/images/2410/bra_s2.png')" alt="" />
       </h2>
 
       <ul class="tab">
         <swiper
-          class="overflow:hidden"
+          class="w:full overflow:hidden"
           :space-between="10"
           :breakpoints="{
             0: {
@@ -521,6 +584,15 @@ export default {
       </ul>
 
       <div class="brand-content" v-for="(brand, b) in brands" v-show="statusBrand == b">
+        <a
+          v-if="b != 2 && b != 10"
+          class="banner w:100% mb:1%"
+          :href="$filters.addGALink(brand.url)"
+          target="_blank"
+        >
+          <img class="pc" :src="$filters.siteUrl(brand.pc)" alt="" />
+          <img class="mobile" :src="$filters.siteUrl(brand.mobile)" alt="" />
+        </a>
         <component
           :is="listF"
           :pro="product2[brand.menu]"
@@ -530,11 +602,47 @@ export default {
       </div>
     </section>
 
+    <!-- 熱銷空調首選 -->
+    <section class="hot-group scroll" id="hot">
+      <h2 class="title">
+        <a :href="$filters.addGALink('https://www.tk3c.com/search.aspx?q=%E7%A9%BA%E8%AA%BF')">
+          <img :src="$filters.siteUrl('airConditionerLAB/images/2410/bra_s3.png')" alt="" />
+        </a>
+      </h2>
+
+      <component :is="listF" :pro="product2[menuHot]" :isSwiper="1" :name="'hot'"></component>
+    </section>
+
+    <!-- 冷暖空調 -->
+    <section class="cold-group scroll" id="cold">
+      <h2 class="title">
+        <a :href="$filters.addGALink('https://www.tk3c.com/search.aspx?q=%E7%A9%BA%E8%AA%BF')">
+          <img :src="$filters.siteUrl('airConditionerLAB/images/2410/bra_s4.png')" alt="" />
+        </a>
+      </h2>
+
+      <component :is="listF" :pro="product2[menuCold]" :isSwiper="1" :name="'cold'"></component>
+    </section>
+
+    <!-- 熊速配專區 -->
+    <section class="bear-box scroll" id="bear">
+      <h2 class="title">
+        <img :src="$filters.siteUrl('airConditionerLAB/images/2303/pro_title.jpg')" />
+      </h2>
+      <div class="bear">
+        <component :is="listF" :pro="product2[menuBear]" :isSwiper="1" :name="'bear'"></component>
+        <a
+          class="more"
+          :href="$filters.addGALink('https://www.tk3c.com/dic1.aspx?cid=11225&aid=23421')"
+          >點我看更多</a
+        >
+      </div>
+    </section>
+
     <!-- 政府補助 -->
     <section class="sub-box">
-      <img class="sub-bg" :src="$filters.siteUrl('airConditionerLAB/images/2407/b_bg.png')" />
       <h2 class="title">
-        <img :src="$filters.siteUrl('airConditionerLAB/images/2407/b_bar.png')" alt="" />
+        <img :src="$filters.siteUrl('airConditionerLAB/images/2410/bar_b.png')" alt="" />
       </h2>
 
       <ul>
@@ -545,17 +653,17 @@ export default {
             "
             target="_blank"
           >
-            <img :src="$filters.siteUrl('airConditionerLAB/images/2407/b_01.png')" alt="" />
+            <img :src="$filters.siteUrl('airConditionerLAB/images/2410/b01.png')" alt="" />
           </a>
         </li>
         <li class="alert1">
           <a @click="message(2)">
-            <img :src="$filters.siteUrl('airConditionerLAB/images/2407/b_02.png')" />
+            <img :src="$filters.siteUrl('airConditionerLAB/images/2410/b02.png')" />
           </a>
         </li>
         <li class="alert2">
           <a @click="message(3)">
-            <img :src="$filters.siteUrl('airConditionerLAB/images/2407/b_03.png')" />
+            <img :src="$filters.siteUrl('airConditionerLAB/images/2410/b03.png')" />
           </a>
         </li>
       </ul>
@@ -654,21 +762,6 @@ export default {
       </div>
     </section>
 
-    <!-- 熊速配專區 -->
-    <section class="bear-box scroll" id="bear">
-      <h2 class="title">
-        <img :src="$filters.siteUrl('airConditionerLAB/images/2303/pro_title.jpg')" />
-      </h2>
-      <div class="bear">
-        <component :is="listF" :pro="product2[menuBear]" :isSwiper="1" :name="'bear'"></component>
-        <a
-          class="more"
-          :href="$filters.addGALink('https://www.tk3c.com/dic1.aspx?cid=11225&aid=23421')"
-          >點我看更多</a
-        >
-      </div>
-    </section>
-
     <!-- banner -->
     <section class="event-box">
       <swiper
@@ -737,11 +830,11 @@ export default {
       <h3 class="aside-header"></h3>
       <div class="aside-content">
         <ul>
-          <li><a href="#dis">領券再現省</a></li>
           <li><a href="#brand">強檔大牌</a></li>
-          <li><a href="#vvip">VVIP尊榮安裝</a></li>
           <li><a href="#bear">熊速配專區</a></li>
-          <li><a href="#tab1">熱銷空調首選</a></li>
+          <li><a href="#hot">熱銷空調首選</a></li>
+          <li><a href="#cold">冷暖空調</a></li>
+          <li><a href="#vvip">VVIP尊榮安裝</a></li>
           <li><a href="#tab2">分離式空調</a></li>
           <li><a href="#tab3">窗型空調</a></li>
           <li><a href="#tab4">移動式冷氣</a></li>
