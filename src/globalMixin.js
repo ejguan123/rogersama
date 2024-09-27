@@ -25,7 +25,7 @@ export const globalMixin = {
 
         link.rel = s == 0 ? 'image_src' : 'stylesheet'
         link.setAttribute('href', style)
-        document.head.appendChild(link)
+        document.head.appendChild(link);
       })
     },
     //用後台陳列編號撈取全商品 [2000,20001,2002]
@@ -105,10 +105,22 @@ export const globalMixin = {
         $all(`${element} .tab-content`)[id].classList.add('active')
       })
 
-      $all(`${element} .swiper-slide`).forEach((el) => {
-        el.classList.remove('active')
-        $all(`${element} .swiper-slide`)[id].classList.add('active')
-      })
+      // 有輪播 .swiper-slide版本
+      if ($all(`${element} .swiper-slide`).length > 0) {
+        $all(`${element} .swiper-slide`).forEach((el) => {
+          el.classList.remove('active')
+          $all(`${element} .swiper-slide`)[id].classList.add('active')
+        })
+      }
+
+      //無輪播版本
+      if ($all(`${element} li`).length > 0) {
+        $all(`${element} li`).forEach((el) => {
+          el.classList.remove('active')
+          $all(`${element} li`)[id].classList.add('active')
+        })
+      }
+
     },
     /*滑鼠滾動後固定背景
      *  element: 目標區域 selector
