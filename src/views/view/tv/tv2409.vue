@@ -1,14 +1,8 @@
 <script setup>
-import { useHead, useScript } from 'unhead'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { EffectFade, Parallax } from 'swiper/modules'
 import listF from '../../layout/listF.vue'
 import { ref } from 'vue'
-
-//META DESCRIPTION
-useHead({
-  title: '電視主題館 | 燦坤線上購物'
-})
 
 const swiperRef = ref()
 const modules = [EffectFade, Parallax]
@@ -127,9 +121,16 @@ export default {
       isNight: true
     }
   },
+  created() {
+    let styles = [
+      'https://www.tk3c.com/images/headimg.jpg',
+      'https://events.tk3c.com/events_net/events_net/2020TVforever/css/tv2409.css'
+    ]
+
+    this.addStyle(styles)
+  },
   mounted() {
     const { saleTab, nights, menuDis } = this
-    document.querySelectorAll('.wrapper')[1].innerHTML = ''
 
     //背景固定
     this.fixedBg('.background2', '.sale-group')
@@ -164,12 +165,6 @@ export default {
   }
 }
 </script>
-
-<style>
-[v-cloak] {
-  display: none;
-}
-</style>
 
 <template>
   <div id="tv-container">
