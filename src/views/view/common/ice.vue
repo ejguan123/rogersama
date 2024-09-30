@@ -44,12 +44,12 @@ export default {
           image: 'icewash2209/images/2409/sb1-10_a.png'
         },
         {
-          url: 'https://page.line.me/tid7686u?oat_content=url&openQrModal=true#~',
-          image: 'icewash2209/images/2409/sb1-4_a.png'
-        },
-        {
           url: 'https://www.tk3c.com/dic2.aspx?cid=111723&aid=22434&hid=123688&strPreView=y',
           image: 'icewash2209/images/2409/sb1-5_a.png'
+        },
+        {
+          url: 'https://www.tk3c.com/dic2.aspx?cid=111723&aid=22434&hid=123829&strPreView=y',
+          image: 'icewash2209/images/2409/sb1-11.png'
         }
       ],
       brands: [
@@ -330,11 +330,11 @@ export default {
   <div id="icewash-container" v-cloak>
     <div class="background">
       <h2 class="title">
-        <img :src="$filters.siteUrl('icewash2209/images/2409/title.png')" alt="白電禮遇節" />
+        <img :src="$filters.siteUrl('icewash2209/images/2409/title2.png')" alt="感恩冰洗賞" />
       </h2>
 
       <h5 class="subtitle">
-        <img :src="$filters.siteUrl('icewash2209/images/2409/st.png')" alt="指定品享1元加購" />
+        <img :src="$filters.siteUrl('icewash2209/images/2409/st2.png')" alt="59折" />
       </h5>
 
       <div class="product">
@@ -385,22 +385,13 @@ export default {
       </div>
     </section>
 
+    <!-- 獨家活動 -->
     <section class="gift-box">
-      <ul class="tab gap:10">
-        <li class="w:25%" :class="[statusGift == 0 ? 'active' : '']">
-          <a @click="changeGift(0)"
-            ><img :src="$filters.siteUrl('icewash2209/images/2409/sb1.png')" alt=""
-          /></a>
-        </li>
-        <li class="w:25%" :class="[statusGift == 1 ? 'active' : '']">
-          <a @click="changeGift(1)"
-            ><img :src="$filters.siteUrl('icewash2209/images/2409/sb1-1.png')" alt=""
-          /></a>
-        </li>
-      </ul>
+      <h2 class="w:25% w:55vw@<576 m:0|auto|1% m:0|auto|3%@<576">
+        <img :src="$filters.siteUrl('icewash2209/images/2409/sb1.png')" alt="" />
+      </h2>
 
-      <!-- 獨家活動 -->
-      <div class="tab-content t1 w:90% w:full@<992 rel m:auto" v-show="statusGift == 0">
+      <div class="gift w:90% w:full@<992 rel m:auto">
         <swiper
           :loop="false"
           :space-between="10"
@@ -441,9 +432,6 @@ export default {
         <div class="swiper-button-prev prev"></div>
         <div class="swiper-button-next next"></div>
       </div>
-
-      <!-- 全站活動 -->
-      <div class="tab-content t2 w:90% w:full@<992 m:auto" v-show="statusGift == 1"></div>
     </section>
 
     <!-- 政府補助 -->
