@@ -121,14 +121,6 @@ export default {
       isNight: true
     }
   },
-  created() {
-    let styles = [
-      'https://www.tk3c.com/images/headimg.jpg',
-      'https://events.tk3c.com/events_net/events_net/2020TVforever/css/tv2409.css'
-    ]
-
-    this.addStyle(styles)
-  },
   mounted() {
     const { saleTab, nights, menuDis } = this
 
