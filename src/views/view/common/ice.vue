@@ -226,7 +226,8 @@ export default {
       statusGift: 0,
       statusPro: 0,
       isSale: true,
-      today: new Date()
+      today: new Date(),
+      isBrand: false
     }
   },
   mounted() {
@@ -475,7 +476,7 @@ export default {
     </section>
 
     <!-- 最強暢銷品牌 -->
-    <section class="brand-box" id="brand">
+    <section class="brand-box" id="brand" v-if="isBrand">
       <h2 class="title">
         <img :src="$filters.siteUrl('icewash2209/images/2409/sb3-1.png')" alt="" />
       </h2>
