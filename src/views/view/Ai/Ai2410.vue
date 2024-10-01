@@ -1,19 +1,8 @@
 <script setup>
 import listF from '../../layout/listF.vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
-import { EffectFade, Parallax } from 'swiper/modules'
-import { ref } from 'vue'
+import { Parallax, EffectCube } from 'swiper/modules'
 import banner from '../../layout/banner.vue'
-
-const swiperRef = ref()
-
-const onSwiper = (swiper) => {
-  swiperRef.value = swiper
-}
-
-const goSlide = (id) => {
-  swiperRef.value.slideTo(id)
-}
 </script>
 
 <script>
@@ -361,14 +350,6 @@ export default {
       tabs: []
     }
   },
-  created() {
-    let styles = [
-      'https://www.tk3c.com/images/headimg.jpg',
-      'https://events.tk3c.com/events_net/events_net/2024083C/css/ai2410.css'
-    ]
-
-    this.addStyle(styles)
-  },
   mounted() {
     const { tabs, tab1, tab2 } = this
 
@@ -552,11 +533,12 @@ export default {
       <div class="product">
         <swiper
           :loop="true"
+          :effect="'cube'"
           :autoplay="{ delay: 1800, disableOnInteraction: false }"
-          :observer="true"
+          :modules="[EffectCube]"
         >
-          <swiper-slide v-for="p in pro">
-            <a :href="$filters.addGALink(p.url)" target="_blank" data-swiper-parallax-opacity="0">
+          <swiper-slide v-for="p in pro" class="flex!">
+            <a :href="$filters.addGALink(p.url)" target="_blank">
               <img :src="$filters.siteUrl(p.image)" alt="" />
             </a>
           </swiper-slide>
