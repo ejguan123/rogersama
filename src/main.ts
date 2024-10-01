@@ -9,6 +9,11 @@ import Mobile from '@/views/MobileComponent.vue' //手機版
 import Floor from '@/views/floor/TVFloor.vue' //樓層區
 import router from './router'
 
+//清空後台過轉後生成的商品樓層
+if (document.querySelectorAll('.wrapper').length > 0) {
+  document.querySelectorAll('.wrapper')[1].innerHTML = ''
+}
+
 const app = createApp(App)
 const mobile = createApp(Mobile)
 const floor = createApp(Floor)
@@ -41,11 +46,6 @@ floor.config.globalProperties.$filters = config
 app.mount('#app')
 mobile.mount('#mobile')
 floor.mount('#floor')
-
-//清空後台過轉後生成的商品樓層
-if (document.querySelectorAll('.wrapper').length > 0) {
-  document.querySelectorAll('.wrapper')[1].innerHTML = ''
-}
 
 //手機版選單項目
 import './assets/js/mobileText.js'
