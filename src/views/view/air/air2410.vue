@@ -87,31 +87,31 @@ export default {
       ],
       specials: [
         {
-          url: 'https://www.tk3c.com/dic2.aspx?cid=11225&aid=4707&hid=11238',
+          url: 'https://www.tk3c.com/dic2.aspx?cid=11225&aid=23717&hid=123849',
           image: 'airConditionerLAB/images/2410/a01.png'
         },
         {
-          url: 'https://www.tk3c.com/dic2.aspx?cid=11225&aid=4707&hid=11237',
+          url: 'https://www.tk3c.com/dic2.aspx?cid=11225&aid=23717&hid=123852',
           image: 'airConditionerLAB/images/2410/a02.png'
         },
         {
-          url: 'https://www.tk3c.com/dic2.aspx?cid=11225&aid=4707&hid=115784',
+          url: 'https://www.tk3c.com/dic2.aspx?cid=11225&aid=23717&hid=123857',
           image: 'airConditionerLAB/images/2410/a03.png'
         },
         {
-          url: 'https://www.tk3c.com/dic2.aspx?cid=11225&aid=4707&hid=37503',
+          url: 'https://www.tk3c.com/dic2.aspx?cid=11225&aid=23717&hid=123856',
           image: 'airConditionerLAB/images/2410/a04.png'
         },
         {
-          url: 'https://www.tk3c.com/dic2.aspx?cid=11225&aid=4707&hid=71512',
+          url: 'https://www.tk3c.com/dic2.aspx?cid=11225&aid=23717&hid=123855',
           image: 'airConditionerLAB/images/2410/a05.png'
         },
         {
-          url: 'https://www.tk3c.com/dic2.aspx?cid=11225&aid=4707&hid=11239',
+          url: 'https://www.tk3c.com/dic2.aspx?cid=11225&aid=23717&hid=123853',
           image: 'airConditionerLAB/images/2410/a06.png'
         },
         {
-          url: 'https://www.tk3c.com/dic2.aspx?cid=11225&aid=4707&hid=107383',
+          url: 'https://www.tk3c.com/dic2.aspx?cid=11225&aid=23717&hid=123858',
           image: 'airConditionerLAB/images/2410/a07.png'
         },
         {
@@ -119,7 +119,7 @@ export default {
           image: 'airConditionerLAB/images/2410/a08.png'
         },
         {
-          url: 'https://www.tk3c.com/dic2.aspx?cid=11225&aid=4707&hid=11240',
+          url: 'https://www.tk3c.com/dic2.aspx?cid=11225&aid=23717&hid=123854',
           image: 'airConditionerLAB/images/2410/a09.png'
         }
       ],
