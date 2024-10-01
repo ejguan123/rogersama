@@ -751,7 +751,7 @@ export default {
       <h3 class="aside-header"></h3>
       <div class="aside-content">
         <ul class="a1" v-if="statusGift == 0">
-          <li><a href="#tab1">開學超夯主打</a></li>
+          <li><a href="#tab1">激省主打</a></li>
           <li><a href="#tab2">輕薄商務</a></li>
           <li><a href="#tab3">飆速電競</a></li>
           <li><a href="#tab4">特仕改裝升級</a></li>
