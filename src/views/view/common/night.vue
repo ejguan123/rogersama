@@ -61,6 +61,11 @@ export default {
         $all('.mobile-for-product ul li')[p].remove()
       }
     })
+
+    //限時樓層有商品才顯示
+    if (document.querySelectorAll('.special-box .products .bg01 li').length > 0) {
+      this.isSp = true
+    }
   },
   mounted() {
     const { today } = this
@@ -76,10 +81,6 @@ export default {
     //撈取其他樓層
     this.getFloorData(this.menus)
 
-    if (today >= new Date('2024/09/26 18:00') && today < new Date('2024/10/03 06:00')) {
-      this.isSp = true
-    }
-
     //加入時間倒數
     if (
       today >= new Date(year + '/' + month + '/' + date + ' 07:00') &&
@@ -87,14 +88,12 @@ export default {
     ) {
       this.income = 1
 
-      if (this.isSp == false) {
-        $('.timearea').countdown({
-          until: $.countdown.UTCDate(+8, year, month - 1, date, 22, 0, 0),
-          format: 'hms',
-          layout: '<span>倒數:</span> <i>{hnn}</i> <b>:</b> <i>{mnn}</i> <b>:</b> <i>{snn}</i>',
-          onExpiry: this.timeUpMsg
-        })
-      }
+      $('.timearea').countdown({
+        until: $.countdown.UTCDate(+8, year, month - 1, date, 22, 0, 0),
+        format: 'hms',
+        layout: '<span>倒數:</span> <i>{hnn}</i> <b>:</b> <i>{mnn}</i> <b>:</b> <i>{snn}</i>',
+        onExpiry: this.timeUpMsg
+      })
     }
 
     //快閃
@@ -104,14 +103,12 @@ export default {
     ) {
       this.income = 1
 
-      if (this.isSp == true) {
-        $('.timearea').countdown({
-          until: $.countdown.UTCDate(+8, year, month - 1, date, 22, 0, 0),
-          format: 'hms',
-          layout: '<span>倒數:</span> <i>{hnn}</i> <b>:</b> <i>{mnn}</i> <b>:</b> <i>{snn}</i>',
-          onExpiry: this.timeUpMsg
-        })
-      }
+      $('.timearea').countdown({
+        until: $.countdown.UTCDate(+8, year, month - 1, date, 22, 0, 0),
+        format: 'hms',
+        layout: '<span>倒數:</span> <i>{hnn}</i> <b>:</b> <i>{mnn}</i> <b>:</b> <i>{snn}</i>',
+        onExpiry: this.timeUpMsg
+      })
     }
   },
   methods: {
