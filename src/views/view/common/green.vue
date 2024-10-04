@@ -1,37 +1,7 @@
 <script setup>
-import { useHead, useScript } from 'unhead'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import listF from '../../layout/listF.vue'
 import { ref } from 'vue'
-
-//META DESCRIPTION
-useHead({
-  title: '環保集點 | 燦坤線上購物',
-  meta: [
-    {
-      name: 'description',
-      content:
-        '電冰箱、洗衣機、空調冷氣、除濕機、風扇，一級節能補助，政府補助最高享6000元！環保集點來燦坤，周末點數10倍送，最高回饋1000'
-    },
-    {
-      property: 'og:title',
-      content: '環保集點 | 燦坤線上購物'
-    },
-    {
-      property: 'og:description',
-      content:
-        '電冰箱、洗衣機、空調冷氣、除濕機、風扇，一級節能補助，政府補助最高享6000元！環保集點來燦坤，周末點數10倍送，最高回饋1000'
-    },
-    {
-      property: 'og:image',
-      content: 'https://www.tk3c.com/images/headimg.jpg'
-    },
-    {
-      property: 'og:url',
-      content: 'https://events.tk3c.com/events_net/green_subsidy/index.html'
-    }
-  ]
-})
 
 const swiperRef = ref()
 const onSwiper = (swiper) => {
@@ -81,6 +51,33 @@ export default {
         { text: '主機', menu: 7394 },
         { text: '耗材', menu: 7395 }
       ],
+      floorImg: [
+        {
+          url: 'https://www.tk3c.com/dic2.aspx?cid=120390&aid=23426&hid=120393',
+          image: 'green_subsidy/images/S3_a.png'
+        },
+        {
+          url: 'https://www.tk3c.com/dic2.aspx?cid=120390&aid=23426&hid=120394',
+          image: 'green_subsidy/images/S4_a.png'
+        },
+        {
+          url: 'https://www.tk3c.com/dic2.aspx?cid=120390&aid=23426&hid=120392',
+          image: 'green_subsidy/images/S5_a.png'
+        },
+        {
+          url: 'https://www.tk3c.com/dic2.aspx?cid=120390&aid=23426&hid=120392',
+          image: 'green_subsidy/images/S6_a.png'
+        },
+        {
+          url: 'https://www.tk3c.com/dic2.aspx?cid=120390&aid=23426&hid=120395',
+          image: 'green_subsidy/images/S7_a.png'
+        },
+        {
+          url: 'https://www.tk3c.com/dic2.aspx?cid=120390&aid=23426&hid=120816',
+          image: 'green_subsidy/images/S8_a.png'
+        }
+      ],
+      menu: [4348, 4349, 4350, 4352, 4353, 4369],
       status: 0,
       stausPrinter: 0,
       today: new Date(),
@@ -90,7 +87,6 @@ export default {
   },
   mounted() {
     const { menu, tabs, menuSp } = this
-    document.querySelectorAll('.wrapper')[1].innerHTML = ''
 
     //撈取綠點新鮮貨樓層
     this.getFloorSingle(menuSp)
@@ -100,6 +96,11 @@ export default {
 
     //撈取印表機樓層
     this.getFloorSingle(this.printers[0].menu)
+
+    //剩下樓層
+    setTimeout(() => {
+      this.getFloorData(menu)
+    }, 100)
   },
   methods: {
     changeGreen(id, menu) {
@@ -277,6 +278,16 @@ export default {
       </div>
     </section>
 
+    <section class="scroll" v-for="(pro, p) in products">
+      <h2 class="title">
+        <a :href="$filters.addGALink(floorImg[p].url)" :name="`pro${pro.id}`" :id="`pro${pro.id}`">
+          <img :src="$filters.siteUrl(floorImg[p].image)" />
+        </a>
+      </h2>
+
+      <component :is="listF" :pro="pro.datas.Data"></component>
+    </section>
+
     <!-- 右側選單 -->
     <aside class="aside-container">
       <span class="arrow"><i class="fas fa-chevron-left"></i></span>
@@ -291,33 +302,8 @@ export default {
                 >印表機</a
               >
             </li>
-            <li>
-              <a href="#pro4348" onclick="ProcessGaEvent('green_subsidy','click','冰箱')">冰箱</a>
-            </li>
-            <li>
-              <a href="#pro4349" onclick="ProcessGaEvent('green_subsidy','click','洗衣機')"
-                >洗衣機</a
-              >
-            </li>
-            <li>
-              <a href="#pro4350" onclick="ProcessGaEvent('green_subsidy','click','分離式空調')"
-                >分離式空調</a
-              >
-            </li>
-            <li>
-              <a href="#pro4352" onclick="ProcessGaEvent('green_subsidy','click','窗型空調')"
-                >窗型空調</a
-              >
-            </li>
-            <li>
-              <a href="#pro4353" onclick="ProcessGaEvent('green_subsidy','click','除濕機')"
-                >除濕機</a
-              >
-            </li>
-            <li>
-              <a href="#pro4369" onclick="ProcessGaEvent('green_subsidy','click','節能涼風扇')"
-                >節能涼風扇</a
-              >
+            <li v-for="pro in products">
+              <a :href="`#pro${pro.id}`">{{ pro.datas.MenuTitle }}</a>
             </li>
           </ul>
         </div>
