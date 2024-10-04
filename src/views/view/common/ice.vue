@@ -52,6 +52,16 @@ export default {
           image: 'icewash2209/images/2409/sb1-11.png'
         }
       ],
+      gift_after: [
+        {
+          url: 'https://www.tk3c.com/dic1.aspx?cid=83198&aid=22912&strPreView=y',
+          image: 'icewash2209/images/2409/sb1-4b.png'
+        },
+        {
+          url: 'https://www.tk3c.com/dic2.aspx?cid=111723&aid=22434&hid=123829&strPreView=y',
+          image: 'icewash2209/images/2409/sb1-11.png'
+        }
+      ],
       brands: [
         {
           url: 'https://www.tk3c.com/dic2.aspx?cid=111723&aid=22874&hid=123468',
@@ -270,6 +280,7 @@ export default {
     // 10/4-13 隱藏現折券樓層
     if (today >= new Date('2024/10/04') && today < new Date('2024/10/14')) {
       this.isSale = false
+      this.gifts = this.gift_after
     }
   },
   methods: {
@@ -398,25 +409,13 @@ export default {
           :space-between="10"
           :breakpoints="{
             0: {
-              slidesPerView: 2,
-              grid: {
-                fill: 'row',
-                rows: 2
-              }
+              slidesPerView: 1
             },
             600: {
-              slidesPerView: 3,
-              grid: {
-                fill: 'row',
-                rows: 2
-              }
+              slidesPerView: 3
             },
             992: {
-              slidesPerView: 3,
-              grid: {
-                fill: 'row',
-                rows: 2
-              }
+              slidesPerView: 3
             }
           }"
           :navigation="{
