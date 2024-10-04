@@ -238,7 +238,7 @@ export default {
           :parallax="true"
           :modules="modules"
         >
-          <swiper-slide v-for="pro in proTV">
+          <swiper-slide v-for="pro in proTV" class="opacity:0 opacity:1.active">
             <a :href="$filters.addGALink(pro.url)" target="_blank" data-swiper-parallax-opacity="0">
               <img :src="$filters.siteUrl(pro.image)" alt="" />
             </a>
