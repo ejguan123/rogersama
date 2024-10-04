@@ -1,8 +1,11 @@
 # VUE VITE專案
 
-This template should help get you started developing with Vue 3 in Vite.
+使用 vue 3 vite進行開發
 
 ## 架構
+
+```sh
+vite.config.ts 匯出設定(摸組化輸出的檔案名稱)
 
 src/main.ts 主要設定
 src/views/view 各頁面撰寫區
@@ -12,6 +15,9 @@ src/views/floor 樓層區
 src/AppComponent.vue 以這個vue來引入各頁面
 
 src/globalMixin.js 撈取樓層商品api
+
+src/assets/js/mobileText.js 手機版選單項目撈取
+```
 
 ## 此專案讀套件安裝指令
 
