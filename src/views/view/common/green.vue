@@ -100,7 +100,7 @@ export default {
     //剩下樓層
     setTimeout(() => {
       this.getFloorData(menu)
-    }, 100)
+    }, 200)
   },
   methods: {
     changeGreen(id, menu) {
