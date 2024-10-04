@@ -280,9 +280,17 @@ export default {
 
     <section class="scroll" v-for="(pro, p) in products">
       <h2 class="title">
-        <a :href="$filters.addGALink(floorImg[p].url)" :name="`pro${pro.id}`" :id="`pro${pro.id}`">
-          <img :src="$filters.siteUrl(floorImg[p].image)" />
-        </a>
+        <img :src="$filters.siteUrl(floorImg[p].image)" />
+        <a
+          :href="$filters.addGALink(floorImg[p].url)"
+          :name="`pro${pro.id}`"
+          :id="`pro${pro.id}`"
+          class="more"
+          target="_blank"
+          ><img
+            src="https://events.tk3c.com/events_net/events_net/green_subsidy/images/more2.png"
+            alt=""
+        /></a>
       </h2>
 
       <component :is="listF" :pro="pro.datas.Data"></component>
