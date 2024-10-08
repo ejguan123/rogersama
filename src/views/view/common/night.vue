@@ -82,7 +82,7 @@ export default {
     //撈取其他樓層
     this.getFloorData(this.menus)
 
-    this.dateTime = today >= new Date('2024/10/10 06:00') ? ' 09:00' : ' 06:00'
+    this.dateTime = today >= new Date('2024/10/10 07:00') ? ' 07:00' : ' 06:00'
 
     //加入時間倒數
     if (
