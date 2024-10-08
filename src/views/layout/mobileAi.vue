@@ -1,3 +1,15 @@
+<script setup>
+const status = defineModel('status', {
+  type: Number
+})
+const tab1 = defineModel('tab1', {
+  type: Object
+})
+const tab2 = defineModel('tab2', {
+  type: Object
+})
+</script>
+
 <template>
   <!-- 手機版上方選單 -->
   <div class="nav-footer">
@@ -32,24 +44,16 @@
   <div class="mobile-for-product">
     <div class="top-nav">
       <h3 class="title">快速選單</h3>
-      <ul class="a1">
-        <li><a href="#tab1">輕薄商務</a></li>
-        <li><a href="#tab2">飆速電競</a></li>
-        <li><a href="#tab3">特仕改裝升級</a></li>
-        <li><a href="#tab4">精選螢幕</a></li>
-        <li><a href="#tab5">高效桌機</a></li>
-        <li><a href="#tab6">DIY零組件</a></li>
+      <ul class="a1" v-show="status == 0">
+        <li v-for="(t1, t) in tab1[0]">
+          <a :href="t1[0].asideUrl">{{ t1[0].asidetext }}</a>
+        </li>
         <li><a href="#event">熱門活動 </a></li>
       </ul>
-      <ul class="a2">
-        <li><a href="#tab7">Wi-Fi路由器</a></li>
-        <li><a href="#tab8">速速GO</a></li>
-        <li><a href="#tab9">鍵盤滑鼠</a></li>
-        <li><a href="#tab10">硬碟</a></li>
-        <li><a href="#tab11">隨身碟/記憶卡</a></li>
-        <li><a href="#tab12">投影機/監控設備</a></li>
-        <li><a href="#tab13">辦公設備</a></li>
-        <li><a href="#tab14">出清搶便宜 </a></li>
+      <ul class="a2" v-show="status == 1">
+        <li v-for="t2 in tab2[0]">
+          <a :href="t2[0].asideUrl">{{ t2[0].asidetext }}</a>
+        </li>
         <li><a href="#event">熱門活動 </a></li>
       </ul>
     </div>
