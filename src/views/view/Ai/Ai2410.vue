@@ -3,6 +3,7 @@ import listF from '../../layout/listF.vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Parallax, EffectCube } from 'swiper/modules'
 import banner from '../../layout/banner.vue'
+import mobileAi from '../../layout/mobileAi.vue'
 </script>
 
 <script>
@@ -18,12 +19,16 @@ export default {
             {
               title: '2024083C/images/2410/S1_a.png',
               url: 'https://www.tk3c.com/dic1.aspx?cid=12504&aid=4878',
-              menu: 7267
+              menu: 7267,
+              asidetext: '激省主打',
+              asideUrl: '#tab1'
             }
           ],
           1: [
             {
               title: '2024083C/images/2410/S2.png',
+              asidetext: '輕薄商務',
+              asideUrl: '#tab2',
               content: [
                 {
                   url: 'https://www.tk3c.com/dic2.aspx?cid=11124&aid=23504&hid=120183',
@@ -42,6 +47,8 @@ export default {
             {
               title: '2024083C/images/2410/S3.png',
               url: 'https://www.tk3c.com/dictitleurl.aspx?cid=117913',
+              asidetext: '飆速電競',
+              asideUrl: '#tab3',
               content: [
                 {
                   url: 'https://www.tk3c.com/dictitleurl.aspx?cid=117913',
@@ -65,6 +72,8 @@ export default {
             {
               title: '2024083C/images/2410/S5.png',
               url: 'https://www.tk3c.com/dic1.aspx?cid=11124&aid=22124',
+              asidetext: '特仕改裝升級',
+              asideUrl: '#tab4',
               content: [
                 {
                   url: 'https://www.tk3c.com/dic1.aspx?cid=11124&aid=22124',
@@ -87,6 +96,8 @@ export default {
           4: [
             {
               title: '2024083C/images/2410/S6.png',
+              asidetext: '精選螢幕',
+              asideUrl: '#tab5',
               content: [
                 {
                   url: 'https://www.tk3c.com/dictitleurl.aspx?cid=44823',
@@ -105,6 +116,8 @@ export default {
             {
               title: '2024083C/images/2410/S7.png',
               url: 'https://www.tk3c.com/dictitleurl.aspx?cid=114130',
+              asidetext: '高效桌機',
+              asideUrl: '#tab6',
               content: [
                 {
                   url: 'https://www.tk3c.com/dictitleurl.aspx?cid=114130',
@@ -123,6 +136,8 @@ export default {
             {
               title: '2024083C/images/2410/S8.png',
               url: 'https://www.tk3c.com/dictitleurl.aspx?cid=117896',
+              asidetext: 'DIY零組件',
+              asideUrl: '#tab7',
               content: [
                 {
                   url: 'https://www.tk3c.com/dictitleurl.aspx?cid=117896',
@@ -150,13 +165,17 @@ export default {
             {
               title: '2024083C/images/2410/S9.png',
               url: 'https://events.tk3c.com/events_net/tk3c_fastdelivery/index.html',
-              menu: 7357
+              menu: 7357,
+              asidetext: '速速Go',
+              asideUrl: '#tab8'
             }
           ],
           1: [
             {
               title: '2024083C/images/2410/S10.png',
               url: 'https://www.tk3c.com/dic1.aspx?cid=83198&aid=18620',
+              asidetext: 'Wi-Fi路由器',
+              asideUrl: '#tab9',
               content: [
                 {
                   url: 'https://www.tk3c.com/dic2.aspx?cid=43403&aid=11540&hid=122073',
@@ -184,6 +203,8 @@ export default {
           2: [
             {
               title: '2024083C/images/2410/S11.png',
+              asidetext: 'DIY組裝機',
+              asideUrl: '#tab10',
               content: [
                 {
                   url: 'https://www.tk3c.com/dic1.aspx?cid=14719&aid=10020',
@@ -201,6 +222,8 @@ export default {
           3: [
             {
               title: '2024083C/images/2410/S12.png',
+              asidetext: '鍵盤滑鼠',
+              asideUrl: '#tab11',
               content: [
                 {
                   url: 'https://www.tk3c.com/dic1.aspx?cid=14719&aid=10020',
@@ -218,6 +241,8 @@ export default {
           4: [
             {
               title: '2024083C/images/2410/S13.png',
+              asidetext: '硬碟',
+              asideUrl: '#tab12',
               content: [
                 {
                   url: 'https://www.tk3c.com/dic1.aspx?cid=117896&aid=23571',
@@ -235,6 +260,8 @@ export default {
           5: [
             {
               title: '2024083C/images/2410/S14.png',
+              asidetext: '隨身碟/記憶卡',
+              asideUrl: '#tab13',
               content: [
                 {
                   url: 'https://www.tk3c.com/dic1.aspx?cid=12356&aid=4855',
@@ -252,6 +279,8 @@ export default {
           6: [
             {
               title: '2024083C/images/2410/S15.png',
+              asidetext: '投影機/監控設備',
+              asideUrl: '#tab14',
               content: [
                 {
                   url: 'https://www.tk3c.com/dictitleurl.aspx?cid=19729',
@@ -269,6 +298,8 @@ export default {
           7: [
             {
               title: '2024083C/images/2410/S16.png',
+              asidetext: '辦公設備',
+              asideUrl: '#tab15',
               content: [
                 {
                   url: 'https://www.tk3c.com/dic1.aspx?cid=11684&aid=4762',
@@ -297,7 +328,9 @@ export default {
             {
               title: '2024083C/images/2410/S17.png',
               url: 'https://www.tk3c.com/dic2.aspx?cid=44823&aid=22525&hid=121385',
-              menu: 7298
+              menu: 7298,
+              asidetext: '出清搶便宜',
+              asideUrl: '#tab16'
             }
           ]
         }
@@ -318,7 +351,6 @@ export default {
         },
         { url: 'https://www.tk3c.com/pt.aspx?pid=248185', image: '2024083C/images/2410/248185.png' }
       ],
-      statusGift: 0,
       gifts: [
         {
           url: 'https://www.tk3c.com/dic2.aspx?cid=121466&aid=23847&hid=123246&strPreView=y',
@@ -347,7 +379,8 @@ export default {
       ],
       tabStatus: null,
       statusPro: 0,
-      tabs: []
+      tabs: [],
+      statusGift: 0
     }
   },
   mounted() {
@@ -733,29 +766,22 @@ export default {
       <h3 class="aside-header"></h3>
       <div class="aside-content">
         <ul class="a1" v-if="statusGift == 0">
-          <li><a href="#tab1">激省主打</a></li>
-          <li><a href="#tab2">輕薄商務</a></li>
-          <li><a href="#tab3">飆速電競</a></li>
-          <li><a href="#tab4">特仕改裝升級</a></li>
-          <li><a href="#tab5">精選螢幕</a></li>
-          <li><a href="#tab6">高效桌機</a></li>
-          <li><a href="#tab7">DIY零組件</a></li>
+          <li v-for="t1 in tab1[0]">
+            <a :href="t1[0].asideUrl">{{ t1[0].asidetext }}</a>
+          </li>
           <li><a href="#event">熱門活動 </a></li>
         </ul>
         <ul class="a2" v-if="statusGift == 1">
-          <li><a href="#tab8">速速GO</a></li>
-          <li><a href="#tab9">Wi-Fi路由器</a></li>
-          <li><a href="#tab10">DIY組裝機</a></li>
-          <li><a href="#tab11">鍵盤滑鼠</a></li>
-          <li><a href="#tab12">硬碟</a></li>
-          <li><a href="#tab13">隨身碟/記憶卡</a></li>
-          <li><a href="#tab14">投影機/監控設備</a></li>
-          <li><a href="#tab15">辦公設備</a></li>
-          <li><a href="#tab16">出清搶便宜 </a></li>
+          <li v-for="t2 in tab2[0]">
+            <a :href="t2[0].asideUrl">{{ t2[0].asidetext }}</a>
+          </li>
           <li><a href="#event">熱門活動 </a></li>
         </ul>
       </div>
       <a href="#" class="go-top">GO TOP</a>
     </div>
   </aside>
+
+  <!-- 手機版選單 -->
+  <mobileAi v-model:status="statusGift" v-model:tab1="tab1" v-model:tab2="tab2"></mobileAi>
 </template>
