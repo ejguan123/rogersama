@@ -54,7 +54,7 @@ export default {
       ],
       gift_after: [
         {
-          url: 'https://www.tk3c.com/dic1.aspx?cid=83198&aid=22912&strPreView=y',
+          url: 'https://www.tk3c.com/events/eventgift.aspx',
           image: 'icewash2209/images/2409/sb1-4b.png'
         },
         {
