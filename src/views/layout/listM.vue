@@ -1,5 +1,5 @@
 <script>
-import { globalMixin } from '../../../globalMixin.js'
+import { globalMixin } from '../../globalMixin.js'
 export default {
   mixins: [globalMixin],
   props: ['pro']
