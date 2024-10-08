@@ -1,7 +1,10 @@
 <script setup>
 import { Swiper, SwiperSlide } from 'swiper/vue'
+import DysonFloor from '../../floor/DysonFloor.vue'
 
 const today = new Date()
+
+//banner輪播
 const slides = [
   {
     url: 'https://www.tk3c.com/pt.aspx?pid=244460',
@@ -45,6 +48,7 @@ const slides = [
   }
 ]
 
+//5個 商品類別
 const navs = [
   {
     url: 'https://www.tk3c.com/dic2.aspx?cid=71484&aid=16984&hid=71501',
@@ -90,6 +94,7 @@ const navs = [
     <!-- 輪播區 -->
     <div class="slidebox">
       <swiper
+        :loop="true"
         :autoplay="{
           delay: 3000,
           disableOnInteraction: false
@@ -153,6 +158,9 @@ const navs = [
         <source :src="$filters.siteUrl('dyson/video/dyson2307.mp4')" type="video/mp4" />
       </video>
     </div>
+
+    <!-- 商品樓層區 -->
+    <DysonFloor></DysonFloor>
   </div>
 
   <!-- 右側選單 -->
