@@ -49,7 +49,8 @@ export default {
       ],
       today: new Date(),
       isSp: false,
-      income: 0
+      income: 0,
+      dateTime: ''
     }
   },
   updated() {
@@ -63,7 +64,7 @@ export default {
     })
 
     //限時樓層有商品才顯示
-    if (document.querySelectorAll('.special-box .products .bg01 li').length > 0) {
+    if (document.querySelectorAll('.special-box .special .bg01 li').length > 0) {
       this.isSp = true
     }
   },
@@ -80,6 +81,8 @@ export default {
 
     //撈取其他樓層
     this.getFloorData(this.menus)
+
+    this.dateTime = today >= new Date('2024/10/10 06:00') ? ' 09:00' : ' 06:00'
 
     //加入時間倒數
     if (
@@ -98,7 +101,7 @@ export default {
 
     //快閃
     if (
-      today >= new Date(year + '/' + month + '/' + date + ' 06:00') &&
+      today >= new Date(year + '/' + month + '/' + date + this.dateTime) &&
       today < new Date(year + '/' + month + '/' + date + ' 22:00')
     ) {
       this.income = 1
