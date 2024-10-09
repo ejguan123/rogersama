@@ -19,11 +19,11 @@ export default {
         },
         {
           image: 'dyson/images/fl3.jpg',
-          type: 'listM'
+          type: listM
         },
         {
           image: 'dyson/images/fl4.jpg',
-          type: 'listM'
+          type: listM
         },
         {
           image: 'dyson/images/fl5.jpg'
@@ -47,6 +47,6 @@ export default {
       {{ pro.datas.MenuTitle }}
     </h2>
 
-    <component :is="floorImg[p].type ? listM : listF" :pro="pro.datas.Data"></component>
+    <component :is="floorImg[p].type ? floorImg[p].type : listF" :pro="pro.datas.Data"></component>
   </div>
 </template>
