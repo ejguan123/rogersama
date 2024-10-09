@@ -43,7 +43,7 @@ export default {
             :name="'prod' + proA.productid"
           >
             <p class="itemF_img"><img onerror="ImgError(this);" :src="proA.ImgUrl" border="0" /></p>
-            <storg>{{ proA.productname }}</storg>
+            <storg v-html="proA.productname"></storg>
             <h4 :class="[proA.Promote.trim() == '' ? 'empty' : '']">{{ proA.Promote }}</h4>
             <div class="boxF_price">
               <p class="iconF_pro" v-if="getProPercent(proA) != 100">
@@ -74,7 +74,7 @@ export default {
           :name="'prod' + proA.productid"
         >
           <p class="itemF_img"><img onerror="ImgError(this);" :src="proA.ImgUrl" border="0" /></p>
-          <storg>{{ proA.productname }}</storg>
+          <storg v-html="proA.productname"></storg>
           <h4 :class="[proA.Promote.trim() == '' ? 'empty' : '']">{{ proA.Promote }}</h4>
           <div class="boxF_price">
             <p class="iconF_pro" v-if="getProPercent(proA) != 100">

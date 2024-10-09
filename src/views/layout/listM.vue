@@ -18,13 +18,13 @@ export default {
           </div>
           <div class="hotpromain">
             <div class="hotpro_sale"></div>
-            <div class="hotpro_name">{{ proA.productname }}</div>
+            <div class="hotpro_name" v-html="proA.productname"></div>
             <div class="hotpro_info" v-html="proA.Productfunc"></div>
             <div class="hotpro_price1 fred">${{ addNumComma(proA.nonmemberprice) }}</div>
             <div class="hotpro_price2">
               活動價$<span>{{ addNumComma(proA.realprice) }}</span>
             </div>
-            <a :href="('http://www.tk3c.com/pt.aspx?pid=' + proA.productid) | addGALink">
+            <a :href="$filters.addGALink('http://www.tk3c.com/pt.aspx?pid=' + proA.productid)">
               <div class="buybtn">前往購買</div>
             </a>
           </div>
@@ -42,7 +42,7 @@ export default {
           >
             <p class="item_img"><img onerror="ImgError(this);" :src="proA.ImgUrl" border="0" /></p>
             <h4 :class="[proA.Promote.trim() == '' ? 'empty' : '']">{{ proA.Promote }}</h4>
-            <storg>{{ proA.productname }}</storg>
+            <storg v-html="proA.productname"></storg>
             <div class="box_price">
               <p class="icon_pro" v-if="getProPercent(proA) != 100">
                 <span>{{ getProPercent(proA) }}</span
