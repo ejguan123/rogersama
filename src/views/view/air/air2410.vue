@@ -378,8 +378,8 @@ export default {
       }
     })
 
-    // 10/4-13 隱藏現折券樓層
-    if (today >= new Date('2024/10/04') && today < new Date('2024/10/14')) {
+    // 10/4-14 隱藏現折券樓層
+    if (today >= new Date('2024/10/04') && today < new Date('2024/10/15')) {
       this.isDis = false
     }
   },
@@ -915,9 +915,9 @@ export default {
           <li><a href="#wet">除濕機</a></li>
           <li><a href="#bear">熊速配專區</a></li>
           <li><a href="#vvip">VVIP尊榮安裝</a></li>
-          <li><a href="#tab2">分離式空調</a></li>
-          <li><a href="#tab3">窗型空調</a></li>
-          <li><a href="#tab4">移動式冷氣</a></li>
+          <li><a href="#tab1">分離式空調</a></li>
+          <li><a href="#tab2">窗型空調</a></li>
+          <li><a href="#tab3">移動式冷氣</a></li>
         </ul>
       </div>
       <a href="#" class="go-top">GO TOP</a>
