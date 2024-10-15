@@ -273,7 +273,7 @@ export default {
         <component :is="listF" :pro="product2[menuDis]" :isSwiper="1" :name="'dis'"></component>
         <a
           class="more"
-          :href="$filters.addGALink('https://www.tk3c.com/dictitleurl.aspx?cid=123738')"
+          :href="$filters.addGALink('https://www.tk3c.com/dictitleurl.aspx?cid=123908')"
           target="_blank"
         >
           <img :src="$filters.siteUrl('2020TVforever/images/2409/btn-more.png')" alt="" />

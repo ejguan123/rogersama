@@ -378,10 +378,7 @@ export default {
       }
     })
 
-    // 10/4-14 隱藏現折券樓層
-    if (today >= new Date('2024/10/04') && today < new Date('2024/10/15')) {
-      this.isDis = false
-    }
+    this.isDis = false
   },
   methods: {
     changeBrand(id, menu) {
@@ -540,7 +537,7 @@ export default {
         <a
           class="more"
           :href="
-            $filters.addGALink('https://www.tk3c.com/dictitleurl.aspx?cid=123798&strPreView=y')
+            $filters.addGALink('https://www.tk3c.com/dictitleurl.aspx?cid=123908&strPreView=y')
           "
           target="_blank"
           >MORE</a

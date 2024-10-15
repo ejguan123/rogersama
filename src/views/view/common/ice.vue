@@ -24,36 +24,6 @@ export default {
     return {
       gifts: [
         {
-          url: 'https://www.tk3c.com/dic2.aspx?cid=83198&aid=18660&hid=123752&strPreView=y',
-          image: 'icewash2209/images/2409/sb1-6_a.png'
-        },
-        {
-          url: 'https://www.tk3c.com/dic2.aspx?cid=12504&aid=22579&hid=123807&strPreView=y',
-          image: 'icewash2209/images/2409/sb1-7_a.png'
-        },
-        {
-          url: 'https://www.tk3c.com/dic2.aspx?cid=111723&aid=23099&hid=123810&strPreView=y',
-          image: 'icewash2209/images/2409/sb1-8_a.png'
-        },
-        {
-          url: 'https://www.tk3c.com/dic2.aspx?cid=12504&aid=22579&hid=123812&strPreView=y',
-          image: 'icewash2209/images/2409/sb1-9_a.png'
-        },
-        {
-          url: 'https://www.tk3c.com/dic2.aspx?cid=83198&aid=18660&hid=123813&strPreView=y',
-          image: 'icewash2209/images/2409/sb1-10_a.png'
-        },
-        {
-          url: 'https://www.tk3c.com/dic2.aspx?cid=111723&aid=22434&hid=123688&strPreView=y',
-          image: 'icewash2209/images/2409/sb1-5_a.png'
-        },
-        {
-          url: 'https://www.tk3c.com/dic2.aspx?cid=111723&aid=22434&hid=123829&strPreView=y',
-          image: 'icewash2209/images/2409/sb1-11.png'
-        }
-      ],
-      gift_after: [
-        {
           url: 'https://www.tk3c.com/dic2.aspx?cid=111723&aid=22434&hid=123829&strPreView=y',
           image: 'icewash2209/images/2409/sb1-11.png'
         }
@@ -273,11 +243,7 @@ export default {
       })
     }, 30)
 
-    // 10/4-14 隱藏現折券樓層
-    if (today >= new Date('2024/10/04') && today < new Date('2024/10/15')) {
-      this.isSale = false
-      this.gifts = this.gift_after
-    }
+    this.isSale = false
   },
   methods: {
     changeGift(id) {
