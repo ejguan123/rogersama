@@ -92,7 +92,7 @@ export default {
       <h2 class="title">
         <a
           :href="
-            $filters.addGALink('https://www.tk3c.com/dic1.aspx?cid=111126&aid=22584&strPreView=y')
+            $filters.addGALink('https://www.tk3c.com/dic2.aspx?cid=111126&aid=22584&hid=123904')
           "
           target="_blank"
         >
