@@ -377,8 +377,6 @@ export default {
         tab.querySelectorAll('.tab-content')[0].style.display = 'block'
       }
     })
-
-    this.isDis = false
   },
   methods: {
     changeBrand(id, menu) {
@@ -536,9 +534,7 @@ export default {
         <component :is="listF" :pro="product2[menuDis]" :isSwiper="1" :name="'dis'"></component>
         <a
           class="more"
-          :href="
-            $filters.addGALink('https://www.tk3c.com/dictitleurl.aspx?cid=123908&strPreView=y')
-          "
+          :href="$filters.addGALink('https://www.tk3c.com/dic1.aspx?cid=123908&aid=23881')"
           target="_blank"
           >MORE</a
         >

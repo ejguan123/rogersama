@@ -242,8 +242,6 @@ export default {
         }
       })
     }, 30)
-
-    this.isSale = false
   },
   methods: {
     changeGift(id) {
@@ -351,7 +349,7 @@ export default {
         ></component>
         <a
           class="more"
-          :href="$filters.addGALink('https://www.tk3c.com/dictitleurl.aspx?cid=123798')"
+          :href="$filters.addGALink('https://www.tk3c.com/dic1.aspx?cid=123908&aid=23881')"
           target="_blank"
         >
           <img :src="$filters.siteUrl('icewash2209/images/2405/MORE.png')" />
