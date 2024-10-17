@@ -123,41 +123,6 @@ export default {
           menu: 5420
         }
       ],
-      menu: [2751, 5613, 5198, 5199, 4846, 5200, 5201, 5202],
-      floorImg: [
-        {
-          url: 'https://www.tk3c.com/search.aspx?q=%E9%9B%BB%E8%A6%96',
-          image: '2020TVforever/images/2410/S5.png'
-        },
-        {
-          url: 'https://www.tk3c.com/dic2.aspx?cid=11312&aid=4712&hid=88783',
-          image: '2020TVforever/images/2410/S6.png'
-        },
-        {
-          url: 'https://www.tk3c.com/dic2.aspx?cid=11312&aid=21600&hid=105564',
-          image: '2020TVforever/images/2410/S7.png'
-        },
-        {
-          url: 'https://www.tk3c.com/dic2.aspx?cid=11312&aid=4712&hid=88767',
-          image: '2020TVforever/images/2410/S8.png'
-        },
-        {
-          url: 'https://www.tk3c.com/dic2.aspx?cid=11312&aid=21600&hid=105586',
-          image: '2020TVforever/images/2410/S9.png'
-        },
-        {
-          url: 'https://www.tk3c.com/dictitleurl.aspx?cid=19729',
-          image: '2020TVforever/images/2410/S10.png'
-        },
-        {
-          url: 'https://www.tk3c.com/dictitleurl.aspx?cid=828',
-          image: '2020TVforever/images/2410/S11.png'
-        },
-        {
-          url: 'https://www.tk3c.com/dic1.aspx?cid=828&aid=331',
-          image: '2020TVforever/images/2410/S12.png'
-        }
-      ],
       menuDis: 4328, //現折 清單編號
       status: 0,
       statusSale: 0,
@@ -176,7 +141,7 @@ export default {
     this.addStyle(styles)
   },
   mounted() {
-    const { saleTab, nights, menuDis, menu, today } = this
+    const { saleTab, nights, menuDis, today } = this
 
     //背景固定
     this.fixedBg('.background2', '.gift-box')
@@ -189,11 +154,6 @@ export default {
 
     //撈取夜間下殺樓層商品
     this.getFloorSingle(nights[0].menu)
-
-    //底下樓層
-    setTimeout(() => {
-      this.getFloorData(menu)
-    }, 120)
 
     // 10/4-14 隱藏現折券樓層
     if (today >= new Date('2024/10/04') && today < new Date('2024/10/15')) {
@@ -238,7 +198,7 @@ export default {
           :parallax="true"
           :modules="modules"
         >
-          <swiper-slide v-for="pro in proTV" class="opacity:0 opacity:1.active">
+          <swiper-slide v-for="(pro, p) in proTV" :key="p" class="opacity:0 opacity:1.active">
             <a :href="$filters.addGALink(pro.url)" target="_blank" data-swiper-parallax-opacity="0">
               <img :src="$filters.siteUrl(pro.image)" alt="" />
             </a>
@@ -254,8 +214,9 @@ export default {
         <img :src="$filters.siteUrl('2020TVforever/images/2410/sp_title.png')" alt="" />
       </h2>
       <a
-        v-for="gift in gifts"
+        v-for="(gift, g) in gifts"
         class="w:90% w:95vw@<992 mb:2%"
+        :key="g"
         :href="$filters.addGALink(gift.url)"
         target="_blank"
       >
@@ -307,6 +268,7 @@ export default {
             >
               <swiper-slide
                 v-for="(sale, s) in saleTab"
+                :key="s"
                 :class="[statusSale == s ? 'active' : '']"
                 @click="goSlide(s)"
               >
@@ -318,7 +280,7 @@ export default {
           </div>
         </div>
 
-        <div class="tab-content" v-for="(sale, s) in saleTab" v-show="statusSale == s">
+        <div class="tab-content" v-for="(sale, s) in saleTab" :key="s" v-show="statusSale == s">
           <component :is="listF" :pro="product2[sale.menu]" :isSwiper="1"></component>
         </div>
       </div>
@@ -332,7 +294,7 @@ export default {
 
       <div class="content">
         <ul class="tab gap:10">
-          <li v-for="(night, n) in nights" :class="[statusNight == n ? 'active' : '']">
+          <li v-for="(night, n) in nights" :key="n" :class="[statusNight == n ? 'active' : '']">
             <a @click="changeNight(n, night.menu)">
               <img :src="$filters.siteUrl(night.image)" alt="" />
             </a>
@@ -340,7 +302,7 @@ export default {
         </ul>
 
         <!-- 商品內容 -->
-        <div class="tab-content" v-for="(night, n) in nights" v-show="statusNight == n">
+        <div class="tab-content" v-for="(night, n) in nights" :key="n" v-show="statusNight == n">
           <component :is="listF" :pro="product2[night.menu]"></component>
           <a class="more" :href="$filters.addGALink(night.url)" target="_blank"
             ><img :src="$filters.siteUrl('2020TVforever/images/2409/btn-more.png')" alt=""
@@ -392,23 +354,13 @@ export default {
           '--swiper-pagination-color': '#fff'
         }"
       >
-        <swiper-slide v-for="brand in brands">
+        <swiper-slide v-for="(brand, b) in brands" :key="b">
           <a :href="$filters.addGALink(brand.url)" target="_blank">
             <img :src="$filters.siteUrl(brand.image)" alt="" />
           </a>
         </swiper-slide>
       </swiper-container>
       <div class="swiper-pagination"></div>
-    </section>
-
-    <section class="scroll" v-for="(pro, p) in products">
-      <h2 class="title">
-        <a :href="$filters.addGALink(floorImg[p].url)" :name="`pro${pro.id}`" :id="`pro${pro.id}`">
-          <img :src="$filters.siteUrl(floorImg[p].image)" />
-        </a>
-      </h2>
-
-      <component :is="listF" :pro="pro.datas.Data"></component>
     </section>
   </div>
 

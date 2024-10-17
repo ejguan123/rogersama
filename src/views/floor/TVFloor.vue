@@ -12,35 +12,35 @@ export default {
       floorImg: [
         {
           url: 'https://www.tk3c.com/search.aspx?q=%E9%9B%BB%E8%A6%96',
-          image: '2020TVforever/images/2409/S5.png'
+          image: '2020TVforever/images/2410/S5.png'
         },
         {
           url: 'https://www.tk3c.com/dic2.aspx?cid=11312&aid=4712&hid=88783',
-          image: '2020TVforever/images/2409/S6.png'
+          image: '2020TVforever/images/2410/S6.png'
         },
         {
           url: 'https://www.tk3c.com/dic2.aspx?cid=11312&aid=21600&hid=105564',
-          image: '2020TVforever/images/2409/S7.png'
+          image: '2020TVforever/images/2410/S7.png'
         },
         {
           url: 'https://www.tk3c.com/dic2.aspx?cid=11312&aid=4712&hid=88767',
-          image: '2020TVforever/images/2409/S8.png'
+          image: '2020TVforever/images/2410/S8.png'
         },
         {
           url: 'https://www.tk3c.com/dic2.aspx?cid=11312&aid=21600&hid=105586',
-          image: '2020TVforever/images/2409/S9.png'
+          image: '2020TVforever/images/2410/S9.png'
         },
         {
           url: 'https://www.tk3c.com/dictitleurl.aspx?cid=19729',
-          image: '2020TVforever/images/2409/S10.png'
+          image: '2020TVforever/images/2410/S10.png'
         },
         {
           url: 'https://www.tk3c.com/dictitleurl.aspx?cid=828',
-          image: '2020TVforever/images/2409/S11.png'
+          image: '2020TVforever/images/2410/S11.png'
         },
         {
           url: 'https://www.tk3c.com/dic1.aspx?cid=828&aid=331',
-          image: '2020TVforever/images/2409/S12.png'
+          image: '2020TVforever/images/2410/S12.png'
         }
       ]
     }
@@ -53,7 +53,7 @@ export default {
 </script>
 
 <template>
-  <div class="floor" v-for="(pro, p) in products">
+  <div class="floor" v-for="(pro, p) in products" :key="p">
     <h2 class="protitle">
       <a :name="`pro${pro.id}`" :id="`pro${pro.id}`"> </a>
 
