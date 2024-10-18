@@ -1,33 +1,5 @@
 <script setup>
-import { useHead, useScript } from 'unhead'
 import listF from '../../layout/listF.vue'
-
-//META DESCRIPTION
-useHead({
-  title: '月光市集 | 燦坤線上購物',
-  meta: [
-    {
-      name: 'description',
-      content: '月光市集'
-    },
-    {
-      property: 'og:title',
-      content: '月光市集 | 燦坤線上購物'
-    },
-    {
-      property: 'og:description',
-      content: '月光市集'
-    },
-    {
-      property: 'og:image',
-      content: 'https://www.tk3c.com/images/headimg.jpg'
-    },
-    {
-      property: 'og:url',
-      content: 'https://events.tk3c.com/events_net/nightsale/index.html'
-    }
-  ]
-})
 </script>
 
 <script>
