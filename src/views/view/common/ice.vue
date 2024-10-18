@@ -363,27 +363,17 @@ export default {
         <img :src="$filters.siteUrl('icewash2209/images/2409/sb1.png')" alt="" />
       </h2>
 
-      <div class="gift w:90% w:full@<992 rel m:auto">
+      <div class="gift w:45% w:60vw@<992 w:90vw@<576 rel m:auto">
         <swiper
           :loop="false"
           :space-between="10"
-          :breakpoints="{
-            0: {
-              slidesPerView: 1
-            },
-            600: {
-              slidesPerView: 3
-            },
-            992: {
-              slidesPerView: 3
-            }
-          }"
+          :slidesPerView="1"
           :navigation="{
             nextEl: '.gift-box .next',
             prevEl: '.gift-box .prev'
           }"
         >
-          <swiper-slide v-for="(gift, g) in gifts">
+          <swiper-slide v-for="(gift, g) in gifts" :key="g">
             <a :href="$filters.addGALink(gift.url)" target="_blank">
               <img :src="$filters.siteUrl(gift.image)" alt="" />
             </a>
@@ -490,13 +480,13 @@ export default {
     <section class="info-box" id="info">
       <div class="flex flex-wrap:wrap gap:20 gap:10@<576 m:auto jc:center">
         <a
-          class="w:40% w:45vw@<992 m:0|0 brightness(0.7) brightness(1).active"
+          class="w:40% w:45vw@<992 w:90vw@<576 m:0|0 m:0|0|3%@<576 brightness(0.7) brightness(1).active"
           :class="[status == 0 ? 'active' : '']"
           @click="change(0)"
           ><img :src="$filters.siteUrl('icewash2209/images/24618/info1_b.png')" alt=""
         /></a>
         <a
-          class="w:40% w:45vw@<992 m:0|0 brightness(0.7) brightness(1).active"
+          class="w:40% w:45vw@<992 w:90vw@<576 m:0|0 m:0|0|3%@<576 brightness(0.7) brightness(1).active"
           :class="[status == 1 ? 'active' : '']"
           @click="change(1)"
           ><img :src="$filters.siteUrl('icewash2209/images/24618/info2_b.png')" alt=""
