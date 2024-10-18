@@ -53,15 +53,13 @@ export default {
 </script>
 
 <template>
-  <div class="floor" v-for="(pro, p) in products" :key="p">
-    <h2 class="protitle">
-      <a :name="`pro${pro.id}`" :id="`pro${pro.id}`"> </a>
-
-      <img :src="$filters.siteUrl(floorImg[p].image)" />
-
-      {{ pro.datas.MenuTitle }}
+  <section class="scroll" v-for="(pro, p) in products" :key="p">
+    <h2 class="title" :id="`pro${pro.id}`">
+      <a :href="$filters.addGALink(floorImg[p].url)">
+        <img :src="$filters.siteUrl(floorImg[p].image)" />
+      </a>
     </h2>
 
     <component :is="listF" :pro="pro.datas.Data"></component>
-  </div>
+  </section>
 </template>
