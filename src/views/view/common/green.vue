@@ -1,15 +1,23 @@
 <script setup>
 import { Swiper, SwiperSlide } from 'swiper/vue'
+import { Controller } from 'swiper/modules'
 import listF from '../../layout/listF.vue'
 import { ref } from 'vue'
 
-const swiperRef = ref()
+const swiperRef1 = ref()
+const swiperRef2 = ref()
+
 const onSwiper = (swiper) => {
-  swiperRef.value = swiper
+  swiperRef1.value = swiper
+}
+
+const onControlSwiper = (swiper) => {
+  swiperRef2.value = swiper
 }
 
 const goSlide = (id) => {
-  swiperRef.value.slideTo(id)
+  swiperRef2.value.slideTo(id)
+  swiperRef1.value.slideTo(id)
 }
 </script>
 
@@ -179,7 +187,6 @@ export default {
         <ul>
           <div id="tab-area">
             <swiper
-              @swiper="onSwiper"
               :loop="false"
               :space-between="10"
               :breakpoints="{
@@ -193,6 +200,11 @@ export default {
                   slidesPerView: 5
                 }
               }"
+              :modules="[Controller]"
+              :controller="{
+                control: [greenContent]
+              }"
+              @swiper="onSwiper"
             >
               <swiper-slide
                 v-for="(tab, t) in tabs"
@@ -208,11 +220,20 @@ export default {
           </div>
         </ul>
 
-        <div class="tab-content" v-for="(tab, t) in tabs" v-show="status == t">
-          <component :is="listF" :pro="product2[tab.menu]" :isSwiper="1"></component>
-          <a class="more" :href="$filters.addGALink(tabs[t].url)" target="_blank">
-            <img :src="$filters.siteUrl('green_subsidy/images/more2.png')" />
-          </a>
+        <div class="content-area">
+          <swiper id="greenContent" :loop="false" :modules="[Controller]" @swiper="onControlSwiper">
+            <swiper-slide class="tab-content" v-for="(tab, t) in tabs">
+              <component
+                :is="listF"
+                :pro="product2[tab.menu]"
+                :isSwiper="1"
+                :name="'g'"
+              ></component>
+              <a class="more" :href="$filters.addGALink(tabs[t].url)" target="_blank">
+                <img :src="$filters.siteUrl('green_subsidy/images/more2.png')" />
+              </a>
+            </swiper-slide>
+          </swiper>
         </div>
       </div>
     </section>
@@ -306,13 +327,14 @@ export default {
           <ul>
             <li class="main"><a href="#green">環保集點專區</a></li>
             <li>
-              <a href="#printer" onclick="ProcessGaEvent('green_subsidy','click','印表機')"
-                >印表機</a
-              >
+              <a href="#printer">印表機</a>
             </li>
-            <li v-for="pro in products">
-              <a :href="`#pro${pro.id}`">{{ pro.datas.MenuTitle }}</a>
-            </li>
+            <li><a href="#pro4348">冰箱</a></li>
+            <li><a href="#pro4349">洗衣機</a></li>
+            <li><a href="#pro4350">分離式空調</a></li>
+            <li><a href="#pro4352">窗型空調</a></li>
+            <li><a href="#pro4353">除濕機</a></li>
+            <li><a href="#pro4369">節能涼風扇</a></li>
           </ul>
         </div>
         <a href="#" class="go-top">GO TOP</a>
