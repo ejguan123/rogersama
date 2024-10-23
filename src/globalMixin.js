@@ -8,7 +8,6 @@ export const globalMixin = {
       product2: [],
       percent: 0,
       tabS: null,
-      isLoading: false
     }
   },
   methods: {
@@ -66,17 +65,15 @@ export const globalMixin = {
 
     //用後台陳列編號撈取單一商品 如:2000
     async getFloorSingle(menu) {
-      this.isLoading = true
       axiosRetry(axios, {
         retries: 3,
         retryDelay: axiosRetry.exponentialDelay
       })
 
-      axios
+      await axios
         .get('https://events.tk3c.com/events_net/ashx/fkabow/GetAdSystemAll.ashx?menuid=' + menu)
         .then((res) => {
           this.product2[menu] = res.data.Data
-          this.isLoading = false
         })
         .catch((error) => {
           if (error.code === 'ECONNABORTED') {
