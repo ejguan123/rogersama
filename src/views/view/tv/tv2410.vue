@@ -1,7 +1,7 @@
 <script setup>
-import { Swiper, SwiperSlide } from 'swiper/vue'
 import { EffectFade, Parallax } from 'swiper/modules'
 import listF from '../../layout/listF.vue'
+import TVFloor from '../../floor/TVFloor.vue'
 import { ref } from 'vue'
 
 const swiperRef = ref()
@@ -123,6 +123,51 @@ export default {
           menu: 5420
         }
       ],
+      floorImg: [
+        {
+          url: 'https://www.tk3c.com/search.aspx?q=%E9%9B%BB%E8%A6%96',
+          image: '2020TVforever/images/2410/S5.png'
+        },
+        {
+          url: 'https://www.tk3c.com/dic2.aspx?cid=11312&aid=4712&hid=88783',
+          image: '2020TVforever/images/2410/S6.png'
+        },
+        {
+          url: 'https://www.tk3c.com/dic2.aspx?cid=11312&aid=21600&hid=105564',
+          image: '2020TVforever/images/2410/S7.png'
+        },
+        {
+          url: 'https://www.tk3c.com/dic2.aspx?cid=11312&aid=4712&hid=88767',
+          image: '2020TVforever/images/2410/S8.png'
+        },
+        {
+          url: 'https://www.tk3c.com/dic2.aspx?cid=11312&aid=21600&hid=105586',
+          image: '2020TVforever/images/2410/S9.png'
+        },
+        {
+          url: 'https://www.tk3c.com/dictitleurl.aspx?cid=19729',
+          image: '2020TVforever/images/2410/S10.png'
+        },
+        {
+          url: 'https://www.tk3c.com/dictitleurl.aspx?cid=828',
+          image: '2020TVforever/images/2410/S11.png'
+        },
+        {
+          url: 'https://www.tk3c.com/dic1.aspx?cid=828&aid=331',
+          image: '2020TVforever/images/2410/S12.png'
+        }
+      ],
+      asides: [
+        { text: '品牌福利出清', href: '#sale' },
+        { text: '必BUY熱銷排行', href: '#pro2751' },
+        { text: 'OLED電視最大賞', href: '#pro5613' },
+        { text: '大視野加倍過癮', href: '#pro5198' },
+        { text: 'QLED極致炫彩', href: '#pro5199' },
+        { text: '小資族激省攻略', href: '#pro4846' },
+        { text: '投影氣氛嗨翻天', href: '#pro5200' },
+        { text: '聲臨其境更刺激', href: '#pro5201' },
+        { text: '超給力助攻周邊', href: '#pro5202' }
+      ],
       menuDis: 4328, //現折 清單編號
       status: 0,
       statusSale: 0,
@@ -131,14 +176,6 @@ export default {
       isDis: true,
       today: new Date()
     }
-  },
-  created() {
-    let styles = [
-      'https://www.tk3c.com/images/headimg.jpg',
-      'https://events.tk3c.com/events_net/events_net/2020TVforever/css/tv2410.css'
-    ]
-
-    this.addStyle(styles)
   },
   mounted() {
     const { saleTab, nights, menuDis, today } = this
@@ -362,6 +399,8 @@ export default {
       </swiper-container>
       <div class="swiper-pagination"></div>
     </section>
+
+    <TVFloor :floors="floorImg"></TVFloor>
   </div>
 
   <!-- 右側選單 -->
@@ -371,46 +410,8 @@ export default {
       <h3 class="aside-header"></h3>
       <div class="aside-content">
         <ul>
-          <li class="main"><a href="#sale">品牌福利出清</a></li>
-          <li>
-            <a href="#pro2751" onclick="ProcessGaEvent('2020TVforever','click','必BUY熱銷排行			')"
-              >必BUY熱銷排行
-            </a>
-          </li>
-          <li>
-            <a href="#pro5613" onclick="ProcessGaEvent('2020TVforever','click','OLED電視最大賞')"
-              >OLED電視最大賞</a
-            >
-          </li>
-          <li class="">
-            <a href="#pro5198" onclick="ProcessGaEvent('2020TVforever','click','大視野加倍過癮')"
-              >大視野加倍過癮</a
-            >
-          </li>
-          <li>
-            <a href="#pro5199" onclick="ProcessGaEvent('2020TVforever','click','QLED極致炫彩')"
-              >QLED極致炫彩</a
-            >
-          </li>
-          <li class="">
-            <a href="#pro4846" onclick="ProcessGaEvent('2020TVforever','click','小資族激省攻略')"
-              >小資族激省攻略</a
-            >
-          </li>
-          <li>
-            <a href="#pro5200" onclick="ProcessGaEvent('2020TVforever','click','投影氣氛嗨翻天')"
-              >投影氣氛嗨翻天</a
-            >
-          </li>
-          <li>
-            <a href="#pro5201" onclick="ProcessGaEvent('2020TVforever','click','聲臨其境更刺激')"
-              >聲臨其境更刺激</a
-            >
-          </li>
-          <li>
-            <a href="#pro5202" onclick="ProcessGaEvent('2020TVforever','click','超給力助攻周邊')"
-              >超給力助攻周邊</a
-            >
+          <li v-for="(aside, a) in asides" :key="a" :class="[a == 0 ? 'main' : '']">
+            <a :href="aside.href">{{ aside.text }}</a>
           </li>
         </ul>
       </div>
