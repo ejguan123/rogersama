@@ -36,7 +36,7 @@ export default {
     })
 
     //限時樓層有商品才顯示
-    if (document.querySelectorAll('.special-box .special .bg01 li').length > 0) {
+    if (document.querySelectorAll('.special-box .special .bg01 .swiper-slide').length > 0) {
       this.isSp = true
     }
   },
@@ -122,7 +122,79 @@ export default {
     <!-- 限時 -->
     <section class="special-box" v-show="isSp">
       <div class="special">
-        <component :is="listF" :pro="product2[menuSP]" :incoming="income"></component>
+        <div class="bg01 list_F p:1% p:2%@<576" v-if="product2[menuSP] != undefined">
+          <ul>
+            <swiper
+              class="overflow:hidden"
+              :space-between="10"
+              :navigation="{
+                prevEl: `.special-box .prev`,
+                nextEl: `.special-box .next`
+              }"
+              :breakpoints="{
+                0: {
+                  slidesPerView: 2.2,
+                  grid: {
+                    fill: 'row',
+                    rows: 3
+                  }
+                },
+                601: {
+                  slidesPerView: 3.3,
+                  grid: {
+                    fill: 'row',
+                    rows: 4
+                  }
+                },
+                992: {
+                  slidesPerView: 4.3,
+                  grid: {
+                    fill: 'row',
+                    rows: 4
+                  }
+                },
+                1281: {
+                  slidesPerView: 5.3,
+                  grid: {
+                    fill: 'row',
+                    rows: 4
+                  }
+                }
+              }"
+            >
+              <swiper-slide
+                class="bg:#fff"
+                :class="[income ? 'before' : '']"
+                v-for="(proA, p) in product2[menuSP]"
+              >
+                <a
+                  :href="$filters.addGALink('https://www.tk3c.com/pt.aspx?pid=' + proA.productid)"
+                  :id="'prod' + proA.productid"
+                  :name="'prod' + proA.productid"
+                >
+                  <p class="itemF_img">
+                    <img onerror="ImgError(this);" :src="proA.ImgUrl" border="0" />
+                  </p>
+                  <storg v-html="proA.productname"></storg>
+                  <h4 :class="[proA.Promote.trim() == '' ? 'empty' : '']">{{ proA.Promote }}</h4>
+                  <div class="boxF_price">
+                    <p class="iconF_pro" v-if="getProPercent(proA) != 100">
+                      <span>{{ getProPercent(proA) }}</span
+                      >折
+                    </p>
+
+                    <strong class="txt_red fred">
+                      <em>市價${{ addNumComma(proA.nonmemberprice) }}</em>
+                      <i>活動價$</i>{{ addNumComma(proA.realprice) }}
+                    </strong>
+                  </div>
+                </a>
+              </swiper-slide>
+            </swiper>
+            <div class="swiper-button-prev prev"></div>
+            <div class="swiper-button-next next"></div>
+          </ul>
+        </div>
       </div>
     </section>
 
