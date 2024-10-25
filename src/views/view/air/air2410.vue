@@ -123,6 +123,12 @@ export default {
           image: 'airConditionerLAB/images/2410/a09.png'
         }
       ],
+      special_after: [
+        {
+          url: 'https://www.tk3c.com/dic2.aspx?cid=11225&aid=4707&hid=111598',
+          image: 'airConditionerLAB/images/2410/a08_2411.png'
+        }
+      ],
       brands: [
         {
           menu: 4414,
@@ -338,7 +344,7 @@ export default {
     }
   },
   mounted() {
-    const { brands, floors, menuDis, menuBear, today, menuHot, menuCold, menuWet } = this
+    const { specials, brands, floors, menuDis, menuBear, today, menuHot, menuCold, menuWet } = this
 
     //固定背景
     this.fixedBg('.background2', '.special-box')
@@ -377,6 +383,11 @@ export default {
         tab.querySelectorAll('.tab-content')[0].style.display = 'block'
       }
     })
+
+    // 11月更換 fuji精選活動
+    if (today >= new Date('2024/11/01')) {
+      specials.splice(7, 1, this.special_after[0])
+    }
   },
   methods: {
     changeBrand(id, menu) {
@@ -475,13 +486,21 @@ export default {
     <div class="background">
       <h2 class="title">
         <img
+          v-if="today < new Date('2024/11/01')"
           class="pc"
           :src="$filters.siteUrl('airConditionerLAB/images/2410/title.png')"
           alt="暖心回饋季"
         />
         <img
+          v-if="today < new Date('2024/11/01')"
           class="mobile"
           :src="$filters.siteUrl('airConditionerLAB/images/2410/m_t.png')"
+          alt="暖心回饋季"
+        />
+        <img
+          v-if="today >= new Date('2024/11/01')"
+          class="mobile"
+          :src="$filters.siteUrl('airConditionerLAB/images/2410/title_2411.png')"
           alt="暖心回饋季"
         />
       </h2>
@@ -640,7 +659,17 @@ export default {
 
       <div class="brand-content" v-for="(brand, b) in brands" v-show="statusBrand == b">
         <a
-          v-if="b != 10"
+          v-if="today < new Date('2024/11/01') && b != 10"
+          class="banner w:100% mb:1%"
+          :href="$filters.addGALink(brand.url)"
+          target="_blank"
+        >
+          <img class="pc" :src="$filters.siteUrl(brand.pc)" alt="" />
+          <img class="mobile" :src="$filters.siteUrl(brand.mobile)" alt="" />
+        </a>
+
+        <a
+          v-else-if="today >= new Date('2024/11/01') && b != 10 && b != 2 && b != 8"
           class="banner w:100% mb:1%"
           :href="$filters.addGALink(brand.url)"
           target="_blank"
