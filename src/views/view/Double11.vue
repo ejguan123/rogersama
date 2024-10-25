@@ -55,9 +55,9 @@ export default {
         { image: 'double11_2024/images/sp200.png', menu: 7520 },
         { image: 'double11_2024/images/sp400.png', menu: 7521 },
         { image: 'double11_2024/images/sp500.png', menu: 7522 },
-        { image: 'double11_2024/images/sp1000.png', menu: 7573 }
-        // { image: 'double11_2024/images/sp2000.png', menu: 7574 },
-        // { image: 'double11_2024/images/sp3000.png', menu: 7575 }
+        { image: 'double11_2024/images/sp1000.png', menu: 7573 },
+        { image: 'double11_2024/images/sp2000.png', menu: 7574 },
+        { image: 'double11_2024/images/sp3000.png', menu: 7575 }
       ],
       sales: [
         { image: 'double11_2024/images/c-100.png', menu: 7523 },
@@ -381,7 +381,7 @@ export default {
               slidesPerView: 3.3
             },
             992: {
-              slidesPerView: 6
+              slidesPerView: 7
             }
           }"
           :modules="[Controller]"
