@@ -122,7 +122,8 @@ export default {
       today: new Date(),
       fullData: [],
       menuSp: 4850,
-      isVip: true
+      isVip: true,
+      isNew: false
     }
   },
   mounted() {
@@ -146,6 +147,13 @@ export default {
 
     if (today >= new Date('2024/11/13')) {
       this.isVip = false
+    }
+
+    // 10.26-11.10 每週六日顯示
+    if (today >= new Date('2024/10/26') && today < new Date('2024/11/11')) {
+      if (today.getDay() == 6 || today.getDay() == 7) {
+        this.isNew = true
+      }
     }
   },
   methods: {
@@ -203,10 +211,10 @@ export default {
         <img :src="$filters.siteUrl('double11_2024/images/logo.png')" />
       </span>
       <h2
-        class="title w:25% abs right:28% top:20% m:auto w:40vw@<992 w:55vw@<576 left:45vw@<992 left:42vw@<576 top:9vw@<992 top:18vw@<576"
+        class="title w:25% abs right:26% top:19% m:auto w:40vw@<992 w:55vw@<576 left:45vw@<992 left:44vw@<576 top:9vw@<992 top:22vw@<576"
       >
         <img
-          src="https://events.cdn-tkec.tw/events_net/events_net/green_subsidy/images/new/title.png"
+          src="https://events.cdn-tkec.tw/events_net/events_net/green_subsidy/images/new/title2.png"
           alt=""
         />
       </h2>
@@ -233,55 +241,59 @@ export default {
             :src="$filters.siteUrl('green_subsidy/images/new/g1.png')"
           />
           <p class="w:90% w:full@<576 m:auto pt:1.5%">
-            <img :src="$filters.siteUrl('green_subsidy/images/new/g2.png')" />
+            <img :src="$filters.siteUrl('green_subsidy/images/new/g3.png')" />
           </p>
         </div>
       </div>
 
-      <!-- 頁籤 -->
-      <div class="flex flex-wrap:wrap gap:10 mb:1%">
-        <swiper
-          :loop="false"
-          :space-between="10"
-          :breakpoints="{
-            0: {
-              slidesPerView: 2.4,
-              grid: {
-                fill: 'row',
-                rows: 1
+      <div class="box" v-if="isNew">
+        <!-- 頁籤 -->
+        <div class="flex flex-wrap:wrap gap:10 mb:1%">
+          <swiper
+            :loop="false"
+            :space-between="10"
+            :breakpoints="{
+              0: {
+                slidesPerView: 2.4,
+                grid: {
+                  fill: 'row',
+                  rows: 1
+                }
+              },
+              600: {
+                slidesPerView: 4.3,
+                grid: {
+                  fill: 'row',
+                  rows: 1
+                }
+              },
+              992: {
+                slidesPerView: 7,
+                grid: {
+                  fill: 'row',
+                  rows: 2
+                }
               }
-            },
-            600: {
-              slidesPerView: 4.3,
-              grid: {
-                fill: 'row',
-                rows: 1
-              }
-            },
-            992: {
-              slidesPerView: 7,
-              grid: {
-                fill: 'row',
-                rows: 2
-              }
-            }
-          }"
-          @swiper="onSwiperNew"
-        >
-          <swiper-slide
-            v-for="(newTab, n) in newTabs"
-            :class="[statusNew == n ? 'active' : '']"
-            class="w:20% brightness(0.7) brightness(1).active"
-            @click="goSlideNew(n)"
+            }"
+            @swiper="onSwiperNew"
           >
-            <a @click="changeNew(n, newTab.menu)"><img :src="$filters.siteUrl(newTab.image)" /></a>
-          </swiper-slide>
-        </swiper>
-      </div>
+            <swiper-slide
+              v-for="(newTab, n) in newTabs"
+              :class="[statusNew == n ? 'active' : '']"
+              class="w:20% brightness(0.7) brightness(1).active"
+              @click="goSlideNew(n)"
+            >
+              <a @click="changeNew(n, newTab.menu)"
+                ><img :src="$filters.siteUrl(newTab.image)"
+              /></a>
+            </swiper-slide>
+          </swiper>
+        </div>
 
-      <!-- 對應商品 -->
-      <div class="tab-content" v-for="(newTab, n) in newTabs" v-show="statusNew == n">
-        <component :is="listF" :pro="product2[newTab.menu]"></component>
+        <!-- 對應商品 -->
+        <div class="tab-content" v-for="(newTab, n) in newTabs" v-show="statusNew == n">
+          <component :is="listF" :pro="product2[newTab.menu]"></component>
+        </div>
       </div>
     </section>
 
@@ -795,44 +807,6 @@ section {
     }
   }
 
-  .protitle {
-    &.new {
-      .more {
-        width: 8rem;
-      }
-    }
-    .more {
-      top: 4vw;
-    }
-  }
-
-  .gift-box {
-    margin: -10% auto 32%;
-    .product {
-      width: 55%;
-      top: 24%;
-    }
-    .info {
-      width: 100%;
-      top: 96%;
-      .buttons {
-        width: 100%;
-        a {
-          width: 55%;
-        }
-      }
-    }
-    .gift-bg {
-      transform: scale(1.2);
-    }
-
-    .info-link {
-      width: 15%;
-      right: 72%;
-      bottom: 135%;
-    }
-  }
-
   .green-box {
     overflow: hidden;
     .tab {
@@ -883,86 +857,6 @@ section {
       ul {
         width: 90%;
         margin: 0 auto 0;
-      }
-    }
-  }
-
-  .sale-box {
-    margin: -15% auto 100%;
-    .tab-content {
-      top: 48%;
-      .bg01 {
-        border-left: 3px solid #000;
-        border-right: 3px solid #000;
-        &.incoming {
-          &:before {
-            font-size: 3em;
-            line-height: 10em;
-          }
-        }
-        &.off {
-          &:before {
-            font-size: 3em;
-            line-height: 10em;
-          }
-        }
-      }
-    }
-    .tab {
-      .swiper-button-next {
-        right: 10px !important;
-      }
-      .swiper-button-prev {
-        left: 10px !important;
-      }
-    }
-  }
-
-  .pro-box {
-    .tab-content {
-      width: 100%;
-      .bg01 {
-        &.incoming {
-          &:before {
-            font-size: 2.5em;
-          }
-        }
-        &.off {
-          &:before {
-            font-size: 2.5em;
-          }
-        }
-      }
-    }
-  }
-
-  .star {
-    #green-container {
-      .background {
-        background-size: 200% auto;
-        background-position:
-          -45vmin 11vmin,
-          top;
-        padding-bottom: 95%;
-      }
-    }
-  }
-}
-
-@include media-query('mobile', '320px') {
-  .pro-box {
-    .tab-content {
-      .bg01 {
-        &.incoming {
-          &:before {
-            font-size: 2em;
-          }
-        }
-        &.off {
-          &:before {
-            font-size: 2em;
-          }
-        }
       }
     }
   }
