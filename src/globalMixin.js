@@ -28,13 +28,19 @@ export const globalMixin = {
       })
     },
     //用後台陳列編號撈取全商品 [2000,20001,2002]
+    /* retryDelay 兩種方法
+    * 1. retryDelay: axiosRetry.exponentialDelay
+      (Exponential back-off retry delay between requests)
+      2. retryDelay: axiosRetry.linearDelay()
+      (Liner retry delay between requests)
+    */
     async getFloorData(menu) {
       let newPro = [],
         newDatas = []
       for (let z = 0; z < menu.length; z++) {
         axiosRetry(axios, {
           retries: 3,
-          retryDelay: axiosRetry.exponentialDelay
+          retryDelay: axiosRetry.linearDelay()
         })
         newDatas.push(
           await axios
@@ -67,7 +73,7 @@ export const globalMixin = {
     async getFloorSingle(menu) {
       axiosRetry(axios, {
         retries: 3,
-        retryDelay: axiosRetry.exponentialDelay
+        retryDelay: axiosRetry.linearDelay()
       })
 
       await axios
