@@ -227,7 +227,7 @@ export default {
             }"
             :breakpoints="{
               0: {
-                slidesPerView: 2.3,
+                slidesPerView: 2.2,
                 grid: {
                   fill: 'row',
                   rows: 3
@@ -244,14 +244,14 @@ export default {
                 slidesPerView: 4.3,
                 grid: {
                   fill: 'row',
-                  rows: 4
+                  rows: 3
                 }
               },
               1281: {
-                slidesPerView: 5.4,
+                slidesPerView: 5.3,
                 grid: {
                   fill: 'row',
-                  rows: 4
+                  rows: 3
                 }
               }
             }"
