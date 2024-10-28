@@ -59,6 +59,15 @@ export default {
         { image: 'double11_2024/images/sp2000.png', menu: 7574 },
         { image: 'double11_2024/images/sp3000.png', menu: 7575 }
       ],
+      special_after: [
+        { image: 'double11_2024/images/part2/c-111.png', menu: 7519 },
+        { image: 'double11_2024/images/part2/c-211.png', menu: 7520 },
+        { image: 'double11_2024/images/part2/c-411.png', menu: 7521 },
+        { image: 'double11_2024/images/part2/c-1011.png', menu: 7522 },
+        { image: 'double11_2024/images/part2/c-2011.png', menu: 7573 },
+        { image: 'double11_2024/images/part2/c-2011.png', menu: 7574 }
+      ],
+      special5: [{ image: 'double11_2024/images/part2/c-511.png', menu: 7519 }],
       sales: [
         { image: 'double11_2024/images/c-100.png', menu: 7523 },
         { image: 'double11_2024/images/c-400.png', menu: 7524 },
@@ -90,11 +99,21 @@ export default {
         { text: '秋冬除濕', href: '#pro7544' },
         { text: '廚房三機', href: '#pro7545' },
         { text: '機車', href: '#pro7546' }
-      ]
+      ],
+      today: new Date(),
+      isSale: false,
+      vips: [
+        { image: 'double11_2024/images/part2/S3-e1.png' },
+        { image: 'double11_2024/images/part2/S3-e2.png' },
+        { image: 'double11_2024/images/part2/S3-e3.png' }
+      ],
+      isVip: false,
+      isAll: true,
+      isGift: false
     }
   },
   mounted() {
-    const { menuGo, menuGreen, sales, specials, menuPrice } = this
+    const { menuGo, menuGreen, sales, specials, menuPrice, today } = this
 
     //撈取挑戰最低價樓層商品
     this.getFloorSingle(menuPrice)
@@ -110,6 +129,25 @@ export default {
 
     //撈取現折券樓層商品
     this.getFloorSingle(sales[0].menu)
+
+    // 11/1-12 隱藏現折券區
+    if (today < new Date('2024/11/13')) {
+      this.isSale = true
+    }
+
+    if (today >= new Date('2024/11/01') && today < new Date('2024/11/13')) {
+      this.isVip = true
+      this.isGift = true
+    }
+
+    if (today >= new Date('2024/11/01')) {
+      this.specials = this.special_after
+      this.isAll = false
+    }
+
+    if (today >= new Date('2024/11/05')) {
+      specials.splice(2, 0, this.special5[0])
+    }
   },
   methods: {
     changSp(id, menu) {
@@ -171,13 +209,34 @@ export default {
   <div id="double-container" v-cloak>
     <div class="background">
       <span class="logo">
-        <img :src="$filters.siteUrl('double11_2024/images/logo.png')" />
+        <img
+          v-if="today < new Date('2024/11/01')"
+          :src="$filters.siteUrl('double11_2024/images/logo.png')"
+        />
+        <img
+          v-if="today >= new Date('2024/11/01')"
+          :src="$filters.siteUrl('double11_2024/images/part2/logo.png')"
+        />
       </span>
       <h2 class="title animate__animated animate__lightSpeedInLeft">
-        <img :src="$filters.siteUrl('double11_2024/images/title.png')" />
+        <img
+          v-if="today < new Date('2024/11/01')"
+          :src="$filters.siteUrl('double11_2024/images/title.png')"
+        />
+        <img
+          v-if="today >= new Date('2024/11/01')"
+          :src="$filters.siteUrl('double11_2024/images/part2/title.png')"
+        />
       </h2>
       <h5 class="subtitle">
-        <img :src="$filters.siteUrl('double11_2024/images/subtitle2.png')" />
+        <img
+          v-if="today < new Date('2024/11/01')"
+          :src="$filters.siteUrl('double11_2024/images/subtitle2.png')"
+        />
+        <img
+          v-if="today >= new Date('2024/11/01')"
+          :src="$filters.siteUrl('double11_2024/images/part2/subtitle.png')"
+        />
       </h5>
       <p class="circle animate__animated animate__bounceInRight">
         <img :src="$filters.siteUrl('double11_2024/images/sub2.png')" />
@@ -190,7 +249,14 @@ export default {
     <!-- 早鳥優惠 -->
     <section class="early-box">
       <p class="early-bg rel w:75% w:85vw@<992 w:90vw@<576 m:auto">
-        <img :src="$filters.siteUrl('double11_2024/images/all1.png')" />
+        <img
+          v-if="today < new Date('2024/11/01')"
+          :src="$filters.siteUrl('double11_2024/images/all1.png')"
+        />
+        <img
+          v-if="today >= new Date('2024/11/01')"
+          :src="$filters.siteUrl('double11_2024/images/part2/all1.png')"
+        />
       </p>
       <img
         class="w:85% w:90vw@<992 w:full@<576 abs m:auto h:full left:0 right:0 top:0 z:-1"
@@ -287,8 +353,46 @@ export default {
       </div>
     </section>
 
+    <!-- 滿額好禮 -->
+    <section class="vip-group" v-if="isVip">
+      <h2 class="title">
+        <a :href="$filters.addGALink('')">
+          <img :src="$filters.siteUrl('double11_2024/images/part2/vip_title.png')" />
+        </a>
+      </h2>
+
+      <swiper
+        :loop="false"
+        :space-between="10"
+        :breakpoints="{
+          0: {
+            slidesPerView: 1.3
+          },
+          600: {
+            slidesPerView: 3
+          },
+          992: {
+            slidesPerView: 3
+          }
+        }"
+      >
+        <swiper-slide v-for="vip in vips">
+          <a
+            :href="
+              $filters.addGALink(
+                'https://events.tk3c.com/events_net/events_net/202411vip/index.html?id=4'
+              )
+            "
+            target="_blank"
+          >
+            <img :src="$filters.siteUrl(vip.image)" />
+          </a>
+        </swiper-slide>
+      </swiper>
+    </section>
+
     <!-- 全站活動 -->
-    <section class="all-box">
+    <section class="all-box" v-if="isAll">
       <ul class="gap:10">
         <li class="mb:1% w:80% w:85vw@<992 w:full@<576">
           <a
@@ -299,7 +403,7 @@ export default {
           </a>
         </li>
         <li class="w:40% w:42vw@<992 w:45vw@<576">
-          <a :href="$filters.addGALink('https://www.facebook.com/TDdd331?')" target="_blank">
+          <a :href="$filters.addGALink('https://www.facebook.com/TDdd331')" target="_blank">
             <img :src="$filters.siteUrl('double11_2024/images/FB.png')" />
           </a>
         </li>
@@ -309,6 +413,21 @@ export default {
           </a>
         </li>
       </ul>
+    </section>
+
+    <!-- 線上獨家活動 -->
+    <section class="gift-box" v-show="isGift">
+      <img :src="$filters.siteUrl('double11_2024/images/part2/line.png')" />
+      <div class="w:full h:full flex flex-wrap:wrap m:auto abs left:0 right:0 top:0">
+        <a
+          class="w:49% w:46vw@<576"
+          :href="$filters.addGALink('https://www.facebook.com/TDdd331')"
+        ></a>
+        <a
+          class="w:49% w:46vw@<576"
+          :href="$filters.addGALink('https://page.line.me/tid7686u')"
+        ></a>
+      </div>
     </section>
 
     <!-- 環保商品 -->
@@ -323,7 +442,14 @@ export default {
       </h2>
 
       <p class="w:85% w:80vw@<992 w:full@<576 m:auto p:2%|0|2% m:2%|0|0@<576">
-        <img :src="$filters.siteUrl('double11_2024/images/g1_3.png')" />
+        <img
+          v-if="today < new Date('2024/11/01')"
+          :src="$filters.siteUrl('double11_2024/images/g1_3.png')"
+        />
+        <img
+          v-if="today >= new Date('2024/11/01')"
+          :src="$filters.siteUrl('double11_2024/images/part2/g1_3.png')"
+        />
       </p>
       <img
         class="green-bg abs w:full left:0 right:0 m:auto top:13% top:16vw@<992 hidden@<576 z:-1"
@@ -365,7 +491,11 @@ export default {
           :href="$filters.addGALink('https://www.tk3c.com/dictitleurl.aspx?cid=123938')"
           target="_blank"
         >
-          <img :src="$filters.siteUrl('double11_2024/images/sp_title.png')" />
+          <img
+            v-if="today < new Date('2024/11/01')"
+            :src="$filters.siteUrl('double11_2024/images/sp_title.png')"
+          />
+          <img v-else:src="$filters.siteUrl('double11_2024/images/part2/sp_title.png')" />
         </a>
       </h2>
 
@@ -418,7 +548,7 @@ export default {
     </section>
 
     <!-- 現折券 -->
-    <section class="sale-box">
+    <section class="sale-box" v-if="isSale">
       <h2 class="title">
         <a
           :href="$filters.addGALink('https://www.tk3c.com/dic1.aspx?cid=123908&aid=23881')"
@@ -491,7 +621,11 @@ export default {
 
       <ul class="gap:10 mb:2%">
         <li class="w:85% w:85vw@<992 w:full@<576">
-          <img :src="$filters.siteUrl('double11_2024/images/bank1.png')" />
+          <img
+            v-if="today < new Date('2024/11/01')"
+            :src="$filters.siteUrl('double11_2024/images/bank1.png')"
+          />
+          <img v-else :src="$filters.siteUrl('double11_2024/images/part2/bank1.png')" />
         </li>
       </ul>
 
@@ -519,7 +653,11 @@ export default {
             <img :src="$filters.siteUrl('double11_2024/images/bank2.png')" />
           </swiper-slide>
           <swiper-slide class="w:44% w:44vw@<992 w:94vw@<576">
-            <img :src="$filters.siteUrl('double11_2024/images/bank3.png')" />
+            <img
+              v-if="today < new Date('2024/11/01')"
+              :src="$filters.siteUrl('double11_2024/images/bank3.png')"
+            />
+            <img v-else :src="$filters.siteUrl('double11_2024/images/part2/bank3.png')" />
           </swiper-slide>
         </swiper>
         <div class="swiper-button-prev prev"></div>
