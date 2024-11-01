@@ -16,11 +16,11 @@ export default {
       floorImg: [
         {
           url: 'https://www.tk3c.com/dictitleurl.aspx?cid=40444',
-          image: 'double11_2024/images/S1.png'
+          image: 'double11_2024/images/part2/S1.png'
         },
         {
           url: 'https://www.tk3c.com/dictitleurl.aspx?cid=93605',
-          image: 'double11_2024/images/S2.png',
+          image: 'double11_2024/images/part2/S2.png',
           banner: [
             {
               url: 'https://www.tk3c.com/dic2.aspx?cid=93605&aid=20222&hid=123877',
@@ -31,7 +31,7 @@ export default {
         },
         {
           url: 'https://events.tk3c.com/events_net/2024083C/index.html',
-          image: 'double11_2024/images/S3.png',
+          image: 'double11_2024/images/part2/S3.png',
           banner: [
             {
               url: 'https://events.tk3c.com/events_net/WUKONG/index.html',
@@ -40,33 +40,40 @@ export default {
             },
             {
               url: 'https://events.tk3c.com/events_net/2024083C/index.html',
-              pc: 'double11_2024/images/bn_3c.jpg',
-              mobile: 'double11_2024/images/bn_3cM.jpg'
+              pc: 'double11_2024/images/part2/bn_3c.jpg',
+              mobile: 'double11_2024/images/part2/bn_3cM.jpg'
             }
           ]
         },
         {
           url: 'https://www.tk3c.com/dic2.aspx?cid=11124&aid=23504&hid=120184',
-          image: 'double11_2024/images/S4.png',
+          image: 'double11_2024/images/part2/S4.png',
           banner: [
             {
               url: 'https://events.tk3c.com/events_net/2024083C/index.html',
-              pc: 'double11_2024/images/bn_3c.jpg',
-              mobile: 'double11_2024/images/bn_3cM.jpg'
+              pc: 'double11_2024/images/part2/bn_3c.jpg',
+              mobile: 'double11_2024/images/part2/bn_3cM.jpg'
             }
           ]
         },
         {
           url: 'https://www.tk3c.com/dictitleurl.aspx?cid=44823',
-          image: 'double11_2024/images/S5.png'
+          image: 'double11_2024/images/part2/S5.png',
+          banner: [
+            {
+              url: 'https://www.tk3c.com/dic2.aspx?cid=44823&aid=22521&hid=113989&strPreView=y',
+              pc: 'double11_2024/images/part2/bn_samung.jpg',
+              mobile: 'double11_2024/images/part2/bn_samungM.jpg'
+            }
+          ]
         },
         {
           url: 'https://www.tk3c.com/dictitleurl.aspx?cid=43403',
-          image: 'double11_2024/images/S6.png'
+          image: 'double11_2024/images/part2/S6.png'
         },
         {
           url: 'https://www.tk3c.com/dictitleurl.aspx?cid=117913',
-          image: 'double11_2024/images/S7.png',
+          image: 'double11_2024/images/part2/S7.png',
           banner: [
             {
               url: 'https://events.tk3c.com/events_net/book_sale/index.html',
@@ -82,96 +89,82 @@ export default {
         },
         {
           url: 'https://www.tk3c.com/dictitleurl.aspx?cid=111126',
-          image: 'double11_2024/images/S8.png',
-          banner: [
-            {
-              url: 'https://events.tk3c.com/events_net/DjiNeo/index.html',
-              pc: 'double11_2024/images/bn_dji.jpg',
-              mobile: 'double11_2024/images/bn_djiM.jpg'
-            }
-          ]
+          image: 'double11_2024/images/part2/S8.png'
         },
         {
           url: 'https://events.tk3c.com/events_net/2020TVforever/index.html',
-          image: 'double11_2024/images/S9.png',
+          image: 'double11_2024/images/part2/S9.png',
           banner: [
             {
               url: 'https://events.tk3c.com/events_net/2020TVforever/index.html',
-              pc: 'double11_2024/images/bn_tv.jpg',
-              mobile: 'double11_2024/images/bn_tvM.jpg'
+              pc: 'double11_2024/images/part2/bn_tv.jpg',
+              mobile: 'double11_2024/images/part2/bn_tvM.jpg'
             }
           ]
         },
         {
           url: 'https://www.tk3c.com/dictitleurl.aspx?cid=83185',
-          image: 'double11_2024/images/S10.png',
-          banner: [
-            {
-              url: 'https://events.tk3c.com/events_net/ZOJIRUSHI_2022/index.html',
-              pc: 'double11_2024/images/bn_zoji.jpg',
-              mobile: 'double11_2024/images/bn_zojiM.jpg'
-            }
-          ]
+          image: 'double11_2024/images/part2/S10.png'
         },
         {
           url: 'https://events.tk3c.com/events_net/icewash2209/index.html',
-          image: 'double11_2024/images/S11.png',
+          image: 'double11_2024/images/part2/S11.png',
           banner: [
             {
               url: 'https://events.tk3c.com/events_net/icewash2209/index.html',
-              pc: 'double11_2024/images/bn_ice.png',
-              mobile: 'double11_2024/images/bn_iceM.png'
+              pc: 'double11_2024/images/part2/bn_ice.jpg',
+              mobile: 'double11_2024/images/part2/bn_iceM.jpg'
             }
           ]
         },
         {
           url: 'https://www.tk3c.com/dictitleurl.aspx?cid=71484',
-          image: 'double11_2024/images/S12.png',
-          banner: [
+          image: 'double11_2024/images/part2/S12.png'
+          /*banner: [
             {
               url: 'https://events.tk3c.com/events_net/24spring_clean/index.html',
-              pc: 'double11_2024/images/bn_clean.jpg',
-              mobile: 'double11_2024/images/bn_cleanM.jpg'
+              pc: 'double11_2024/images/part2/bn_clean.jpg',
+              mobile: 'double11_2024/images/part2/bn_cleanM.jpg'
             }
-          ]
+          ]*/
         },
         {
           url: 'https://www.tk3c.com/dictitleurl.aspx?cid=4640',
-          image: 'double11_2024/images/S13.png'
+          image: 'double11_2024/images/part2/S13.png'
         },
         {
           url: 'https://events.tk3c.com/events_net/fan_hot/index.html',
-          image: 'double11_2024/images/S14.png',
-          banner: [
+          image: 'double11_2024/images/part2/S14.png'
+          /*banner: [
             {
               url: 'https://events.tk3c.com/events_net/fan_hot/index.html',
-              pc: 'double11_2024/images/bn_fan.jpg',
-              mobile: 'double11_2024/images/bn_fanM.jpg'
+              pc: 'double11_2024/images/part2/bn_fan.jpg',
+              mobile: 'double11_2024/images/part2/bn_fanM.jpg'
             }
-          ]
+          ]*/
         },
         {
           url: 'https://events.tk3c.com/events_net/airConditionerLAB/index.html',
-          image: 'double11_2024/images/S15.png',
+          image: 'double11_2024/images/part2/S15.png',
           banner: [
             {
               url: 'https://events.tk3c.com/events_net/airConditionerLAB/index.html',
-              pc: 'double11_2024/images/bn_air.jpg',
-              mobile: 'double11_2024/images/bn_airM.jpg'
+              pc: 'double11_2024/images/part2/bn_air.jpg',
+              mobile: 'double11_2024/images/part2/bn_airM.jpg'
             }
           ]
         },
         {
           url: 'https://www.tk3c.com/dic1.aspx?cid=71323&aid=16881',
-          image: 'double11_2024/images/S16.png'
+          image: 'double11_2024/images/part2/S16.png'
         },
         {
           url: 'https://www.tk3c.com/dictitleurl.aspx?cid=113296',
-          image: 'double11_2024/images/S17.png'
+          image: 'double11_2024/images/part2/S17.png'
         },
         {
           url: 'https://www.tk3c.com/dic1.aspx?cid=111383&aid=22330',
-          image: 'double11_2024/images/S18.png'
+          image: 'double11_2024/images/part2/S18.png'
         }
       ],
       today: Date()

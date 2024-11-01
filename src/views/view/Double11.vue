@@ -388,7 +388,7 @@ export default {
     <!-- 滿額好禮 -->
     <section class="vip-group" v-if="isVip">
       <h2 class="title">
-        <a :href="$filters.addGALink('')">
+        <a :href="$filters.addGALink('https://www.tk3c.com/events/eventgift.aspx')">
           <img :src="$filters.siteUrl('double11_2024/images/part2/vip_title.png')" />
         </a>
       </h2>
@@ -410,11 +410,7 @@ export default {
       >
         <swiper-slide v-for="vip in vips">
           <a
-            :href="
-              $filters.addGALink(
-                'https://events.tk3c.com/events_net/events_net/202411vip/dm.html?id=4'
-              )
-            "
+            :href="$filters.addGALink('https://www.tk3c.com/events/eventgift.aspx')"
             target="_blank"
           >
             <img :src="$filters.siteUrl(vip.image)" />
