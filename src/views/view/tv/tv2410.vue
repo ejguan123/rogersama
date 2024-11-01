@@ -172,7 +172,7 @@ export default {
       status: 0,
       statusSale: 0,
       statusNight: 0,
-      isNight: false,
+      isNight: true,
       isDis: true,
       today: new Date()
     }
