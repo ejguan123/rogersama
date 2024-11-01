@@ -388,6 +388,11 @@ export default {
     if (today >= new Date('2024/11/01')) {
       specials.splice(7, 1, this.special_after[0])
     }
+
+    // 11/1-12 隱藏現折券樓層
+    if (today >= new Date('2024/11/01') && today < new Date('2024/11/13')) {
+      this.isDis = false
+    }
   },
   methods: {
     changeBrand(id, menu) {
@@ -499,7 +504,6 @@ export default {
         />
         <img
           v-if="today >= new Date('2024/11/01')"
-          class="mobile"
           :src="$filters.siteUrl('airConditionerLAB/images/2410/title_2411.png')"
           alt="暖心回饋季"
         />
