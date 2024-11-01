@@ -1,20 +1,24 @@
 <script setup>
 import { toRefs } from 'vue'
-import { Swiper, SwiperSlide } from 'swiper/vue'
 import { EffectFlip } from 'swiper/modules'
 
 const props = defineProps({
   banner1: Object,
-  banner2: Object
+  banner2: Object,
+  title: String
 })
 
 const { banner1 } = toRefs(props)
 const { banner2 } = toRefs(props)
+const { title } = toRefs(props)
 </script>
 
 <template>
   <!-- 熱門活動 -->
   <section class="event-box scroll" id="event">
+    <h2 class="title">
+      <img :src="$filters.siteUrl(title)" />
+    </h2>
     <div class="content w:full">
       <!-- 左邊banner輪播翻轉 -->
       <div class="banner1">
