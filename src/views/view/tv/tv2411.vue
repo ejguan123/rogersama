@@ -24,8 +24,28 @@ export default {
     return {
       proTV: [
         {
-          url: 'https://www.tk3c.com/pt.aspx?pid=221284',
-          image: '2020TVforever/images/2411/pd.png'
+          url: 'https://www.tk3c.com/pt.aspx?pid=250546',
+          image: '2020TVforever/images/2411/pd1.png'
+        },
+        {
+          url: 'https://www.tk3c.com/pt.aspx?pid=250718',
+          image: '2020TVforever/images/2411/pd2.png'
+        },
+        {
+          url: 'https://www.tk3c.com/pt.aspx?pid=228183',
+          image: '2020TVforever/images/2411/pd3.png'
+        },
+        {
+          url: 'https://www.tk3c.com/pt.aspx?pid=228009',
+          image: '2020TVforever/images/2411/pd4.png'
+        },
+        {
+          url: 'https://www.tk3c.com/pt.aspx?pid=250175',
+          image: '2020TVforever/images/2411/pd5.png'
+        },
+        {
+          url: 'https://www.tk3c.com/pt.aspx?pid=245385',
+          image: '2020TVforever/images/2411/pd5.png'
         }
       ],
       gifts: [
@@ -36,6 +56,10 @@ export default {
         {
           url: 'https://www.tk3c.com/events/eventgift.aspx',
           image: '2020TVforever/images/2411/s1-2.png'
+        },
+        {
+          url: 'https://www.tk3c.com/events/eventgift.aspx',
+          image: '2020TVforever/images/2411/s1-3.png'
         }
       ],
       brands: [
@@ -148,10 +172,29 @@ export default {
       status: 0,
       statusSale: 0,
       statusNight: 0,
-      isNight: true,
-      isDis: false,
+      isNight: false,
+      isDis: true,
       today: new Date()
     }
+  },
+  created() {
+    document
+      .querySelector(
+        "link[href='https://events.tk3c.com/events_net/events_net/2020TVforever/css/tv2410.css']"
+      )
+      .remove()
+    let styles = ['https://events.tk3c.com/events_net/events_net/2020TVforever/css/tv2411.css']
+
+    //新增css 連結
+    this.addStyle(styles)
+
+    //新增js
+    let scripts = [
+      'https://events.tk3c.com/events_net/events_net/2020TVforever/js/confetti.js',
+      'https://events.tk3c.com/events_net/events_net/24618go/js/all_event.js'
+    ]
+
+    this.addScript(scripts)
   },
   mounted() {
     const { saleTab, nights, menuDis, today } = this
@@ -166,8 +209,8 @@ export default {
     this.getFloorSingle(nights[0].menu)
 
     // 2024/11/1-12 隱藏線折券樓層
-    if (today < new Date('2024/11/13')) {
-      this.isDis = true
+    if (today >= new Date('2024/11/01') && today < new Date('2024/11/13')) {
+      this.isDis = false
     }
   },
   methods: {
