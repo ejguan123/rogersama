@@ -22,9 +22,16 @@ export const globalMixin = {
         let link = document.createElement('link')
         link.type = 'text/css'
 
-        link.rel = s == 0 ? 'image_src' : 'stylesheet'
+        link.rel = 'stylesheet'
         link.setAttribute('href', style)
         document.head.appendChild(link);
+      })
+    },
+    addScript(script) {
+      script.forEach((script, s) => {
+        let scr = document.createElement('script')
+        scr.setAttribute('src', script)
+        document.body.appendChild(scr);
       })
     },
     //用後台陳列編號撈取全商品 [2000,20001,2002]
