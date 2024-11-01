@@ -60,14 +60,15 @@ export default {
         { image: 'double11_2024/images/sp3000.png', menu: 7575 }
       ],
       special_after: [
-        { image: 'double11_2024/images/part2/c-111.png', menu: 7519 },
-        { image: 'double11_2024/images/part2/c-211.png', menu: 7520 },
-        { image: 'double11_2024/images/part2/c-411.png', menu: 7521 },
-        { image: 'double11_2024/images/part2/c-1011.png', menu: 7522 },
-        { image: 'double11_2024/images/part2/c-2011.png', menu: 7573 },
-        { image: 'double11_2024/images/part2/c-2011.png', menu: 7574 }
+        { image: 'double11_2024/images/part2/c-1111.png', menu: 7597 },
+        { image: 'double11_2024/images/part2/c-111.png', menu: 7590 },
+        { image: 'double11_2024/images/part2/c-211.png', menu: 7591 },
+        { image: 'double11_2024/images/part2/c-411.png', menu: 7592 },
+        { image: 'double11_2024/images/part2/c-511.png', menu: 7593 },
+        { image: 'double11_2024/images/part2/c-1111b.png', menu: 7594 },
+        { image: 'double11_2024/images/part2/c-2111.png', menu: 7595 },
+        { image: 'double11_2024/images/part2/c-3011b.png', menu: 7596 }
       ],
-      special5: [{ image: 'double11_2024/images/part2/c-511.png', menu: 7519 }],
       sales: [
         { image: 'double11_2024/images/c-100.png', menu: 7523 },
         { image: 'double11_2024/images/c-400.png', menu: 7524 },
@@ -101,7 +102,7 @@ export default {
         { text: '機車', href: '#pro7546' }
       ],
       today: new Date(),
-      isSale: false,
+      isSale: true,
       vips: [
         { image: 'double11_2024/images/part2/S3-e1.png' },
         { image: 'double11_2024/images/part2/S3-e2.png' },
@@ -109,7 +110,9 @@ export default {
       ],
       isVip: false,
       isAll: true,
-      isGift: false
+      isGift: false,
+      isComputer: false,
+      spNum: 6.3
     }
   },
   mounted() {
@@ -125,14 +128,14 @@ export default {
     this.getFloorSingle(menuGo)
 
     //撈取全站神券樓層商品
-    this.getFloorSingle(specials[0].menu)
+    this.getFloorSingle(this.special_after[0].menu)
 
     //撈取現折券樓層商品
     this.getFloorSingle(sales[0].menu)
 
     // 11/1-12 隱藏現折券區
     if (today < new Date('2024/11/13')) {
-      this.isSale = true
+      this.isSale = false
     }
 
     if (today >= new Date('2024/11/01') && today < new Date('2024/11/13')) {
@@ -146,7 +149,11 @@ export default {
     }
 
     if (today >= new Date('2024/11/05')) {
-      specials.splice(2, 0, this.special5[0])
+      specials.splice(0, 1)
+    }
+
+    if (today >= new Date('2024/11/01') && today < new Date('2024/11/05')) {
+      this.isComputer = true
     }
   },
   methods: {
@@ -207,7 +214,7 @@ export default {
 
 <template>
   <div id="double-container" v-cloak>
-    <div class="background">
+    <div class="background" :class="[today >= new Date('2024/11/01') ? 'new' : '']">
       <span class="logo">
         <img
           v-if="today < new Date('2024/11/01')"
@@ -255,7 +262,7 @@ export default {
         />
         <img
           v-if="today >= new Date('2024/11/01')"
-          :src="$filters.siteUrl('double11_2024/images/part2/all1.png')"
+          :src="$filters.siteUrl('double11_2024/images/part2/all1b.png')"
         />
       </p>
       <img
@@ -264,16 +271,41 @@ export default {
       />
       <div class="flex flex-wrap:wrap gap:10 jc:center">
         <a
+          v-if="today < new Date('2024/11/01')"
           class="w:15% w:20vw@<992 w:25vw@<576 m:0|2%"
           href="https://www.tk3c.com/dictitleurl.aspx?cid=123938"
           target="_blank"
         >
           <img :src="$filters.siteUrl('double11_2024/images/btn1.png')" />
         </a>
+
+        <a
+          v-if="today >= new Date('2024/11/01')"
+          class="w:15% w:20vw@<992 w:25vw@<576 m:0|2%"
+          href="https://www.tk3c.com/dic2.aspx?cid=123970&aid=23887&hid=123978&strPreView=y"
+          target="_blank"
+        >
+          <img :src="$filters.siteUrl('double11_2024/images/btn1.png')" />
+        </a>
+
         <a class="w:15% w:20vw@<992 w:25vw@<576 m:0|2%" @click="message">
           <img :src="$filters.siteUrl('double11_2024/images/btn2.png')" />
         </a>
       </div>
+    </section>
+
+    <!-- 3c家電大賞 -->
+    <section v-if="isComputer">
+      <a
+        class="w:85% w:90vw@<992 w:95vw@<576"
+        :href="
+          $filters.addGALink(
+            'https://www.tk3c.com/dic2.aspx?cid=123970&aid=23887&hid=123978&strPreView=y'
+          )
+        "
+      >
+        <img :src="$filters.siteUrl('double11_2024/images/bn_computer.jpg')" />
+      </a>
     </section>
 
     <!-- 挑戰最低價 -->
@@ -380,7 +412,7 @@ export default {
           <a
             :href="
               $filters.addGALink(
-                'https://events.tk3c.com/events_net/events_net/202411vip/index.html?id=4'
+                'https://events.tk3c.com/events_net/events_net/202411vip/dm.html?id=4'
               )
             "
             target="_blank"
@@ -488,14 +520,23 @@ export default {
     <section class="special-box scroll" id="sp">
       <h2 class="title">
         <a
+          v-if="today < new Date('2024/11/01')"
           :href="$filters.addGALink('https://www.tk3c.com/dictitleurl.aspx?cid=123938')"
           target="_blank"
         >
-          <img
-            v-if="today < new Date('2024/11/01')"
-            :src="$filters.siteUrl('double11_2024/images/sp_title.png')"
-          />
-          <img v-else:src="$filters.siteUrl('double11_2024/images/part2/sp_title.png')" />
+          <img :src="$filters.siteUrl('double11_2024/images/sp_title.png')" />
+        </a>
+
+        <a
+          v-if="today >= new Date('2024/11/01')"
+          :href="
+            $filters.addGALink(
+              'https://www.tk3c.com/dic2.aspx?cid=123970&aid=23887&hid=123978&strPreView=y'
+            )
+          "
+          target="_blank"
+        >
+          <img :src="$filters.siteUrl('double11_2024/images/part2/sp_title2.png')" />
         </a>
       </h2>
 
@@ -508,10 +549,10 @@ export default {
               slidesPerView: 2.4
             },
             600: {
-              slidesPerView: 3.3
+              slidesPerView: 4.3
             },
             992: {
-              slidesPerView: 7
+              slidesPerView: spNum
             }
           }"
           :modules="[Controller]"
@@ -625,7 +666,7 @@ export default {
             v-if="today < new Date('2024/11/01')"
             :src="$filters.siteUrl('double11_2024/images/bank1.png')"
           />
-          <img v-else :src="$filters.siteUrl('double11_2024/images/part2/bank1.png')" />
+          <img v-else :src="$filters.siteUrl('double11_2024/images/part2/bank1b.png')" />
         </li>
       </ul>
 
@@ -679,6 +720,18 @@ export default {
     <!-- 其他樓層 -->
     <DoubleFloor></DoubleFloor>
   </div>
+
+  <!-- 左側選單 -->
+  <!--<aside class="aside-container left" v-if="today >= new Date('2024/11/01')">
+    <span class="collaspe"><i class="fas fa-chevron-left"></i></span>
+    <div class="aside-wrap">
+      <h3 class="aside-header"></h3>
+      <div class="aside-content">
+        <ul></ul>
+      </div>
+      <a href="#" class="go-top">GO TOP</a>
+    </div>
+  </aside>-->
 
   <!-- 右側選單 -->
   <aside class="aside-container">
