@@ -40,49 +40,53 @@ export default {
     return {
       proAir: [
         {
-          url: 'https://www.tk3c.com/pt.aspx?pid=180195',
-          image: 'airConditionerLAB/images/2410/180195_1a.png',
+          url: 'https://www.tk3c.com/pt.aspx?pid=180194',
+          image: 'airConditionerLAB/images/2411/180194_b.png',
           text: 'airConditionerLAB/images/2410/180195_2b.png'
         },
         {
-          url: 'https://www.tk3c.com/pt.aspx?pid=183903',
-          image: 'airConditionerLAB/images/2410/183903_1.png',
+          url: 'https://www.tk3c.com/pt.aspx?pid=216587',
+          image: 'airConditionerLAB/images/2411/216587.png',
           text: 'airConditionerLAB/images/2410/183903_2a.png'
         },
         {
-          url: 'https://www.tk3c.com/pt.aspx?pid=212543',
-          image: 'airConditionerLAB/images/2410/212543_1a.png',
+          url: 'https://www.tk3c.com/pt.aspx?pid=217065',
+          image: 'airConditionerLAB/images/2411/217065.png',
           text: 'airConditionerLAB/images/2410/212543_2a.png'
         },
         {
-          url: 'https://www.tk3c.com/pt.aspx?pid=235291',
-          image: 'airConditionerLAB/images/2410/235291_1a.png',
+          url: 'https://www.tk3c.com/pt.aspx?pid=235231',
+          image: 'airConditionerLAB/images/2411/235231.png',
           text: 'airConditionerLAB/images/2410/235291_2b.png'
         },
         {
           url: 'https://www.tk3c.com/pt.aspx?pid=237456',
-          image: 'airConditionerLAB/images/2410/237456_1.png',
+          image: 'airConditionerLAB/images/2411/237456_1.png',
           text: 'airConditionerLAB/images/2410/237456_2a.png'
         },
         {
-          url: 'https://www.tk3c.com/pt.aspx?pid=245238',
-          image: 'airConditionerLAB/images/2410/245238_1.png',
+          url: 'https://www.tk3c.com/pt.aspx?pid=236549',
+          image: 'airConditionerLAB/images/2411/236549.png',
           text: 'airConditionerLAB/images/2410/245238_2a.png'
         },
         {
-          url: 'https://www.tk3c.com/pt.aspx?pid=245720',
-          image: 'airConditionerLAB/images/2410/245720_1.png',
+          url: 'https://www.tk3c.com/pt.aspx?pid=240642',
+          image: 'airConditionerLAB/images/2411/240642.png',
           text: 'airConditionerLAB/images/2410/245720_2a.png'
         },
         {
-          url: 'https://www.tk3c.com/pt.aspx?pid=245849',
-          image: 'airConditionerLAB/images/2410/245849_1.png',
+          url: 'https://www.tk3c.com/pt.aspx?pid=245237',
+          image: 'airConditionerLAB/images/2411/245237.png',
           text: 'airConditionerLAB/images/2410/245849_2a.png'
         },
         {
-          url: 'https://www.tk3c.com/pt.aspx?pid=246919',
-          image: 'airConditionerLAB/images/2410/246919_1a.png',
+          url: 'https://www.tk3c.com/pt.aspx?pid=246100',
+          image: 'airConditionerLAB/images/2411/246100.png',
           text: 'airConditionerLAB/images/2410/246919_2b.png'
+        },
+        {
+          url: 'https://www.tk3c.com/pt.aspx?pid=249121',
+          image: 'airConditionerLAB/images/2411/249121.png'
         }
       ],
       specials: [
@@ -512,23 +516,14 @@ export default {
       <div class="product">
         <swiper
           :loop="true"
-          :observer="true"
+          :effect="'fade'"
           :parallax="true"
           :autoplay="{ delay: 1800, disableOnInteraction: false }"
-          :modules="[Parallax]"
+          :modules="[EffectFade, Parallax]"
         >
-          <swiper-slide v-for="pro in proAir" class="flex! ai:baseline! flex-wrap:wrap@<576">
-            <a :href="$filters.addGALink(pro.url)" target="_blank" data-swiper-parallax-x="-800">
+          <swiper-slide v-for="pro in proAir">
+            <a :href="$filters.addGALink(pro.url)" target="_blank" data-swiper-parallax-opacity="0">
               <img :src="$filters.siteUrl(pro.image)" alt="" />
-            </a>
-            <a
-              class="text rel right:3% right:-1vw@<576"
-              :href="$filters.addGALink(pro.url)"
-              data-swiper-parallax-x="-3000"
-              data-swiper-parallax-duration="800"
-              target="_blank"
-            >
-              <img :src="$filters.siteUrl(pro.text)" alt="" />
             </a>
           </swiper-slide>
         </swiper>
