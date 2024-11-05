@@ -5,32 +5,6 @@ import banner from '../../layout/banner.vue'
 import mobileAi from '../../layout/mobileAi.vue'
 import { ref } from 'vue'
 
-document.title = '1111 AI 3C狂購節 | 燦坤線上購物'
-
-document
-  .querySelector("meta[name='description'")
-  .setAttribute(
-    'content',
-    '1111 AI 3C狂購節，提供最新款筆電、電腦、顯示器、鍵盤、滑鼠、耳機、路由器、遊戲、平板。來燦坤享有最便宜優惠價格，提供快速配送與保固，再享抽獎活動，買電腦來燦坤線上購物'
-  )
-
-document
-  .querySelector("meta[property='og:title'")
-  .setAttribute('content', '1111 AI 3C狂購節 | 燦坤線上購物')
-
-document
-  .querySelector("meta[property='og:description'")
-  .setAttribute(
-    'content',
-    '1111 AI 3C狂購節，提供最新款筆電、電腦、顯示器、鍵盤、滑鼠、耳機、路由器、遊戲、平板。來燦坤享有最便宜優惠價格，提供快速配送與保固，再享抽獎活動，買電腦來燦坤線上購物'
-  )
-
-document
-  .querySelector(
-    "link[href='https://events.tk3c.com/events_net/events_net/2024083C/css/ai2410.css']"
-  )
-  .remove()
-
 const swiperRef = ref()
 
 const onSwiper = (swiper) => {
@@ -427,12 +401,6 @@ export default {
       statusSale: 0,
       isSale: true
     }
-  },
-  created() {
-    let styles = ['https://events.tk3c.com/events_net/events_net/2024083C/css/ai2411.css']
-
-    //新增css 連結
-    this.addStyle(styles)
   },
   mounted() {
     const { tab1, tab2, sales } = this
