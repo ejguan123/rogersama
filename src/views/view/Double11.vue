@@ -118,6 +118,10 @@ export default {
   mounted() {
     const { menuGo, menuGreen, sales, specials, menuPrice, today } = this
 
+    if (today >= new Date('2024/11/05')) {
+      this.special_after.splice(0, 1)
+    }
+
     //撈取挑戰最低價樓層商品
     this.getFloorSingle(menuPrice)
 
@@ -146,10 +150,6 @@ export default {
     if (today >= new Date('2024/11/01')) {
       this.specials = this.special_after
       this.isAll = false
-    }
-
-    if (today >= new Date('2024/11/05')) {
-      specials.splice(0, 1)
     }
 
     if (today >= new Date('2024/11/01') && today < new Date('2024/11/05')) {
@@ -269,7 +269,7 @@ export default {
         class="w:85% w:90vw@<992 w:full@<576 abs m:auto h:full left:0 right:0 top:0 z:-1"
         :src="$filters.siteUrl('double11_2024/images/car_bg.png')"
       />
-      <div class="flex flex-wrap:wrap gap:10 jc:center">
+      <div class="flex flex-wrap:wrap gap:10 jc:center m:auto">
         <a
           v-if="today < new Date('2024/11/01')"
           class="w:15% w:20vw@<992 w:25vw@<576 m:0|2%"
@@ -282,13 +282,13 @@ export default {
         <a
           v-if="today >= new Date('2024/11/01')"
           class="w:15% w:20vw@<992 w:25vw@<576 m:0|2%"
-          href="https://www.tk3c.com/dic2.aspx?cid=123970&aid=23887&hid=123978&strPreView=y"
+          href="https://www.tk3c.com/dic1.aspx?cid=123970&aid=23887&strPreView=y"
           target="_blank"
         >
           <img :src="$filters.siteUrl('double11_2024/images/btn1.png')" />
         </a>
 
-        <a class="w:15% w:20vw@<992 w:25vw@<576 m:0|2%" @click="message">
+        <a class="hidden w:15% w:20vw@<992 w:25vw@<576 m:0|2%" @click="message">
           <img :src="$filters.siteUrl('double11_2024/images/btn2.png')" />
         </a>
       </div>
@@ -445,7 +445,10 @@ export default {
 
     <!-- 線上獨家活動 -->
     <section class="gift-box" v-show="isGift">
-      <img :src="$filters.siteUrl('double11_2024/images/part2/line.png')" />
+      <img
+        class="max-w:900px m:auto"
+        :src="$filters.siteUrl('double11_2024/images/part2/line.png')"
+      />
       <div class="w:full h:full flex flex-wrap:wrap m:auto abs left:0 right:0 top:0">
         <a
           class="w:49% w:46vw@<576"
@@ -526,9 +529,7 @@ export default {
         <a
           v-if="today >= new Date('2024/11/01')"
           :href="
-            $filters.addGALink(
-              'https://www.tk3c.com/dic2.aspx?cid=123970&aid=23887&hid=123978&strPreView=y'
-            )
+            $filters.addGALink('https://www.tk3c.com/dic1.aspx?cid=123970&aid=23887&strPreView=y')
           "
           target="_blank"
         >
