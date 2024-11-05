@@ -177,25 +177,6 @@ export default {
       today: new Date()
     }
   },
-  created() {
-    document
-      .querySelector(
-        "link[href='https://events.tk3c.com/events_net/events_net/2020TVforever/css/tv2410.css']"
-      )
-      .remove()
-    let styles = ['https://events.tk3c.com/events_net/events_net/2020TVforever/css/tv2411.css']
-
-    //新增css 連結
-    this.addStyle(styles)
-
-    //新增js
-    let scripts = [
-      'https://events.tk3c.com/events_net/events_net/2020TVforever/js/confetti.js',
-      'https://events.tk3c.com/events_net/events_net/24618go/js/all_event.js'
-    ]
-
-    this.addScript(scripts)
-  },
   mounted() {
     const { saleTab, nights, menuDis, today } = this
 
