@@ -46,7 +46,8 @@ export const globalMixin = {
         newDatas = []
       for (let z = 0; z < menu.length; z++) {
         axiosRetry(axios, {
-          retries: 3,
+          retries: 1,
+          shouldResetTimeout: true,
           retryDelay: axiosRetry.linearDelay()
         })
         newDatas.push(
@@ -79,7 +80,8 @@ export const globalMixin = {
     //用後台陳列編號撈取單一商品 如:2000
     async getFloorSingle(menu) {
       axiosRetry(axios, {
-        retries: 3,
+        retries: 1,
+        shouldResetTimeout: true,
         retryDelay: axiosRetry.linearDelay()
       })
 
