@@ -51,7 +51,7 @@ export default {
         },
         {
           url: 'https://www.tk3c.com/pt.aspx?pid=217065',
-          image: 'airConditionerLAB/images/2411/217065.png',
+          image: 'airConditionerLAB/images/2411/217065_b.png',
           text: 'airConditionerLAB/images/2410/212543_2a.png'
         },
         {
