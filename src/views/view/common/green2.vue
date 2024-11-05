@@ -1,6 +1,7 @@
 <script setup>
 import { Controller } from 'swiper/modules'
 import listF from '../../layout/listF.vue'
+import listD from '../../layout/listD.vue'
 import { ref } from 'vue'
 
 const swiperRef1 = ref()
@@ -303,7 +304,7 @@ export default {
         <img :src="$filters.siteUrl('green_subsidy/images/S1_a.png')" alt="本週環保小尖兵" />
       </h2>
       <div class="special">
-        <component :is="listF" :pro="product2[menuSp]"></component>
+        <component :is="listD" :pro="product2[menuSp]"></component>
       </div>
     </section>
 
