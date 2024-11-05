@@ -718,7 +718,7 @@ export default {
   </div>
 
   <!-- 左側選單 -->
-  <!--<aside class="aside-container left" v-if="today >= new Date('2024/11/01')">
+  <aside class="aside-container left" v-if="today >= new Date('2024/11/01')">
     <span class="collaspe"><i class="fas fa-chevron-left"></i></span>
     <div class="aside-wrap">
       <h3 class="aside-header"></h3>
@@ -727,7 +727,7 @@ export default {
       </div>
       <a href="#" class="go-top">GO TOP</a>
     </div>
-  </aside>-->
+  </aside>
 
   <!-- 右側選單 -->
   <aside class="aside-container">

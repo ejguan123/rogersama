@@ -119,14 +119,14 @@ export default {
         },
         {
           url: 'https://www.tk3c.com/dictitleurl.aspx?cid=71484',
-          image: 'double11_2024/images/part2/S12.png'
-          /*banner: [
+          image: 'double11_2024/images/part2/S12.png',
+          banner: [
             {
               url: 'https://events.tk3c.com/events_net/24spring_clean/index.html',
               pc: 'double11_2024/images/part2/bn_clean.jpg',
               mobile: 'double11_2024/images/part2/bn_cleanM.jpg'
             }
-          ]*/
+          ]
         },
         {
           url: 'https://www.tk3c.com/dictitleurl.aspx?cid=4640',
@@ -134,14 +134,14 @@ export default {
         },
         {
           url: 'https://events.tk3c.com/events_net/fan_hot/index.html',
-          image: 'double11_2024/images/part2/S14.png'
-          /*banner: [
+          image: 'double11_2024/images/part2/S14.png',
+          banner: [
             {
               url: 'https://events.tk3c.com/events_net/fan_hot/index.html',
               pc: 'double11_2024/images/part2/bn_fan.jpg',
               mobile: 'double11_2024/images/part2/bn_fanM.jpg'
             }
-          ]*/
+          ]
         },
         {
           url: 'https://events.tk3c.com/events_net/airConditionerLAB/index.html',
