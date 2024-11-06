@@ -54,11 +54,11 @@ export default {
           image: '2020TVforever/images/2411/s1-1.png'
         },
         {
-          url: 'https://www.tk3c.com/events/eventgift.aspx',
+          url: 'https://www.tk3c.com/dic1.aspx?cid=11312&aid=23889',
           image: '2020TVforever/images/2411/s1-2.png'
         },
         {
-          url: 'https://www.tk3c.com/events/eventgift.aspx',
+          url: 'https://www.tk3c.com/dic2.aspx?cid=11312&aid=4708&hid=60645',
           image: '2020TVforever/images/2411/s1-3.png'
         }
       ],
