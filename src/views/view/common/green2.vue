@@ -854,12 +854,6 @@ section {
         display: none;
       }
     }
-    .special {
-      ul {
-        width: 90%;
-        margin: 0 auto 0;
-      }
-    }
   }
 }
 </style>
