@@ -382,18 +382,16 @@ export default {
       ],
       sales: [
         {
-          image: '2024083C/images/2411/D01-4.png',
-          menu: 7598
+          image: '2024083C/images/2411/D01-4.png'
         },
         {
-          image: '2024083C/images/2411/D01-3.png',
-          menu: 7599
+          image: '2024083C/images/2411/D01-3.png'
         },
         {
-          image: '2024083C/images/2411/D01-2.png',
-          menu: 7600
+          image: '2024083C/images/2411/D01-2.png'
         }
       ],
+      menuSale: [7598, 7599, 7600],
       tabStatus: null,
       statusPro: 0,
       tabs: [],
@@ -433,7 +431,7 @@ export default {
     }, 60)
 
     //折價券樓層
-    this.getFloorSingle(sales[0].menu)
+    this.getFloorData(this.menuSale)
   },
   methods: {
     //應援指南頁籤切換
@@ -455,11 +453,10 @@ export default {
         }, 20)
       }
     },
-    changeSale(id, menu) {
+    changeSale(id) {
       if (event) {
         setTimeout(() => {
           this.statusSale = id
-          this.getFloorSingle(menu)
         }, 22)
       }
     },
@@ -799,7 +796,7 @@ export default {
                 class="brightness(0.7) brightness(1).active"
                 @click="goSlide(s)"
               >
-                <a @click="changeSale(s, sale.menu)">
+                <a @click="changeSale(s)">
                   <img :src="$filters.siteUrl(sale.image)" />
                 </a>
               </swiper-slide>
@@ -807,7 +804,13 @@ export default {
           </div>
 
           <div class="box" v-for="(sale, s) in sales" v-show="statusSale == Number(s)">
-            <component :is="listF" :pro="product2[sale.menu]" :isSwiper="1" :name="'sale'">
+            <component
+              v-if="products[menuSale[s]] != undefined"
+              :is="listF"
+              :pro="products[menuSale[s]].Data"
+              :isSwiper="1"
+              :name="'sale'"
+            >
             </component>
           </div>
         </section>
@@ -933,7 +936,7 @@ export default {
 <style lang="scss">
 @charset "utf-8";
 
-@import '../../../assets/sass/module/base';
+@import '@/assets/sass/module/base';
 $dir: 'https://events.cdn-tkec.tw/events_net/events_net/2024083C/images/2411/';
 $origin: 'https://events.tk3c.com/events_net/events_net/2024083C/images/2411/';
 
