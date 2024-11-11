@@ -1,18 +1,18 @@
 @charset "utf-8";
 
 //思源黑體
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap');
 //初始化
 //@import "../module/reset.scss";
 //設定變數
-@import "../module/variable";
+@import '@/assets/sass/module/variable.scss';
 //共用功能區
-@import "../module/mixins";
+@import '@/assets/sass/module/mixins';
 
-//@import "../module/channel";
+//@use "../module/channel";
 
 //翻轉特效
-//@import "./split_flip";
+//@use "./split_flip";
 
 //swiper樣式
-//@import "../module/swiper.scss";
+//@use "../module/swiper.scss";

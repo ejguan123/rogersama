@@ -1,80 +1,80 @@
 @charset "utf-8";
 
 //不同裝置調整
-@mixin media-query($type, $query: "", $query2: "") {
-  @if $type == "small" {
+@mixin media-query($type, $query: '', $query2: '') {
+  @if $type == 'small' {
     @media only screen and (max-width: $small-width) {
       @content;
     }
-  } @else if $type == "medium" {
+  } @else if $type == 'medium' {
     @media only screen and (min-width: ($small-width + 1)) and (max-width: ($large-width - 1)) {
       @content;
     }
-  } @else if $type == "large" {
+  } @else if $type == 'large' {
     @media only screen and (min-width: $large-width) {
       @content;
     }
-  } @else if $type == "pc" {
+  } @else if $type == 'pc' {
     @media only screen and (min-width: $query) {
       @content;
     }
-  } @else if $type == "pad" {
+  } @else if $type == 'pad' {
     @media only screen and (min-width: $query) and (max-width: $query2) {
       @content;
     }
-  } @else if $type == "mobile" {
+  } @else if $type == 'mobile' {
     @media only screen and (max-width: $query) {
       @content;
     }
-  } @else if $type == "m" {
+  } @else if $type == 'm' {
     @media screen and (max-width: 480px) {
       @content;
     }
-  } @else if $type == "s" {
+  } @else if $type == 's' {
     @media screen and (max-width: 320px) {
       @content;
     }
-  } @else if $type == "iphone12pro" {
+  } @else if $type == 'iphone12pro' {
     @media only screen and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) {
       @content;
     }
-  } @else if $type == "iphone12" {
+  } @else if $type == 'iphone12' {
     @media only screen and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) {
       @content;
     }
-  } @else if $type == "iphone11Pro" {
+  } @else if $type == 'iphone11Pro' {
     @media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
       @content;
     }
-  } @else if $type == "iphone11" {
+  } @else if $type == 'iphone11' {
     @media only screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) {
       @content;
     }
-  } @else if $type == "iphoneX" {
+  } @else if $type == 'iphoneX' {
     @media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
       @content;
     }
-  } @else if $type == "iphone6plus" {
+  } @else if $type == 'iphone6plus' {
     @media screen and (device-width: 414px) and (device-width: 736px) and (-webkit-device-pixel-ratio: 3) {
       @content;
     }
-  } @else if $type == "iphone6" {
+  } @else if $type == 'iphone6' {
     @media screen and (max-width: 375px) {
       @content;
     }
-  } @else if $type == "ipadpro" {
+  } @else if $type == 'ipadpro' {
     @media only screen and (min-width: 1024px) and (max-height: 1366px) and (-webkit-min-device-pixel-ratio: 1.5) and (hover: none) {
       @content;
     }
   }
   //橫向
-  @else if $type == "landscape" {
+  @else if $type == 'landscape' {
     @media only screen and (min-width: 480px) and (max-width: 749px) and (orientation: landscape) {
       @content;
     }
   }
   //直向
-  @else if $type == "portrait" {
+  @else if $type == 'portrait' {
     @media (orientation: portrait) {
       @content;
     }
@@ -92,28 +92,23 @@
 }
 
 //背景圖 %
-@mixin bg-responsive(
-  $file,
-  $width,
-  $height,
-  $rep: no-repeat,
-  $base: width,
-  $scale: 100%
-) {
+@mixin bg-responsive($file, $width, $height, $rep: no-repeat, $base: width, $scale: 100%) {
   background: {
     image: url($file);
     repeat: $rep;
   }
 
-  background-position: 0 0, top;
+  background-position:
+    0 0,
+    top;
   background-size: 100% auto;
 
   @if $base == width {
-    padding-bottom: abs($height / $width) * $scale;
+    padding-bottom: calc($height/$width) * $scale;
     width: $scale;
     height: 0;
   } @else if $base == height {
-    padding-left: abs($width / $height) * $scale;
+    padding-left: clac($width/$height) * $scale;
     height: $scale;
     width: 0;
   }
@@ -130,7 +125,7 @@
 
   @if $mask {
     &:before {
-      content: "";
+      content: '';
       position: fixed;
       top: 0;
       left: 0;
