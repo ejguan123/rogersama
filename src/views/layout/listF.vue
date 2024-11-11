@@ -11,7 +11,7 @@ export default {
   <!-- 有輪播 -->
   <div class="bg01 list_F p:1%|1%|0! p:2%|2%|0!@<576" v-if="isSwiper == true">
     <ul v-if="pro != undefined" :class="[name != undefined ? name : '']">
-      <swiper-container
+      <swiper
         class="pro overflow:hidden"
         :loop="true"
         :autoplay="{
@@ -19,6 +19,8 @@ export default {
           disableOnInteraction: false
         }"
         :observer="true"
+        :observeParents="true"
+        :loopAdditionalSlides="2"
         :space-between="10"
         :navigation="{
           prevEl: `.${name} .prev`,
@@ -36,7 +38,7 @@ export default {
           }
         }"
       >
-        <li :class="[incoming ? 'before' : '']" v-for="(proA, p) in pro" class="swiper-slide">
+        <swiper-slide :class="[incoming ? 'before' : '']" v-for="(proA, p) in pro" class="bg:#fff">
           <a
             :href="$filters.addGALink('https://www.tk3c.com/pt.aspx?pid=' + proA.productid)"
             :id="'prod' + proA.productid"
@@ -57,8 +59,8 @@ export default {
               </strong>
             </div>
           </a>
-        </li>
-      </swiper-container>
+        </swiper-slide>
+      </swiper>
       <div v-if="pro.length > 4" class="swiper-button-prev prev"></div>
       <div v-if="pro.length > 4" class="swiper-button-next next"></div>
     </ul>
