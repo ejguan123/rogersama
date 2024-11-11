@@ -50,6 +50,8 @@ export default {
       menuGreen: 7517, //環保商品陳列編號
       menuGo: 7518, //速速go陳列編號
       menuPrice: 7572, //挑戰最低價用
+      menuSp: [7597, 7590, 7591, 7592, 7593, 7594, 7595, 7596],
+      menuSale: [7523, 7524, 7525, 7526, 7527, 7528],
       specials: [
         { image: 'double11_2024/images/sp100.png', menu: 7519 },
         { image: 'double11_2024/images/sp200.png', menu: 7520 },
@@ -60,22 +62,22 @@ export default {
         { image: 'double11_2024/images/sp3000.png', menu: 7575 }
       ],
       special_after: [
-        { image: 'double11_2024/images/part2/c-1111.png', menu: 7597 },
-        { image: 'double11_2024/images/part2/c-111.png', menu: 7590 },
-        { image: 'double11_2024/images/part2/c-211.png', menu: 7591 },
-        { image: 'double11_2024/images/part2/c-411.png', menu: 7592 },
-        { image: 'double11_2024/images/part2/c-511.png', menu: 7593 },
-        { image: 'double11_2024/images/part2/c-1111b.png', menu: 7594 },
-        { image: 'double11_2024/images/part2/c-2111.png', menu: 7595 },
-        { image: 'double11_2024/images/part2/c-3011b.png', menu: 7596 }
+        { image: 'double11_2024/images/part2/c-1111.png' },
+        { image: 'double11_2024/images/part2/c-111.png' },
+        { image: 'double11_2024/images/part2/c-211.png' },
+        { image: 'double11_2024/images/part2/c-411.png' },
+        { image: 'double11_2024/images/part2/c-511.png' },
+        { image: 'double11_2024/images/part2/c-1111b.png' },
+        { image: 'double11_2024/images/part2/c-2111.png' },
+        { image: 'double11_2024/images/part2/c-3011b.png' }
       ],
       sales: [
-        { image: 'double11_2024/images/c-100.png', menu: 7523 },
-        { image: 'double11_2024/images/c-400.png', menu: 7524 },
-        { image: 'double11_2024/images/c-500.png', menu: 7525 },
-        { image: 'double11_2024/images/c-600.png', menu: 7526 },
-        { image: 'double11_2024/images/c-700.png', menu: 7527 },
-        { image: 'double11_2024/images/c-1000_b.png', menu: 7528 }
+        { image: 'double11_2024/images/c-100.png' },
+        { image: 'double11_2024/images/c-400.png' },
+        { image: 'double11_2024/images/c-500.png' },
+        { image: 'double11_2024/images/c-600.png' },
+        { image: 'double11_2024/images/c-700.png' },
+        { image: 'double11_2024/images/c-1000_b.png' }
       ],
       statusSp: 0, //全戰神券樓層用
       statusSale: 0, //現折券樓層用
@@ -120,6 +122,7 @@ export default {
 
     if (today >= new Date('2024/11/05')) {
       this.special_after.splice(0, 1)
+      this.menuSp.splice(0, 1)
     }
 
     //撈取挑戰最低價樓層商品
@@ -132,10 +135,10 @@ export default {
     this.getFloorSingle(menuGo)
 
     //撈取全站神券樓層商品
-    this.getFloorSingle(this.special_after[0].menu)
+    this.getFloorData(this.menuSp)
 
     //撈取現折券樓層商品
-    this.getFloorSingle(sales[0].menu)
+    this.getFloorData(this.menuSale)
 
     // 11/1-12 隱藏現折券區
     if (today < new Date('2024/11/13')) {
@@ -157,19 +160,17 @@ export default {
     }
   },
   methods: {
-    changSp(id, menu) {
+    changSp(id) {
       if (event) {
         setTimeout(() => {
           this.statusSp = id
-          this.getFloorSingle(menu)
         }, 20)
       }
     },
-    changSale(id, menu) {
+    changSale(id) {
       if (event) {
         setTimeout(() => {
           this.statusSale = id
-          this.getFloorSingle(menu)
         }, 20)
       }
     },
@@ -565,7 +566,7 @@ export default {
             class="brightness(0.6) brightness(1).active"
             @click="goSlide(s)"
           >
-            <a @click="changSp(s, sp.menu)"><img :src="$filters.siteUrl(sp.image)" alt /></a>
+            <a @click="changSp(s)"><img :src="$filters.siteUrl(sp.image)" alt /></a>
           </swiper-slide>
         </swiper>
       </div>
@@ -579,7 +580,13 @@ export default {
           @swiper="onControlSwiperSP"
         >
           <swiper-slide class="tab-content" v-for="(sp, s) in specials" :key="s">
-            <component :is="listF" :pro="product2[sp.menu]" :isSwiper="1" :name="'sp'"></component>
+            <component
+              v-if="products[menuSp[s]] != undefined"
+              :is="listF"
+              :pro="products[menuSp[s]].Data"
+              :isSwiper="1"
+              :name="'sp'"
+            ></component>
           </swiper-slide>
         </swiper>
       </div>
@@ -624,7 +631,7 @@ export default {
             class="brightness(0.6) brightness(1).active"
             @click="goSlideSale(s)"
           >
-            <a @click="changSale(s, sale.menu)">
+            <a @click="changSale(s)">
               <img :src="$filters.siteUrl(sale.image)" alt />
             </a>
           </swiper-slide>
@@ -641,8 +648,9 @@ export default {
         >
           <swiper-slide class="tab-content" v-for="(sale, s) in sales" :key="s">
             <component
+              v-if="products[menuSale[s]] != undefined"
               :is="listF"
-              :pro="product2[sale.menu]"
+              :pro="products[menuSale[s]].Data"
               :isSwiper="1"
               :name="'sp'"
             ></component>

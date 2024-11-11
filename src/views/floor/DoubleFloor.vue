@@ -178,14 +178,14 @@ export default {
 </script>
 
 <template>
-  <section class="scroll" v-for="(pro, p) in products" :key="p">
-    <h2 class="title" :id="`pro${pro.id}`">
-      <a :href="$filters.addGALink(floorImg[p].url)" target="_blank">
-        <img :src="$filters.siteUrl(floorImg[p].image)" />
+  <section class="scroll" v-for="(floor, f) in floorImg" :key="f">
+    <h2 class="title" :id="`pro${menu[f]}`">
+      <a :href="$filters.addGALink(floor.url)" target="_blank">
+        <img :src="$filters.siteUrl(floor.image)" />
       </a>
     </h2>
 
-    <div class="banner w:full" v-if="floorImg[p].banner != undefined">
+    <div class="banner w:full" v-if="floor.banner != undefined">
       <swiper
         class="overflow:hidden"
         :autoplay="{
@@ -193,7 +193,7 @@ export default {
           disableOnInteraction: false
         }"
       >
-        <swiper-slide v-for="banner in floorImg[p].banner">
+        <swiper-slide v-for="banner in floor.banner">
           <a :href="$filters.addGALink(banner.url)" target="_blank">
             <img class="pc" :src="$filters.siteUrl(banner.pc)" />
             <img class="mobile" :src="$filters.siteUrl(banner.mobile)" />
@@ -202,6 +202,10 @@ export default {
       </swiper>
     </div>
 
-    <component :is="listF" :pro="pro.datas.Data"></component>
+    <component
+      v-if="products[menu[f]] != undefined"
+      :is="listF"
+      :pro="products[menu[f]].Data"
+    ></component>
   </section>
 </template>
