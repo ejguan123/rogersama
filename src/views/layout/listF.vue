@@ -18,9 +18,8 @@ export default {
           delay: 2500,
           disableOnInteraction: false
         }"
+        :autoHeight="true"
         :observer="true"
-        :observeParents="true"
-        :loopAdditionalSlides="2"
         :space-between="10"
         :navigation="{
           prevEl: `.${name} .prev`,
