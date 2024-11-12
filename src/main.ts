@@ -8,7 +8,7 @@ import { createPinia } from 'pinia'
 import { register } from 'swiper/element/bundle'
 import '@master/css'
 import { Swiper, SwiperSlide } from 'swiper/vue'
-import VueLoading from 'vue-loading-overlay'
+import VueLoading, { LoadingPlugin } from 'vue-loading-overlay' //載入中套件
 
 import App from '@/AppComponent.vue' //主頁面內容
 import Mobile from '@/views/MobileComponent.vue' //手機版
@@ -37,7 +37,6 @@ app.use(register)
 
 app.component('Swiper', Swiper)
 app.component('SwiperSlide', SwiperSlide)
-app.component('Loading', VueLoading)
 
 //使用方法: $filters.siteUrl(value)
 app.config.globalProperties.$filters = config
