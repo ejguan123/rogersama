@@ -31,8 +31,10 @@ export default {
   mixins: [globalMixin],
   data() {
     return {
+      menuSP: [7478, 7479], //封神榜陳列編號
       menuGreen: 7517, //環保商品陳列編號
       menuGo: 7518, //速速go陳列編號
+      menuSale: [7603, 7604, 7605, 7606, 7607],
       gifts: [
         { image: '2024Thxgiving/images/C1.png' },
         { image: '2024Thxgiving/images/C2.png' },
@@ -41,38 +43,54 @@ export default {
         { image: '2024Thxgiving/images/C5.png' }
       ],
       specials: [
-        { image: '2024Thxgiving/images/S1-1.png', menu: 7478 },
-        { image: '2024Thxgiving/images/S1-2.png', menu: 7479 }
+        { image: '2024Thxgiving/images/S1-1.png' },
+        { image: '2024Thxgiving/images/S1-2.png' }
       ],
       sales: [
-        { image: '2024Thxgiving/images/s100.png', menu: 7590 },
-        { image: '2024Thxgiving/images/s200.png', menu: 7591 },
-        { image: '2024Thxgiving/images/s400.png', menu: 7592 },
-        { image: '2024Thxgiving/images/s500.png', menu: 7593 },
-        { image: '2024Thxgiving/images/s600.png', menu: 7594 },
-        { image: '2024Thxgiving/images/s700.png', menu: 7595 },
-        { image: '2024Thxgiving/images/s1000.png', menu: 7596 }
+        { image: '2024Thxgiving/images/s399.png' },
+        { image: '2024Thxgiving/images/s499.png' },
+        { image: '2024Thxgiving/images/s599.png' },
+        { image: '2024Thxgiving/images/s699.png' },
+        { image: '2024Thxgiving/images/s999.png' }
       ],
       statusSale: 0, //現折券樓層用
       asides: [
         { text: '現折券', href: '#sale' },
-        { text: '環保商品', href: '#green' },
         { text: '台新燦坤聯名卡', href: '#bank' },
+        { text: '環保商品', href: '#green' },
         { text: 'AI筆電', href: '#pro7560' },
-        { text: 'Apple', href: '#pro7562' },
+        { text: 'Apple', href: '#pro7529' },
         { text: 'Android', href: '#pro7563' },
-        { text: '印表機', href: '#pro7564' },
+        { text: '印表機', href: '#print' },
         { text: '平板/穿戴', href: '#pro7569' },
+        { text: '桌機/螢幕', href: '#pro7533' },
         { text: '遊戲', href: '#pro7571' },
-        { text: '電視', href: '#pro7558' },
-        { text: '季節家電', href: '#pro7555' },
-        { text: '空調', href: '#pro7559' },
-        { text: '健康美容', href: '#pro7556' },
-        { text: '冰箱/洗衣機', href: '#pro7557' }
+        { text: '電視', href: '#pro7537' },
+        { text: '清淨除塵', href: '#pro7540' },
+        { text: '空調', href: '#pro7543' },
+        { text: '居家美容', href: '#pro7541' },
+        { text: '冰箱/洗衣機', href: '#pro7539' },
+        { text: '攝影/空拍機', href: '#pro7536' },
+        { text: '廚房三機', href: '#pro7545' },
+        { text: '電暖器', href: '#pro7611' },
+        { text: '秋冬除濕', href: '#pro7544' },
+        { text: '廚房家電', href: '#pro7553' },
+        { text: '機車', href: '#pro7546' }
+      ],
+      gift2: [
+        { image: '2024Thxgiving/images/gift1_2.png' },
+        { image: '2024Thxgiving/images/gift2.png' },
+        { image: '2024Thxgiving/images/gift3.png' },
+        { image: '2024Thxgiving/images/gift4.png' },
+        { image: '2024Thxgiving/images/gift5.png' },
+        { image: '2024Thxgiving/images/gift6.png' },
+        { image: '2024Thxgiving/images/gift7.png' },
+        { image: '2024Thxgiving/images/gift8.png' }
       ],
       today: new Date(),
       statusSp: 0, //好物封神榜用
-      isSale: true
+      isSale: true,
+      isGift: true
     }
   },
   mounted() {
@@ -83,11 +101,16 @@ export default {
       document.querySelector('.background .title').classList.add('fadein')
     }, 1300)
 
+    // 11/18 以後隱藏滿額禮區域
+    if (today >= new Date('2024/11/19')) {
+      this.isGift = false
+    }
+
     //撈好物封神榜樓層商品
-    this.getFloorSingle(specials[0].menu)
+    this.getFloorData(this.menuSP)
 
     //撈取現折券樓層商品
-    this.getFloorSingle(sales[0].menu)
+    this.getFloorData(this.menuSale)
 
     //撈取環保樓層商品
     this.getFloorSingle(menuGreen)
@@ -96,40 +119,37 @@ export default {
     this.getFloorSingle(menuGo)
   },
   methods: {
-    changeSp(id, menu) {
-      if (event) {
-        this.statusSp = id
-        this.getFloorSingle(menu)
-      }
+    changeSp(id) {
+      this.statusSp = id
     },
-    changSale(id, menu) {
+    changSale(id) {
       if (event) {
         setTimeout(() => {
           this.statusSale = id
-          this.getFloorSingle(menu)
         }, 30)
       }
     },
-    message(id) {
+    message() {
       //活動辦法
 
       let infoHtml = ''
       //雙11搶先購物券
       infoHtml = `
               <ul style='text-align:left;'>
-             <li style='margin-bottom:10px;'>1.本活動限燦坤線上購物會員參加，凡於活動期間(2024/10/24-2024/10/31)於燦坤線上購物網站購買活動指定商品，除享有「促銷價」的折扣外，另外可再領取「雙11搶先購物券」直接折抵結帳金額。​</li>
-             <li style='margin-bottom:10px;'>2.購買「指定價位(促銷價)區間」活動指定商品，每台可折抵「雙11搶先購物券」乙張，限量兌換折抵，兌完截止(依兌換次序為準)：​</li>
-             <li style='margin-bottom:10px;padding-left:10px;'>(1)指定商品單品促銷價4,000元(含)~7,999元(含)：每台可折抵「100元雙11搶先購物券」一張，限量40張。​</li>
-             <li style='margin-bottom:10px;padding-left:10px;'>(2)指定商品單品促銷價8,000元(含)~14,999元(含)：每台可折抵「200元雙11搶先購物券」一張，限量40張。​</li>
-              <li style='margin-bottom:10px;padding-left:10px;'>(3)指定商品單品促銷價15,000元(含)以上：每台可折抵「500元雙11搶先購物券」一張，限量30張。​</li>
-               <li style='margin-bottom:10px;'>3.活動期間獲得之「雙11搶先購物券」之限量兌換張數及使用限制:​</li>
-             <li style='margin-bottom:10px;padding-left:10px;'>(1)每人每種券限領取一次，本活動之「雙11搶先購物券」為限量兌換，依兌換次序為準，並非一經領取即得兌換，限量兌換以完成結帳付款時間為準，逾期/超過限量名額自動失效。​</li>
-             <li style='margin-bottom:10px;padding-left:10px;'>(2)兌換期間為活動期間，逾期自動失效；直接於結帳時兌換折抵即可，一經使用即失效，事後退/換貨，恕不再補發，請注意如您選擇使用本券，則結帳時無法再選擇使用「燦坤發行的燦坤線上購物網站購物金或其他折抵憑證」。​</li>
-              <li style='margin-bottom:10px;padding-left:10px;'>(3)本活動之券，限一次使用完畢，不得兌換現金、找零及抵付費用(運費、裝備等)，折抵後依燦坤保固規定辦理。(本券屬贈品券，折抵商品時不再開立統一發票) ​</li>
-             <li style='margin-bottom:10px;padding-left:10px;'>(4)如遇各品牌官網舉辦之活動有金額限制時，因本券會直接折抵結帳金額，可能會造成您無法參加各品牌官網活動，請斟酌使用。​</li>
-              <li style='margin-bottom:10px;padding-left:10px;'>(5)本活動不與其他優惠活動併行，例如：凡使用其他專案優惠活動購買之商品，就不能再使用本活動之券。​</li>
-             <li style='margin-bottom:10px;padding-left:10px;'>(6)其餘使用限制及規則依各券面及網站記載事項辦理。​</li>
-              <li style='margin-bottom:10px;'>4.活動未盡事宜以燦坤線上購物官網公告為主，燦坤線上購物保留活動最終解釋、修改、變更之權利。</li>
+             <li style='margin-bottom:10px;'>1.於燦坤3C門市或燦坤線上購物網站購買皆可參加本活動，但本活動需具有「燦坤實體有效會員」身分，且以會員卡片背後所記載的燦坤會員卡號綁定燦坤APP，並以該「已綁定燦坤APP的燦坤實體有效會員卡」身分進行消費方符資格。如您是透過燦坤線上購物購買時，請確認您於購買(訂單成立)時已將您的「燦坤線上購物會員帳號」完成「燦坤實體有效會員」身分綁定，如購買(訂單成立)時未完成綁定，則無法參加。​</li>
+             <li style='margin-bottom:10px;'>2.凡於活動期間(2024/11/13~11/30)，以會員資格消費購買全館商品(部分商品除外)，單張發票消費金額滿$6,000元(含)起，並於2024/12/15前出貨/配送完成，且後續未退貨退款者，憑發票即可獲得本活動抽獎資格(1張發票1次抽獎機會)，將抽出頭獎1名送「PlayStation5 Pro主機(市價$24,280元)」、二獎 1名送「dyson二合一吹風直髮器(市價$16,600元)」、三獎1名送「SAMSUNG Galaxy Watch7+Fit3+Buds FE(市價$15,660元)」、四獎2名送「王品商品券2張(市價$3,498元)」、五獎3名送「1000燦坤K幣(1燦坤K幣= NT$1元)」 。​</li>
+               <li style='margin-bottom:10px;'>3.消費金額以實際發票開立金額認定，購買提貨券、APPLE、小米、點數卡系列商品之消費金額恕不累計。​</li>
+                <li style='margin-bottom:10px;'>4.中獎名單，燦坤3C將於2024/12/25公布於FACEBOOK粉絲專頁「燦坤3C」，並另以簡訊通知中獎者，通知以會員資料所留存的個人聯絡資料為準。倘中獎人因個人因素致無法收受上開通知(如無法收受、未能讀取或遲誤讀取)，均與燦坤3C無涉。</li>
+                 <li style='margin-bottom:10px;'>5.中獎者請於2024/12/31前回填中獎通知函：(1)攜帶身分證件、中獎發票至「原消費門市」，出示中獎簡訊並填寫中獎通知函完成；或(2)私訊「燦坤3C」粉絲專頁，提供姓名/電話/中獎簡訊畫面，小編會提供回函，請依規定填寫並繳交相關資料，並將正本掛號寄回燦坤3C內湖總部，以郵戳為憑。逾期、資料不符規定或填寫不正確、不完整者或未依中獎通知函規定期限存入代扣稅金者，視同放棄中獎/兌獎權利。(依稅法規定，抽中獎項市值超過1,001元(含)以上，將列入本年度之個人綜合所得稅申報，超過20,000元(含)以上者，依法須預先扣繳10%稅金(外籍人士20%))。</li>
+                  <li style='margin-bottom:10px;'>6.經核對符合活動條件者:</li>
+             <li style='margin-bottom:10px;padding-left:10px;'>(1) 實體獎品：燦坤3C會另行通知領取時間，請於指定領取時間內至指定門市領取，如中獎者有額外運送/安裝需求，另行計價，逾期領獎視為放棄。請留意票券兌換期限，相關兌換規則依票券服務提供者網站規定為準，若逾期未使用，但因燦坤3C確實已有提供此一獎品，故依稅法相關規定仍會列入本年度之個人綜合所得稅申報​</li>
+             <li style='margin-bottom:10px;padding-left:10px;'>(2) 燦坤K幣：燦坤3C會將燦坤K幣匯入您的會員帳戶中，使用期限預計為2025/1/10~2025/2/28，逾期自動失效，如遇系統維護等狀況，將延後匯入，實際以燦坤作業時間為準。1燦坤K幣可折抵消費金額NT$1元，使用限制及折抵規則，悉以燦坤3C實體門市會員條款及最新公告為準使用期限。​</li>
+              <li style='margin-bottom:10px;'>7.獎項詳細內容與規格以實物為準，不得轉換、轉讓、轉售或折換現金，中獎資格不可轉讓予第三人。</li>
+               <li style='margin-bottom:10px;'>8.會員須遵守燦坤相關購物服務條款及其他交易有關之規定，活動期間內，若會員取消該筆訂單，或因違反相關服務條款或因司法案件等原因遭到鎖定或納入黑名單等，將會無法參與活動或無法獲得活動獎勵。若中獎發票後續有取消、退貨、退款或換貨等情事或有其他爭議(如非為會員本人購買)者，燦坤3C將以下列方式處理：</li>
+                 <li style='margin-bottom:10px;padding-left:10px;'>(1) 提供獎品前：燦坤3C將不會寄送獎品/匯入燦坤K幣。​</li>
+             <li style='margin-bottom:10px;padding-left:10px;'>(2) 提供獎品後：中獎人需將獎品退回，倘若已使用獎品，則需返回等同獎品價值金額/燦坤3C將會以系統自動扣回燦坤K幣，如您已使用燦坤K幣，就無法足額扣回的部分，您應返還等值金額(1燦坤K幣= NT$1元)。​</li>
+                <li style='margin-bottom:10px;'>9.涉及大宗採購且(或)有議價時，因已經過議價給予價格優惠，該筆交易(發票)將無法參與本活動。</li>
+              <li style='margin-bottom:10px;'>10.活動未盡事宜以燦坤3C公告為主，燦坤3C保留活動最終解釋、修改、變更之權利。</li>
         </ul>
           `
 
@@ -153,7 +173,7 @@ export default {
   <div id="thank-container" v-cloak>
     <div class="background">
       <h2 class="title animate__animated animate__bounceInUp">
-        <img :src="$filters.siteUrl('2024Thxgiving/images/title.png')" />
+        <img :src="$filters.siteUrl('2024Thxgiving/images/title2.png')" />
       </h2>
       <p class="ribbon">
         <img :src="$filters.siteUrl('2024Thxgiving/images/ribbon.png')" />
@@ -168,7 +188,7 @@ export default {
         class="abs w:58% w:65vw@<992 w:90vw@<576 top:48% top:46vw@<992 top:99vw@<576 left:0 right:0 m:auto"
       >
         <swiper
-          :loop="false"
+          :loop="true"
           :autoplay="{
             delay: 1300,
             disableOnInteraction: false
@@ -190,8 +210,12 @@ export default {
             <img :src="$filters.siteUrl(gift.image)" />
           </swiper-slide>
         </swiper>
-        <a class="w:15% w:16vw@<992 w:35vw@<576 h:auto block m:auto">
-          <img :src="$filters.siteUrl('2024Thxgiving/images/info.png')"
+        <a
+          @click.prevent="message"
+          target="_blank"
+          class="w:15% w:16vw@<992 w:35vw@<576 h:auto block m:auto"
+        >
+          <img :src="$filters.siteUrl('202411vip/imagesT/eventBtn.png')"
         /></a>
       </div>
     </div>
@@ -212,13 +236,17 @@ export default {
           v-for="(special, s) in specials"
           :class="[statusSp == s ? 'active' : '']"
           class="w:30% w:40vw@<992 w:45vw@<576 m:0|0 opacity(0.7) opacity(1).active"
-          @click="changeSp(s, special.menu)"
+          @click="changeSp(s)"
           ><img :src="$filters.siteUrl(special.image)"
         /></a>
       </div>
 
       <div v-for="(special, s) in specials" v-show="statusSp == s">
-        <component :is="listD" :pro="product2[special.menu]"></component>
+        <component
+          v-if="products[menuSP[s]] != undefined"
+          :is="listD"
+          :pro="products[menuSP[s]].Data"
+        ></component>
       </div>
     </section>
 
@@ -226,10 +254,12 @@ export default {
     <section class="sale-box scroll" v-if="isSale" id="sale">
       <h2 class="title">
         <a
-          :href="$filters.addGALink('https://www.tk3c.com/dic1.aspx?cid=123908&aid=23881')"
+          :href="
+            $filters.addGALink('https://www.tk3c.com/dic1.aspx?cid=124026&aid=23890&strPreView=y')
+          "
           target="_blank"
         >
-          <img :src="$filters.siteUrl('2024Thxgiving/images/S2.png')" />
+          <img :src="$filters.siteUrl('2024Thxgiving/images/S2_2.png')" />
         </a>
       </h2>
 
@@ -245,7 +275,7 @@ export default {
               slidesPerView: 3.3
             },
             992: {
-              slidesPerView: 6.4
+              slidesPerView: 5
             }
           }"
           :modules="[Controller]"
@@ -261,7 +291,7 @@ export default {
             class="hue-rotate(-560deg).active"
             @click="goSlide(s)"
           >
-            <a @click="changSale(s, sale.menu)">
+            <a @click="changSale(s)">
               <img :src="$filters.siteUrl(sale.image)" alt />
             </a>
           </swiper-slide>
@@ -278,13 +308,71 @@ export default {
         >
           <swiper-slide class="tab-content" v-for="(sale, s) in sales" :key="s">
             <component
+              v-if="products[menuSale[s]] != undefined"
               :is="listF"
-              :pro="product2[sale.menu]"
+              :pro="products[menuSale[s]].Data"
               :isSwiper="1"
               :name="'sale'"
             ></component>
           </swiper-slide>
         </swiper>
+      </div>
+    </section>
+
+    <!-- 滿額禮 -->
+    <section v-if="isGift">
+      <h2 class="title">
+        <img :src="$filters.siteUrl('2024Thxgiving/images/gift_title.png')" />
+      </h2>
+
+      <div class="gifts">
+        <swiper
+          :loop="false"
+          :space-between="10"
+          :breakpoints="{
+            0: {
+              slidesPerView: 2.1,
+              grid: {
+                fill: 'row',
+                rows: 2
+              }
+            },
+            600: {
+              slidesPerView: 3.3,
+              grid: {
+                fill: 'row',
+                rows: 2
+              }
+            },
+            992: {
+              slidesPerView: 4,
+              grid: {
+                fill: 'row',
+                rows: 2
+              }
+            }
+          }"
+        >
+          <swiper-slide v-for="gift in gift2">
+            <img :src="$filters.siteUrl(gift.image)" />
+          </swiper-slide>
+        </swiper>
+        <div class="flex flex-wrap:wrap gap:10 jc:center mt:2% mt:4%@<576">
+          <a
+            class="w:15% m:0|5px w:25vw@<992 w:40vw@<576"
+            href="https://www.tk3c.com/events/eventgift.aspx"
+            target="_blank"
+          >
+            <img :src="$filters.siteUrl('202411vip/imagesT/vip/gift.png')" />
+          </a>
+          <a
+            class="w:15% m:0|5px w:25vw@<992 w:40vw@<576"
+            href="https://www.tk3c.com.tw/Home/Index#activityinfo&8"
+            target="_blank"
+          >
+            <img :src="$filters.siteUrl('202411vip/imagesT/eventBtn.png')" />
+          </a>
+        </div>
       </div>
     </section>
 
@@ -304,53 +392,40 @@ export default {
             "
             target="_blank"
           >
-            <img class="pc" :src="$filters.siteUrl('2024Thxgiving/images/S3-1_PC.png')" />
-            <img class="mobile" :src="$filters.siteUrl('2024Thxgiving/images/S3-1_M.png')" />
+            <img :src="$filters.siteUrl('2024Thxgiving/images/S3-1_PC_a.png')" />
           </a>
         </li>
         <li class="w:90% w:90vw@<992 w:full@<576">
-          <swiper
-            :loop="false"
-            :space-between="10"
-            :breakpoints="{
-              0: {
-                slidesPerView: 1
-              },
-              600: {
-                slidesPerView: 2
-              },
-              992: {
-                slidesPerView: 2
-              }
-            }"
-            :navigation="{
-              prevEl: '.bank-group .prev',
-              nextEl: '.bank-group .next'
-            }"
-          >
-            <swiper-slide class="w:44% w:44vw@<992 w:94vw@<576">
+          <swiper :loop="false" :space-between="10" :slidesPerView="2">
+            <swiper-slide class="rel w:44% w:44vw@<992 w:94vw@<576">
+              <img :src="$filters.siteUrl('2024Thxgiving/images/S3-2_b.png')" />
               <a
+                class="w:32% w:30vw@<992 w:40vw@<576 mt:3% mt:6%@<576"
                 :href="
                   $filters.addGALink(
-                    'https://events.tk3c.com/events_net/tk3c_creditcard/index.html?page=main'
+                    'https://www.taishinbank.com.tw/eServiceA/CreditCardAP/apply/index.jsp?pc=27&sl=1701029779'
                   )
                 "
                 target="_blank"
               >
-                <img :src="$filters.siteUrl('2024Thxgiving/images/S3-2.png')" />
+                <img :src="$filters.siteUrl('double11_2024/images/go_bank.png')" />
               </a>
             </swiper-slide>
-            <swiper-slide class="w:44% w:44vw@<992 w:94vw@<576">
+            <swiper-slide class="rel w:44% w:44vw@<992 w:94vw@<576">
+              <img :src="$filters.siteUrl('2024Thxgiving/images/S3-3_b.png')" />
               <a
-                :href="$filters.addGALink('https://www.tk3c.com/dictitleurl.aspx?cid=123139')"
+                class="w:32% w:30vw@<992 w:40vw@<576 mt:3% mt:6%@<576"
+                :href="
+                  $filters.addGALink(
+                    'https://events.tk3c.com/events_net/tk3c_creditcard/index.html?page=monthlyOffer'
+                  )
+                "
                 target="_blank"
               >
-                <img :src="$filters.siteUrl('2024Thxgiving/images/S3-3.png')" />
+                <img :src="$filters.siteUrl('202411vip/imagesT/eventBtn.png')" />
               </a>
             </swiper-slide>
           </swiper>
-          <div class="swiper-button-prev prev"></div>
-          <div class="swiper-button-next next"></div>
         </li>
       </ul>
     </section>
@@ -471,7 +546,7 @@ form#form1 {
 }
 
 .aside-container {
-  zoom: 0.9;
+  zoom: 0.8;
 }
 
 .bg01 {
@@ -525,7 +600,7 @@ section {
 .special-box {
   margin: -20% auto 5%;
   .title {
-    width: 100%;
+    width: 85%;
   }
 }
 
@@ -569,6 +644,12 @@ section {
   }
 }
 
+.gifts {
+  .swiper-wrapper {
+    align-items: baseline;
+  }
+}
+
 /*  電腦版其他尺寸 */
 
 @include media-query('mobile', '1440px') {
@@ -595,6 +676,12 @@ section {
   .print-box {
     .swiper-wrapper {
       justify-content: left;
+    }
+  }
+
+  .special-box {
+    .title {
+      width: 100%;
     }
   }
 }

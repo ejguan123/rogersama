@@ -21,19 +21,26 @@ export default {
   mixins: [globalMixin],
   data() {
     return {
-      menu: [7560, 7562, 7563, 7564, 7569, 7571, 7558, 7555, 7559, 7556, 7557],
+      menus: [
+        7560, 7529, 7563, 7569, 7533, 7571, 7537, 7540, 7543, 7541, 7539, 7536, 7545, 7611, 7544,
+        7553, 7546
+      ],
+      menuPrint: [7564, 7565, 7566, 7567, 7568],
       floorImg: [
         {
-          url: 'https://events.tk3c.com/events_net/2024083C/index.html',
-          image: '2024Thxgiving/images/S5.png'
+          url: 'https://www.tk3c.com/dictitleurl.aspx?cid=11124',
+          image: '2024Thxgiving/images/S5.png',
+          menu: 7560
         },
         {
           url: 'https://www.tk3c.com/dictitleurl.aspx?cid=40444',
-          image: '2024Thxgiving/images/S6.png'
+          image: '2024Thxgiving/images/S6.png',
+          menu: 7529
         },
         {
-          url: 'https://www.tk3c.com/dictitleurl.aspx?cid=93605',
-          image: '2024Thxgiving/images/S7.png'
+          url: 'https://www.tk3c.com/dic1.aspx?cid=93605&aid=20221',
+          image: '2024Thxgiving/images/S7_2.png',
+          menu: 7563
         },
         {
           url: 'https://www.tk3c.com/dictitleurl.aspx?cid=16917',
@@ -64,77 +71,119 @@ export default {
         },
         {
           url: 'https://www.tk3c.com/dictitleurl.aspx?cid=10890',
-          image: '2024Thxgiving/images/S9.png'
+          image: '2024Thxgiving/images/S9.png',
+          menu: 7569
+        },
+        {
+          url: 'https://www.tk3c.com/dictitleurl.aspx?cid=44823',
+          image: '2024Thxgiving/images/S9_2.png',
+          menu: 7533
         },
         {
           url: 'https://www.tk3c.com/dictitleurl.aspx?cid=629',
-          image: '2024Thxgiving/images/S10.png'
-        },
-        {
-          url: 'https://www.tk3c.com/dictitleurl.aspx?cid=11312',
-          image: '2024Thxgiving/images/S11.png'
+          image: '2024Thxgiving/images/S10_2.png',
+          menu: 7571
         },
         {
           url: 'https://events.tk3c.com/events_net/2020TVforever/index.html',
-          image: '2024Thxgiving/images/S13.png'
+          image: '2024Thxgiving/images/S11.png',
+          menu: 7537
+        },
+        {
+          url: 'https://www.tk3c.com/dictitleurl.aspx?cid=71323',
+          image: '2024Thxgiving/images/S13_2.png',
+          menu: 7540
         },
         {
           url: 'https://events.tk3c.com/events_net/airConditionerLAB/index.html',
           image: '2024Thxgiving/images/S12.png',
-          class: 'air-box'
+          class: 'air-box',
+          menu: 7543
         },
         {
-          url: 'https://www.tk3c.com/dictitleurl.aspx?cid=83185',
-          image: '2024Thxgiving/images/S15.png'
+          url: 'https://www.tk3c.com/dictitleurl.aspx?cid=4640',
+          image: '2024Thxgiving/images/S15_2.png',
+          menu: 7541
         },
         {
           url: 'https://events.tk3c.com/events_net/icewash2209/index.html',
-          image: '2024Thxgiving/images/S16.png'
+          image: '2024Thxgiving/images/S16.png',
+          menu: 7539
+        },
+        {
+          url: 'https://www.tk3c.com/dictitleurl.aspx?cid=111126',
+          image: '2024Thxgiving/images/S17.png',
+          menu: 7536
+        },
+        {
+          url: 'https://www.tk3c.com/dictitleurl.aspx?cid=113296',
+          image: '2024Thxgiving/images/S19.png',
+          menu: 7545
+        },
+        {
+          url: 'https://www.tk3c.com/dic1.aspx?cid=11058&aid=5779',
+          image: '2024Thxgiving/images/S20_2.png',
+          menu: 7611
+        },
+        {
+          url: 'https://www.tk3c.com/dic1.aspx?cid=71323&aid=16881',
+          image: '2024Thxgiving/images/S21_2.png',
+          menu: 7544
+        },
+        {
+          url: 'https://www.tk3c.com/dictitleurl.aspx?cid=83185',
+          image: '2024Thxgiving/images/S22.png',
+          menu: 7553
+        },
+        {
+          url: 'https://www.tk3c.com/dic1.aspx?cid=111383&aid=22330',
+          image: '2024Thxgiving/images/S23.png',
+          menu: 7546
         }
       ],
       airBanners: [
         {
-          url: 'https://www.tk3c.com/dic2.aspx?cid=11225&aid=4707&hid=11238',
+          url: 'https://www.tk3c.com/dic2.aspx?cid=11225&aid=23717&hid=123849&strPreView=y',
           pc: 'airConditionerLAB/images/2410/brand_pana.jpg',
           mobile: 'airConditionerLAB/images/2410/brand_panaM.jpg'
         },
         {
-          url: 'https://www.tk3c.com/dic2.aspx?cid=11225&aid=4707&hid=11237',
+          url: 'https://www.tk3c.com/dic2.aspx?cid=11225&aid=23717&hid=123852&strPreView=y',
           pc: 'airConditionerLAB/images/2410/brand_daikin.jpg',
           mobile: 'airConditionerLAB/images/2410/brand_daikinM.jpg'
         },
         {
-          url: 'https://www.tk3c.com/dic2.aspx?cid=11225&aid=4707&hid=37503',
+          url: 'https://www.tk3c.com/dic2.aspx?cid=11225&aid=23717&hid=123856&strPreView=y',
           pc: 'airConditionerLAB/images/2410/brand_mit.jpg',
           mobile: 'airConditionerLAB/images/2410/brand_mitM.jpg'
         },
         {
-          url: 'https://www.tk3c.com/dic2.aspx?cid=11225&aid=4707&hid=11240',
+          url: 'https://www.tk3c.com/dic2.aspx?cid=11225&aid=23717&hid=123854&strPreView=y',
           pc: 'airConditionerLAB/images/2410/brand_sampo.jpg',
           mobile: 'airConditionerLAB/images/2410/brand_sampoM.jpg'
         },
         {
-          url: 'https://www.tk3c.com/dic2.aspx?cid=11225&aid=4707&hid=11239',
+          url: 'https://www.tk3c.com/dic2.aspx?cid=11225&aid=23717&hid=123853&strPreView=y',
           pc: 'airConditionerLAB/images/2410/brand_teco.jpg',
           mobile: 'airConditionerLAB/images/2410/brand_tecoM.jpg'
         },
         {
-          url: 'https://www.tk3c.com/dic2.aspx?cid=11225&aid=4707&hid=104083',
+          url: 'https://www.tk3c.com/dic2.aspx?cid=11225&aid=4707&hid=104083&strPreView=y',
           pc: 'airConditionerLAB/images/2410/brand_lg.jpg',
           mobile: 'airConditionerLAB/images/2410/brand_lgM.jpg'
         },
         {
-          url: 'https://www.tk3c.com/dic2.aspx?cid=11225&aid=4707&hid=71512',
+          url: 'https://www.tk3c.com/dic2.aspx?cid=11225&aid=23717&hid=123855&strPreView=y',
           pc: 'airConditionerLAB/images/2410/brand_her.jpg',
           mobile: 'airConditionerLAB/images/2410/brand_herM.jpg'
         },
         {
-          url: 'https://www.tk3c.com/dic2.aspx?cid=11225&aid=4707&hid=115784',
+          url: 'https://www.tk3c.com/dic2.aspx?cid=11225&aid=23717&hid=123857&strPreView=y',
           pc: 'airConditionerLAB/images/2410/brand_chimei.jpg',
           mobile: 'airConditionerLAB/images/2410/brand_chimeiM.jpg'
         },
         {
-          url: 'https://www.tk3c.com/dic2.aspx?cid=11225&aid=23717&hid=122557&strPreView=y',
+          url: 'https://www.tk3c.com/dic2.aspx?cid=11225&aid=23717&hid=123858&strPreView=y',
           pc: 'airConditionerLAB/images/2410/brand_sharp.jpg',
           mobile: 'airConditionerLAB/images/2410/brand_sharpM.jpg'
         }
@@ -144,22 +193,19 @@ export default {
     }
   },
   mounted() {
-    const { menu, today, floorImg } = this
-
-    //撈取印表機樓層商品
-    this.getFloorSingle(floorImg[3].content[0].menu)
+    const { menus, today } = this
 
     //其他樓層
-    setTimeout(() => {
-      this.getFloorData(menu)
-    }, 25)
+    this.getFloorData(menus)
+
+    //撈取印表機樓層商品
+    this.getFloorData(this.menuPrint)
   },
   methods: {
-    changePrinter(id, menu) {
+    changePrinter(id) {
       if (event) {
         setTimeout(() => {
           this.statusPrinter = id
-          this.getFloorSingle(menu)
         }, 20)
       }
     }
@@ -170,18 +216,18 @@ export default {
 <template>
   <section
     class="scroll"
-    v-for="(pro, p) in products"
-    :key="p"
-    :class="[floorImg[p].class ? floorImg[p].class : '']"
+    v-for="(floor, f) in floorImg"
+    :key="f"
+    :class="[floor.class ? floor.class : '']"
   >
-    <h2 class="title" :id="`pro${pro.id}`">
-      <a :href="$filters.addGALink(floorImg[p].url)" target="_blank">
-        <img :src="$filters.siteUrl(floorImg[p].image)" />
+    <h2 class="title" :id="[f != 3 ? `pro${floor.menu}` : 'print']">
+      <a :href="$filters.addGALink(floor.url)" target="_blank">
+        <img :src="$filters.siteUrl(floor.image)" />
       </a>
     </h2>
 
     <!-- 印表機頁籤樓層 -->
-    <div v-if="floorImg[p].content != undefined">
+    <div v-if="floor.content != undefined">
       <swiper
         :loop="false"
         :space-between="10"
@@ -200,24 +246,26 @@ export default {
         @swiper="onSwiper"
       >
         <swiper-slide
-          v-for="(printer, p) in floorImg[p].content"
+          v-for="(printer, p) in floor.content"
           :class="[statusPrinter == p ? 'active' : '']"
           class="brightness(0.5) brightness(1).active"
           @click="goSlide(p)"
         >
-          <a @click="changePrinter(p, printer.menu)"
-            ><img :src="$filters.siteUrl(printer.image)"
-          /></a>
+          <a @click="changePrinter(p)"><img :src="$filters.siteUrl(printer.image)" /></a>
         </swiper-slide>
       </swiper>
 
-      <div v-for="(printer, p) in floorImg[p].content" v-show="statusPrinter == p">
-        <component :is="listF" :pro="product2[printer.menu]"></component>
+      <div v-for="(printer, p) in floor.content" v-show="statusPrinter == p">
+        <component
+          v-if="products[menuPrint[p]] != undefined"
+          :is="listF"
+          :pro="products[menuPrint[p]].Data"
+        ></component>
       </div>
     </div>
 
     <!-- 空調banner -->
-    <div class="banner w:full rel" v-if="p == 8">
+    <div class="banner w:full rel" v-if="f == 9">
       <swiper
         :loop="false"
         class="overflow:hidden"
@@ -256,10 +304,14 @@ export default {
       <div class="swiper-button-next next"></div>
     </div>
 
-    <component v-if="p != 3" :is="listF" :pro="pro.datas.Data"></component>
+    <component
+      v-if="f != 3 && products[menus[f]] != undefined"
+      :is="listF"
+      :pro="products[menus[f]].Data"
+    ></component>
 
     <!-- 各空調品牌banner -->
-    <div class="banner-brands" v-if="p == 8">
+    <div class="banner-brands" v-if="f == 9">
       <div class="banner1 mb:1% rel">
         <swiper
           :loop="true"
