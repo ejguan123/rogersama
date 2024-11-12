@@ -28,10 +28,12 @@ export default {
   updated() {
     //若某樓層沒有商品則隱藏此區域、移除右側選單(手機版)項目
     document.querySelectorAll('.pro-box').forEach((el, p) => {
-      if (el.querySelectorAll('.bg01 li').length <= 0) {
-        el.classList.add('hide')
-        $all('.aside-container .aside-content li')[p].remove()
-        $all('.mobile-for-product ul li')[p].remove()
+      if (el.querySelectorAll('.bg01').length > 0) {
+        if (el.querySelectorAll('.bg01 .swiper-slide').length <= 0) {
+          el.classList.add('hide')
+          document.querySelectorAll('.aside-container .aside-content li')[p].remove()
+          document.querySelectorAll('.mobile-for-product ul li')[p].remove()
+        }
       }
     })
 
@@ -198,15 +200,16 @@ export default {
       </div>
     </section>
 
-    <section class="pro-box scroll" v-for="(pro, p) in products" :class="`pro${Number(p) + 1}-box`">
-      <h2 class="title" :id="`pro${proDatas[p].menu}`">
-        <img :src="$filters.siteUrl(proDatas[p].image)" />
+    <section class="pro-box scroll" v-for="(pd, p) in proDatas" :class="`pro${Number(p) + 1}-box`">
+      <h2 class="title" :id="`pro${menus[p]}`">
+        <img :src="$filters.siteUrl(pd.image)" />
       </h2>
 
       <div class="products">
         <component
+          v-if="products[menus[p]] != undefined"
           :is="listF"
-          :pro="pro.datas.Data"
+          :pro="products[menus[p]].Data"
           :isSwiper="1"
           :name="`pro${Number(p) + 1}`"
           :incoming="income"
