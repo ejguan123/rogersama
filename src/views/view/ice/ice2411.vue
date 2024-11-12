@@ -205,7 +205,8 @@ export default {
       statusPro: 0,
       isSale: true,
       today: new Date(),
-      isBrand: false
+      isBrand: false,
+      saleUrl: ''
     }
   },
   mounted() {
@@ -249,6 +250,8 @@ export default {
     // 11/1-12 隱藏現折券樓層
     if (today >= new Date('2024/11/01') && today < new Date('2024/11/13')) {
       this.isSale = false
+    } else {
+      this.saleUrl = 'https://www.tk3c.com/dic1.aspx?cid=124026&aid=23890&strPreView=y'
     }
   },
   methods: {
@@ -350,11 +353,7 @@ export default {
           :isSwiper="1"
           :name="'sale-pro'"
         ></component>
-        <a
-          class="more"
-          :href="$filters.addGALink('https://www.tk3c.com/dic1.aspx?cid=123908&aid=23881')"
-          target="_blank"
-        >
+        <a class="more" :href="$filters.addGALink(saleUrl)" target="_blank">
           <img :src="$filters.siteUrl('icewash2209/images/2405/MORE.png')" />
         </a>
       </div>

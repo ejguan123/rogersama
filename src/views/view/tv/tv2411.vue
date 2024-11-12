@@ -105,22 +105,20 @@ export default {
         }
       ],
       saleTab: [
-        { image: '2020TVforever/images/2410/logo_01.png', menu: 5977 },
-        { image: '2020TVforever/images/2410/logo_03.png', menu: 4465 },
-        { image: '2020TVforever/images/2410/logo_04.png', menu: 4466 },
-        { image: '2020TVforever/images/2410/logo_02.png', menu: 4463 },
-        { image: '2020TVforever/images/2410/logo_more.png', menu: 4467 }
+        { image: '2020TVforever/images/2410/logo_01.png' },
+        { image: '2020TVforever/images/2410/logo_03.png' },
+        { image: '2020TVforever/images/2410/logo_04.png' },
+        { image: '2020TVforever/images/2410/logo_02.png' },
+        { image: '2020TVforever/images/2410/logo_more.png' }
       ],
       nights: [
         {
           url: 'https://www.tk3c.com/dic2.aspx?cid=119275&aid=23434&hid=120453',
-          image: '2020TVforever/images/2409/ncta2.png',
-          menu: 5421
+          image: '2020TVforever/images/2409/ncta2.png'
         },
         {
           url: 'https://www.tk3c.com/dic2.aspx?cid=119275&aid=23435&hid=121793',
-          image: '2020TVforever/images/2409/ncta1.png',
-          menu: 5420
+          image: '2020TVforever/images/2409/ncta1.png'
         }
       ],
       floorImg: [
@@ -169,12 +167,15 @@ export default {
         { text: '超給力助攻周邊', href: '#pro5202' }
       ],
       menuDis: 4328, //現折 清單編號
+      menuSale: [5977, 4465, 4466, 4463, 4467], // 出清 陳列編號
+      menuNight: [5421, 5420], //夜殺 陳列編號
       status: 0,
       statusSale: 0,
       statusNight: 0,
       isNight: false,
       isDis: true,
-      today: new Date()
+      today: new Date(),
+      disUrl: ''
     }
   },
   mounted() {
@@ -183,33 +184,33 @@ export default {
     //撈取 現折券樓層商品
     this.getFloorSingle(menuDis)
 
-    //撈取 品牌樓層商品
-    this.getFloorSingle(saleTab[0].menu)
+    //撈取 出清樓層商品
+    this.getFloorData(this.menuSale)
 
     //撈取夜間下殺樓層商品
-    this.getFloorSingle(nights[0].menu)
+    this.getFloorData(this.menuNight)
 
     // 2024/11/1-12 隱藏線折券樓層
     if (today >= new Date('2024/11/01') && today < new Date('2024/11/13')) {
       this.isDis = false
+    } else {
+      this.disUrl = 'https://www.tk3c.com/dic1.aspx?cid=124026&aid=23890&strPreView=y'
     }
   },
   methods: {
     change(id) {
       this.status = id
     },
-    changeSale(id, menu) {
+    changeSale(id) {
       if (event) {
         setTimeout(() => {
           this.statusSale = id
-          this.getFloorSingle(menu)
         }, 100)
       }
     },
-    changeNight(id, menu) {
+    changeNight(id) {
       setTimeout(() => {
         this.statusNight = id
-        this.getFloorSingle(menu)
       }, 100)
     }
   }
@@ -465,11 +466,7 @@ form#form1 {
 
       <div class="discount">
         <component :is="listF" :pro="product2[menuDis]" :isSwiper="1" :name="'dis'"></component>
-        <a
-          class="more"
-          :href="$filters.addGALink('https://www.tk3c.com/dictitleurl.aspx?cid=123908')"
-          target="_blank"
-        >
+        <a class="more" :href="$filters.addGALink(disUrl)" target="_blank">
           <img :src="$filters.siteUrl('2020TVforever/images/2409/btn-more.png')" alt="" />
         </a>
       </div>
@@ -506,16 +503,19 @@ form#form1 {
                 class="contrast(0.5) contrast(1).active"
                 @click="goSlide(s)"
               >
-                <a @click="changeSale(s, sale.menu)"
-                  ><img :src="$filters.siteUrl(sale.image)" alt=""
-                /></a>
+                <a @click="changeSale(s)"><img :src="$filters.siteUrl(sale.image)" alt="" /></a>
               </swiper-slide>
             </swiper>
           </div>
         </div>
 
         <div class="tab-content" v-for="(sale, s) in saleTab" :key="s" v-show="statusSale == s">
-          <component :is="listF" :pro="product2[sale.menu]" :isSwiper="1"></component>
+          <component
+            v-if="products[menuSale[s]] != undefined"
+            :is="listF"
+            :pro="products[menuSale[s]].Data"
+            :isSwiper="1"
+          ></component>
         </div>
       </div>
     </section>
@@ -534,7 +534,7 @@ form#form1 {
             :class="[statusNight == n ? 'active' : '']"
             class="w:20% w:35vw@<992 w:42vw@<576 translateZ(0) grayscale(1) grayscale(0).active"
           >
-            <a @click="changeNight(n, night.menu)">
+            <a @click="changeNight(n)">
               <img :src="$filters.siteUrl(night.image)" alt="" />
             </a>
           </li>
@@ -542,7 +542,11 @@ form#form1 {
 
         <!-- 商品內容 -->
         <div class="tab-content" v-for="(night, n) in nights" :key="n" v-show="statusNight == n">
-          <component :is="listF" :pro="product2[night.menu]"></component>
+          <component
+            v-if="products[menuNight[n]] != undefined"
+            :is="listF"
+            :pro="products[menuNight[n]].Data"
+          ></component>
           <a class="more" :href="$filters.addGALink(night.url)" target="_blank"
             ><img :src="$filters.siteUrl('2020TVforever/images/2409/btn-more.png')" alt=""
           /></a>

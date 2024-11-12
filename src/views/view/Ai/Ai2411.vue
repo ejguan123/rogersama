@@ -382,26 +382,25 @@ export default {
       ],
       sales: [
         {
-          image: '2024083C/images/2411/D01-4.png'
-        },
-        {
           image: '2024083C/images/2411/D01-3.png'
         },
         {
           image: '2024083C/images/2411/D01-2.png'
         }
       ],
-      menuSale: [7598, 7599, 7600],
+      menuSale: [7599, 7600],
+      menuSale13: 7612,
       tabStatus: null,
       statusPro: 0,
       tabs: [],
       statusGift: 0,
       statusSale: 0,
-      isSale: true
+      isSale: true,
+      today: new Date()
     }
   },
   mounted() {
-    const { tab1, tab2, sales } = this
+    const { tab1, tab2, today } = this
 
     //撈取筆電區樓層商品
     for (const [t, t1] of Object.entries(tab1[0])) {
@@ -431,7 +430,11 @@ export default {
     }, 60)
 
     //折價券樓層
-    this.getFloorData(this.menuSale)
+    if (today >= new Date('2024/11/13')) {
+      this.getFloorSingle(this.menuSale13)
+    } else {
+      this.getFloorData(this.menuSale)
+    }
   },
   methods: {
     //應援指南頁籤切換
@@ -603,11 +606,11 @@ export default {
   <div id="ai-container">
     <div class="background">
       <h2 class="title animate__animated animate__rollIn">
-        <img :src="$filters.siteUrl('2024083C/images/2411/title.png')" />
+        <img :src="$filters.siteUrl('2024083C/images/2411/title2.png')" />
       </h2>
       <h5 class="subtitle">
         <swiper
-          :loop="true"
+          :loop="false"
           :autoplay="{
             delay: 1400,
             disableOnInteraction: false
@@ -622,7 +625,7 @@ export default {
           <swiper-slide>
             <img :src="$filters.siteUrl('2024083C/images/2411/sub1.png')" />
           </swiper-slide>
-          <swiper-slide>
+          <swiper-slide v-if="today < new Date('2024/11/13')">
             <img :src="$filters.siteUrl('2024083C/images/2411/sub2.png')" />
           </swiper-slide>
         </swiper>
@@ -676,7 +679,16 @@ export default {
       <div class="tab-content" v-if="statusGift == 0">
         <ul class="w:90% gap:10 w:full@<992 mb:2% overflow:hidden">
           <li class="w:44% w:45vw@<992 w:92vw@<576">
-            <a href="#sale"><img :src="$filters.siteUrl('2024083C/images/2411/NB01.png')" /></a>
+            <a href="#sale">
+              <img
+                v-if="today < new Date('2024/11/13')"
+                :src="$filters.siteUrl('2024083C/images/2411/NB01.png')"
+              />
+              <img
+                v-if="today >= new Date('2024/11/13')"
+                :src="$filters.siteUrl('2024083C/images/2411/NB01_2.png')"
+              />
+            </a>
           </li>
           <li class="w:44% w:45vw@<992 w:92vw@<576">
             <a
@@ -760,7 +772,7 @@ export default {
       <!-- 筆電樓層區 -->
       <div v-show="statusGift == 0" class="product-area pro1">
         <!-- 狂撒百萬折價券 -->
-        <section class="sale-box" v-if="isSale" id="sale">
+        <section class="sale-box" v-if="today < new Date('2024/11/13')" id="sale">
           <h2 class="title">
             <a
               :href="
@@ -803,7 +815,12 @@ export default {
             </swiper>
           </div>
 
-          <div class="box" v-for="(sale, s) in sales" v-show="statusSale == Number(s)">
+          <div
+            v-for="(sale, s) in sales"
+            :class="[statusSale == s ? 'active' : '']"
+            class="box"
+            v-show="statusSale == Number(s)"
+          >
             <component
               v-if="products[menuSale[s]] != undefined"
               :is="listF"
@@ -814,6 +831,28 @@ export default {
             </component>
           </div>
         </section>
+
+        <!-- 11/13 更換現折券樓層 -->
+        <section v-if="today >= new Date('2024/11/13')" class="sale-box" id="sale">
+          <h2 class="title">
+            <a
+              :href="
+                $filters.addGALink(
+                  'https://www.tk3c.com/dic2.aspx?cid=124026&aid=23890&hid=124040&strPreView=y'
+                )
+              "
+              target="_blank"
+            >
+              <img :src="$filters.siteUrl('2024083C/images/2411/S01_2.png')" />
+            </a>
+          </h2>
+
+          <div class="sales">
+            <component :is="listF" :pro="product2[menuSale13]" :isSwiper="1" :name="'sale'">
+            </component>
+          </div>
+        </section>
+
         <section
           class="tab-area scroll"
           v-for="(t1, t) in tab1[0]"
@@ -1048,6 +1087,14 @@ form#form1 {
   .tab {
     .swiper-wrapper {
       justify-content: center;
+    }
+  }
+}
+
+.sale-box {
+  .box {
+    &.active {
+      animation: hide-and-show 1s linear;
     }
   }
 }

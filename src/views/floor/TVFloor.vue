@@ -20,13 +20,17 @@ export default {
 </script>
 
 <template>
-  <section class="scroll" v-for="(pro, p) in products" :key="p">
-    <h2 class="title" :id="`pro${pro.id}`">
-      <a :href="$filters.addGALink(floors[p].url)">
-        <img :src="$filters.siteUrl(floors[p].image)" />
+  <section class="scroll" v-for="(floor, f) in floors" :key="f">
+    <h2 class="title" :id="`pro${menu[f]}`">
+      <a :href="$filters.addGALink(floor.url)">
+        <img :src="$filters.siteUrl(floor.image)" />
       </a>
     </h2>
 
-    <component :is="listF" :pro="pro.datas.Data"></component>
+    <component
+      v-if="products[menu[f]] != undefined"
+      :is="listF"
+      :pro="products[menu[f]].Data"
+    ></component>
   </section>
 </template>
