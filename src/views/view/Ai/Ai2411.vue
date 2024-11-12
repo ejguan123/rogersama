@@ -30,6 +30,7 @@ export default {
               title: '2024083C/images/2411/S02.png',
               asidetext: '輕薄商務',
               asideUrl: '#tab1',
+              menu: [7267, 7268],
               content: [
                 {
                   url: 'https://www.tk3c.com/dictitleurl.aspx?cid=11124',
@@ -50,6 +51,7 @@ export default {
               url: 'https://www.tk3c.com/dictitleurl.aspx?cid=117913',
               asidetext: '飆速電競',
               asideUrl: '#tab2',
+              menu: [7269, 7270, 7271],
               content: [
                 {
                   url: 'https://www.tk3c.com/dictitleurl.aspx?cid=117913',
@@ -75,6 +77,7 @@ export default {
               url: 'https://www.tk3c.com/dic1.aspx?cid=11124&aid=22124',
               asidetext: '特仕改裝升級',
               asideUrl: '#tab3',
+              menu: [7272, 7273, 7274],
               content: [
                 {
                   url: 'https://www.tk3c.com/dic1.aspx?cid=11124&aid=22124',
@@ -100,6 +103,7 @@ export default {
               asidetext: '精選螢幕',
               asideUrl: '#tab4',
               url: 'https://www.tk3c.com/dictitleurl.aspx?cid=44823',
+              menu: [7275, 7276],
               content: [
                 {
                   image: '2024083C/images/2411/S06-1.png',
@@ -118,6 +122,7 @@ export default {
               url: 'https://www.tk3c.com/dictitleurl.aspx?cid=114130',
               asidetext: '高效桌機',
               asideUrl: '#tab5',
+              menu: [7277, 7278],
               content: [
                 {
                   image: '2024083C/images/2411/S07-1.png',
@@ -136,6 +141,7 @@ export default {
               url: 'https://www.tk3c.com/dictitleurl.aspx?cid=117896',
               asidetext: 'DIY零組件',
               asideUrl: '#tab6',
+              menu: [7279, 7280, 7281],
               content: [
                 {
                   image: '2024083C/images/2411/S08-1.png',
@@ -171,6 +177,7 @@ export default {
               url: 'hhttps://www.tk3c.com/dic2.aspx?cid=43403&aid=11540&hid=122073',
               asidetext: 'Wi-Fi路由器',
               asideUrl: '#tab8',
+              menu: [7285, 7282, 7284, 7283],
               content: [
                 {
                   url: 'https://www.tk3c.com/dic2.aspx?cid=43403&aid=11540&hid=122073',
@@ -200,6 +207,7 @@ export default {
               title: '2024083C/images/2411/D03.png',
               asidetext: 'DIY組裝機',
               asideUrl: '#tab9',
+              menu: [7278, 7278],
               content: [
                 {
                   url: 'https://www.tk3c.com/dic1.aspx?cid=14719&aid=10020',
@@ -219,6 +227,7 @@ export default {
               title: '2024083C/images/2411/D04.png',
               asidetext: '鍵盤滑鼠',
               asideUrl: '#tab10',
+              menu: [7286, 7287],
               content: [
                 {
                   url: 'https://www.tk3c.com/dic1.aspx?cid=14719&aid=10020',
@@ -238,6 +247,7 @@ export default {
               title: '2024083C/images/2411/D05.png',
               asidetext: '硬碟',
               asideUrl: '#tab11',
+              menu: [7288, 7289],
               content: [
                 {
                   url: 'https://www.tk3c.com/dic1.aspx?cid=117896&aid=23571',
@@ -257,6 +267,7 @@ export default {
               title: '2024083C/images/2411/D06.png',
               asidetext: '隨身碟/記憶卡',
               asideUrl: '#tab12',
+              menu: [7290, 7291],
               content: [
                 {
                   url: 'https://www.tk3c.com/dic1.aspx?cid=12356&aid=4855',
@@ -276,6 +287,7 @@ export default {
               title: '2024083C/images/2411/D08.png',
               asidetext: '投影機/監控設備',
               asideUrl: '#tab13',
+              menu: [7292, 7293],
               content: [
                 {
                   url: 'https://www.tk3c.com/dictitleurl.aspx?cid=19729',
@@ -295,6 +307,7 @@ export default {
               title: '2024083C/images/2411/D09.png',
               asidetext: '辦公設備',
               asideUrl: '#tab14',
+              menu: [7294, 7295, 7296, 7297],
               content: [
                 {
                   url: 'https://www.tk3c.com/dic1.aspx?cid=11684&aid=4762',
@@ -404,17 +417,13 @@ export default {
 
     //撈取筆電區樓層商品
     for (const [t, t1] of Object.entries(tab1[0])) {
-      if (t1[0].content != undefined) {
-        this.getFloorSingle(t1[0].content[0].menu)
-      } else {
-        this.getFloorSingle(t1[0].menu)
-      }
+      this.getFloorData(t1[0].menu)
     }
 
     //撈取周邊區樓層商品
     for (const [t, t2] of Object.entries(tab2[0])) {
       if (t2[0].content != undefined) {
-        this.getFloorSingle(t2[0].content[0].menu)
+        this.getFloorData(t2[0].menu)
       } else {
         this.getFloorSingle(t2[0].menu)
       }
@@ -441,7 +450,7 @@ export default {
     changeGift(id) {
       this.statusGift = id
     },
-    change(id, menu) {
+    change(id) {
       if (event) {
         let current = event.currentTarget,
           parentAr = current.parentNode.parentNode.parentNode.parentNode,
@@ -450,7 +459,6 @@ export default {
           getUrl = current.getAttribute('href')
 
         setTimeout(() => {
-          this.getFloorSingle(menu)
           this.showAndHide(id, `.${parentName}`)
           parentAr.querySelector('.title a').setAttribute('href', getUrl)
         }, 20)
@@ -875,14 +883,19 @@ export default {
           <div v-if="t1[0].content != undefined">
             <ul class="tab">
               <li v-for="(content, c) in t1[0].content" :class="[statusPro == c ? 'active' : '']">
-                <a :href="$filters.addGALink(content.url)" @click.prevent="change(c, content.menu)">
+                <a :href="$filters.addGALink(content.url)" @click.prevent="change(c)">
                   <img :src="$filters.siteUrl(content.image)" alt="" />
                 </a>
               </li>
             </ul>
 
             <div class="tab-content" v-for="(content, c) in t1[0].content" v-show="statusPro == c">
-              <component :is="listF" :pro="product2[content.menu]"> </component>
+              <component
+                v-if="products[t1[0].menu[c]] != undefined"
+                :is="listF"
+                :pro="products[t1[0].menu[c]].Data"
+              >
+              </component>
             </div>
           </div>
 
@@ -917,14 +930,19 @@ export default {
           <div v-if="t2[0].content != undefined">
             <ul class="tab">
               <li v-for="(content, c) in t2[0].content" :class="[statusPro == c ? 'active' : '']">
-                <a :href="$filters.addGALink(content.url)" @click.prevent="change(c, content.menu)">
+                <a :href="$filters.addGALink(content.url)" @click.prevent="change(c)">
                   <img :src="$filters.siteUrl(content.image)" alt="" />
                 </a>
               </li>
             </ul>
 
             <div class="tab-content" v-for="(content, c) in t2[0].content" v-show="statusPro == c">
-              <component :is="listF" :pro="product2[content.menu]"> </component>
+              <component
+                v-if="products[t2[0].menu[c]] != undefined"
+                :is="listF"
+                :pro="products[t2[0].menu[c]].Data"
+              >
+              </component>
             </div>
           </div>
 
