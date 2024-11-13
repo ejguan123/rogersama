@@ -1,4 +1,5 @@
 <script setup>
+//需要輪播的活動圖
 const alls = [
   { image: '2024Thxgiving/images/C1.png' },
   { image: '2024Thxgiving/images/C2.png' },
@@ -7,6 +8,7 @@ const alls = [
   { image: '2024Thxgiving/images/C5.png' }
 ]
 
+//點擊彈出視窗 活動辦法
 const message = () => {
   //滿額6000抽
   let infoHtml = `
