@@ -392,6 +392,7 @@ export default {
       this.isDis = false
     } else {
       this.disUrl = 'https://www.tk3c.com/dic1.aspx?cid=124026&aid=23890&strPreView=y'
+      this.isDis = false
     }
   },
   methods: {
@@ -545,12 +546,7 @@ export default {
 
       <div class="discount">
         <component :is="listF" :pro="product2[menuDis]" :isSwiper="1" :name="'dis'"></component>
-        <a
-          class="more"
-          :href="$filters.addGALink('https://www.tk3c.com/dic1.aspx?cid=123908&aid=23881')"
-          target="_blank"
-          >MORE</a
-        >
+        <a class="more" :href="$filters.addGALink(disUrl)" target="_blank">MORE</a>
       </div>
     </section>
 
