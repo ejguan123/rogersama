@@ -223,24 +223,21 @@ export default {
             {
               title: 'airConditionerLAB/images/2410/bra_s5.png',
               url: 'https://www.tk3c.com/dic1.aspx?cid=11225&aid=4704&strPreView=y',
+              menu: [4288, 4289, 4290, 4291],
               content: [
                 {
-                  menu: 4288,
                   url: 'https://www.tk3c.com/dic1.aspx?cid=11225&aid=4704&strPreView=y',
                   image: 'airConditionerLAB/images/2405/s2-1.png'
                 },
                 {
-                  menu: 4289,
                   url: 'https://www.tk3c.com/dic1.aspx?cid=11225&aid=4704&strPreView=y',
                   image: 'airConditionerLAB/images/2405/s2-2.png'
                 },
                 {
-                  menu: 4290,
                   url: 'https://www.tk3c.com/dic1.aspx?cid=11225&aid=4704&strPreView=y',
                   image: 'airConditionerLAB/images/2405/s2-3b.png'
                 },
                 {
-                  menu: 4291,
                   url: 'https://www.tk3c.com/dic1.aspx?cid=11225&aid=4704&strPreView=y',
                   image: 'airConditionerLAB/images/2405/s2-4.png'
                 }
@@ -251,24 +248,21 @@ export default {
             {
               title: 'airConditionerLAB/images/2410/bra_s6.png',
               url: 'https://www.tk3c.com/dic1.aspx?cid=11225&aid=4702&strPreView=y',
+              menu: [4292, 4293, 4294, 4295],
               content: [
                 {
-                  menu: 4292,
                   url: 'https://www.tk3c.com/dic1.aspx?cid=11225&aid=4702&strPreView=y',
                   image: 'airConditionerLAB/images/2405/s3-1.png'
                 },
                 {
-                  menu: 4293,
                   url: 'https://www.tk3c.com/dic1.aspx?cid=11225&aid=4702&strPreView=y',
                   image: 'airConditionerLAB/images/2405/s3-2.png'
                 },
                 {
-                  menu: 4294,
                   url: 'https://www.tk3c.com/dic1.aspx?cid=11225&aid=4702&strPreView=y',
                   image: 'airConditionerLAB/images/2405/s3-3b.png'
                 },
                 {
-                  menu: 4295,
                   url: 'https://www.tk3c.com/dic1.aspx?cid=11225&aid=4702&strPreView=y',
                   image: 'airConditionerLAB/images/2405/s3-4.png'
                 }
@@ -363,15 +357,13 @@ export default {
     //撈取熊速配樓層商品
     this.getFloorSingle(menuBear)
 
-    ///撈取有頁籤的商品樓層
-    this.getFloorData(this.menuFloor1)
-    this.getFloorData(this.menuFloor2)
-
     for (const [f, floor] of Object.entries(floors[0])) {
-      if (floor[0].content == undefined) {
+      if (floor[0].content != undefined) {
+        // 撈取有頁籤商品
+        this.getFloorData(floor[0].menu)
+      } else {
         //無頁籤商品樓層
         this.getFloorSingle(floor[0].menu)
-        //this.getFloorSingle(floor[0].content[0].menu)
       }
     }
 
@@ -411,7 +403,6 @@ export default {
           parentName = parentClass.substr(16)
 
         setTimeout(() => {
-          //this.getFloorSingle(menu)
           this.showAndHide(id, `.${parentName}`)
         }, 100)
       }
@@ -904,16 +895,10 @@ export default {
           </ul>
 
           <div class="tab-content" v-for="(content, c) in floor[0].content" v-show="statusTab == c">
-            <!-- <component :is="listF" :pro="product2[content.menu]"></component> -->
             <component
-              v-if="f == 0 && products[menuFloor1[c]] != undefined"
+              v-if="products[floor[0].menu[c]] != undefined"
               :is="listF"
-              :pro="products[menuFloor1[c]].Data"
-            ></component>
-            <component
-              v-else-if="f == 1 && products[menuFloor2[c]] != undefined"
-              :is="listF"
-              :pro="products[menuFloor2[c]].Data"
+              :pro="products[floor[0].menu[c]].Data"
             ></component>
           </div>
         </div>
