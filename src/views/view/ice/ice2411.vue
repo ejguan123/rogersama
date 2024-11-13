@@ -85,17 +85,15 @@ export default {
             {
               title: 'icewash2209/images/2411/sb6.png',
               url: 'https://www.tk3c.com/dic1.aspx?cid=12504&aid=12740',
+              menu: [5981, 5982, 5983],
               content: [
                 {
-                  menu: 5981,
                   image: 'icewash2209/images/2411/R01_1.png'
                 },
                 {
-                  menu: 5982,
                   image: 'icewash2209/images/2411/R01_2.png'
                 },
                 {
-                  menu: 5983,
                   image: 'icewash2209/images/2411/R01_3.png'
                 }
               ]
@@ -105,13 +103,12 @@ export default {
             {
               title: 'icewash2209/images/2411/sb7.png',
               url: 'https://www.tk3c.com/dic1.aspx?cid=12504&aid=4937',
+              menu: [7083, 7084],
               content: [
                 {
-                  menu: 7083,
                   image: 'icewash2209/images/2411/R02_1.png'
                 },
                 {
-                  menu: 7084,
                   image: 'icewash2209/images/2411/R02_2.png'
                 }
               ]
@@ -146,17 +143,15 @@ export default {
             {
               title: 'icewash2209/images/2411/sb6.png',
               url: 'https://www.tk3c.com/dic1.aspx?cid=83198&aid=18581',
+              menu: [7088, 7089, 7090],
               content: [
                 {
-                  menu: 7088,
                   image: 'icewash2209/images/2411/W01_1.png'
                 },
                 {
-                  menu: 7089,
                   image: 'icewash2209/images/2411/W01_2.png'
                 },
                 {
-                  menu: 7090,
                   image: 'icewash2209/images/2411/W01_3.png'
                 }
               ]
@@ -166,17 +161,15 @@ export default {
             {
               title: 'icewash2209/images/2411/sb7.png',
               url: 'https://www.tk3c.com/dic1.aspx?cid=83198&aid=18641',
+              menu: [7091, 7092, 7093],
               content: [
                 {
-                  menu: 7091,
                   image: 'icewash2209/images/2411/W02_1.png'
                 },
                 {
-                  menu: 7092,
                   image: 'icewash2209/images/2411/W02_2.png'
                 },
                 {
-                  menu: 7093,
                   image: 'icewash2209/images/2411/W02_3.png'
                 }
               ]
@@ -217,24 +210,23 @@ export default {
 
     this.status == 0 ? (this.tabs = tab1[0]) : (this.tabs = tab2[0])
 
-    for (const [t, tab] of Object.entries(tab1[0])) {
-      //撈取有頁籤的商品樓層 冰箱
-
-      if (tab[0].content != undefined) {
-        this.getFloorSingle(tab[0].content[0].menu)
+    for (const [t, t1] of Object.entries(tab1[0])) {
+      //撈取商品樓層 冰箱
+      if (t1[0].content != undefined) {
+        this.getFloorData(t1[0].menu)
       } else {
         //無頁籤商品樓層
-        this.getFloorSingle(tab[0].menu)
+        this.getFloorSingle(t1[0].menu)
       }
     }
 
-    for (const [t, tab] of Object.entries(tab2[0])) {
-      //撈取有頁籤的商品樓層 洗衣機
-      if (tab[0].content != undefined) {
-        this.getFloorSingle(tab[0].content[0].menu)
+    for (const [t, t2] of Object.entries(tab2[0])) {
+      //撈取商品樓層 洗衣機
+      if (t2[0].content != undefined) {
+        this.getFloorData(t2[0].menu)
       } else {
         //無頁籤商品樓層
-        this.getFloorSingle(tab[0].menu)
+        this.getFloorSingle(t2[0].menu)
       }
     }
 
@@ -251,7 +243,7 @@ export default {
     if (today >= new Date('2024/11/01') && today < new Date('2024/11/13')) {
       this.isSale = false
     } else {
-      this.saleUrl = 'https://www.tk3c.com/dic1.aspx?cid=124026&aid=23890&strPreView=y'
+      this.saleUrl = 'https://www.tk3c.com/dic2.aspx?cid=124026&aid=23890&hid=124046&strPreView=y'
     }
   },
   methods: {
@@ -270,7 +262,7 @@ export default {
           parentName = parentClass.substr(16)
 
         setTimeout(() => {
-          this.getFloorSingle(menu)
+          //this.getFloorSingle(menu)
           this.showAndHide(id, '.' + parentName)
         }, 30)
       }
@@ -617,10 +609,7 @@ export default {
                   :class="[statusPro == c ? 'active' : '']"
                   @click="gotoSlide(c)"
                 >
-                  <a
-                    :href="$filters.addGALink(content.url)"
-                    @click.prevent="changePro(c, content.menu)"
-                  >
+                  <a :href="$filters.addGALink(content.url)" @click.prevent="changePro(c)">
                     <img :src="$filters.siteUrl(content.image)" alt="" />
                   </a>
                 </swiper-slide>
@@ -629,8 +618,9 @@ export default {
 
             <div class="tab-content" v-for="(content, c) in tab[0].content" v-show="statusPro == c">
               <component
+                v-if="products[tab[0].menu[c]] != undefined"
                 :is="listF"
-                :pro="product2[content.menu]"
+                :pro="products[tab[0].menu[c]].Data"
                 :isSwiper="1"
                 :name="`pro${Number(c) + 1}`"
               >
