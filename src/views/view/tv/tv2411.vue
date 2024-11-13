@@ -3,6 +3,7 @@ import { EffectFade, Parallax } from 'swiper/modules'
 import listF from '../../layout/listF.vue'
 import TVFloor from '../../floor/TVFloor.vue'
 import { ref } from 'vue'
+import AllEvent from '../../../components/AllEvent.vue' //全站活動
 
 const swiperRef = ref()
 const modules = [EffectFade, Parallax]
@@ -194,7 +195,7 @@ export default {
     if (today >= new Date('2024/11/01') && today < new Date('2024/11/13')) {
       this.isDis = false
     } else {
-      this.disUrl = 'https://www.tk3c.com/dic1.aspx?cid=124026&aid=23890&strPreView=y'
+      this.disUrl = 'https://www.tk3c.com/dic2.aspx?cid=124026&aid=23890&hid=124045&strPreView=y'
     }
   },
   methods: {
@@ -457,6 +458,8 @@ form#form1 {
         <img :src="$filters.siteUrl(gift.image)" alt="" />
       </a>
     </section>
+
+    <AllEvent></AllEvent>
 
     <!-- 現折券 -->
     <section class="discount-box" id="dis" v-if="isDis">

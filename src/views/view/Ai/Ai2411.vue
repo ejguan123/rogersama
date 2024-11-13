@@ -3,6 +3,7 @@ import listF from '../../layout/listF.vue'
 import { Parallax, EffectFlip, EffectFade } from 'swiper/modules'
 import banner from '../../layout/banner.vue'
 import mobileAi from '../../layout/mobileAi.vue'
+import AllEvent from '../../../components/AllEvent.vue' //全站活動
 import { ref } from 'vue'
 
 const swiperRef = ref()
@@ -775,6 +776,8 @@ export default {
         </a>
       </div>
     </section>
+
+    <AllEvent></AllEvent>
 
     <div class="pro-group">
       <!-- 筆電樓層區 -->
