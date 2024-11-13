@@ -46,34 +46,26 @@ export default {
       tabs: [
         {
           url: 'https://www.tk3c.com/dic2.aspx?cid=120390&aid=23426&hid=120395&strPreView=y',
-          image: 'green_subsidy/images/tab1.png',
-          menu: 4344
+          image: 'green_subsidy/images/tab1.png'
         },
         {
           url: 'https://www.tk3c.com/dic2.aspx?cid=120390&aid=23426&hid=120392&strPreView=y',
-          image: 'green_subsidy/images/tab2.png',
-          menu: 4345
+          image: 'green_subsidy/images/tab2.png'
         },
         {
           url: 'https://www.tk3c.com/dic2.aspx?cid=120390&aid=23426&hid=120393&strPreView=y',
-          image: 'green_subsidy/images/tab3.png',
-          menu: 4346
+          image: 'green_subsidy/images/tab3.png'
         },
         {
           url: 'https://www.tk3c.com/dic2.aspx?cid=120390&aid=23426&hid=120394&strPreView=y',
-          image: 'green_subsidy/images/tab4.png',
-          menu: 4347
+          image: 'green_subsidy/images/tab4.png'
         },
         {
           url: 'https://www.tk3c.com/dic2.aspx?cid=120390&aid=23426&hid=120396&strPreView=y',
-          image: 'green_subsidy/images/tab5_a.png',
-          menu: 4390
+          image: 'green_subsidy/images/tab5_a.png'
         }
       ],
-      printers: [
-        { text: '主機', menu: 7394 },
-        { text: '耗材', menu: 7395 }
-      ],
+      printers: [{ text: '主機' }, { text: '耗材' }],
       floorImg: [
         {
           url: 'https://www.tk3c.com/dic2.aspx?cid=120390&aid=23426&hid=120393',
@@ -100,23 +92,9 @@ export default {
           image: 'green_subsidy/images/S8_a.png'
         }
       ],
-      newTabs: [
-        { image: 'green_subsidy/images/new/S-btn14.png', menu: 7587 },
-        { image: 'green_subsidy/images/new/S-btn13.png', menu: 7588 },
-        { image: 'green_subsidy/images/new/S-btn12.png', menu: 7589 },
-        { image: 'green_subsidy/images/new/S-btn1.png', menu: 7576 },
-        { image: 'green_subsidy/images/new/S-btn2.png', menu: 7577 },
-        { image: 'green_subsidy/images/new/S-btn3.png', menu: 7578 },
-        { image: 'green_subsidy/images/new/S-btn4.png', menu: 7579 },
-        { image: 'green_subsidy/images/new/S-btn5.png', menu: 7580 },
-        { image: 'green_subsidy/images/new/S-btn6.png', menu: 7581 },
-        { image: 'green_subsidy/images/new/S-btn7.png', menu: 7582 },
-        { image: 'green_subsidy/images/new/S-btn8.png', menu: 7583 },
-        { image: 'green_subsidy/images/new/S-btn9.png', menu: 7584 },
-        { image: 'green_subsidy/images/new/S-btn10.png', menu: 7585 },
-        { image: 'green_subsidy/images/new/S-btn11.png', menu: 7586 }
-      ],
       menu: [4348, 4349, 4350, 4352, 4353, 4369],
+      menuGreen: [4344, 4345, 4346, 4347, 4390],
+      menuPrint: [7394, 7395],
       status: 0,
       stausPrinter: 0,
       statusNew: 0,
@@ -128,23 +106,19 @@ export default {
     }
   },
   mounted() {
-    const { menu, tabs, menuSp, newTabs, today } = this
-
-    this.getFloorSingle(newTabs[0].menu)
+    const { menu, tabs, menuSp, today } = this
 
     //撈取綠點新鮮貨樓層
     this.getFloorSingle(menuSp)
 
     //撈取環保集點樓層商品
-    this.getFloorSingle(tabs[0].menu)
+    this.getFloorData(this.menuGreen)
 
     //撈取印表機樓層
-    this.getFloorSingle(this.printers[0].menu)
+    this.getFloorData(this.menuPrint)
 
     //剩下樓層
-    setTimeout(() => {
-      this.getFloorData(menu)
-    }, 200)
+    this.getFloorData(menu)
 
     if (today >= new Date('2024/11/13')) {
       this.isVip = false
@@ -152,27 +126,19 @@ export default {
 
     // 10.26-11.10 每週六日顯示
     if (today >= new Date('2024/10/26') && today < new Date('2024/11/11')) {
-      if (today.getDay() == 6 || today.getDay() == 7) {
+      if (today.getDay() == 6 || today.getDay() == 0) {
         this.isNew = true
       }
     }
   },
   methods: {
-    changeGreen(id, menu) {
+    changeGreen(id) {
       if (event) {
         this.status = id
-        this.getFloorSingle(menu)
       }
     },
-    changePrinter(id, menu) {
+    changePrinter(id) {
       this.stausPrinter = id
-      this.getFloorSingle(menu)
-    },
-    changeNew(id, menu) {
-      setTimeout(() => {
-        this.statusNew = id
-        this.getFloorSingle(menu)
-      }, 30)
     },
     message(id) {
       //活動說明
@@ -214,15 +180,12 @@ export default {
       <h2
         class="title w:25% abs right:26% top:19% m:auto w:40vw@<992 w:55vw@<576 left:45vw@<992 left:44vw@<576 top:9vw@<992 top:22vw@<576"
       >
-        <img
-          src="https://events.cdn-tkec.tw/events_net/events_net/green_subsidy/images/new/title2.png"
-          alt=""
-        />
+        <img :src="$filters.siteUrl('green_subsidy/images/new/title.png')" alt="" />
       </h2>
     </div>
 
     <!-- 環保3C家電產品 週末16%回饋 -->
-    <section class="new-box">
+    <section class="new-box" v-if="isNew">
       <div class="w:full flex jc:center flex-wrap:wrap gap:10 m:0|0|5% m:0|0|10%@<576">
         <a href="#info" class="w:42% w:45vw@<992 w:90vw@<576 m:0|0|4%"
           ><img :src="$filters.siteUrl('green_subsidy/images/new/btn1.png')"
@@ -247,7 +210,7 @@ export default {
         </div>
       </div>
 
-      <div class="box" v-if="isNew">
+      <div class="box">
         <!-- 頁籤 -->
         <div class="flex flex-wrap:wrap gap:10 mb:1%">
           <swiper
@@ -311,10 +274,7 @@ export default {
     <!-- 綠點 -->
     <section class="green-box scroll" id="green">
       <h2 class="title">
-        <img
-          src="https://events.cdn-tkec.tw/events_net/events_net/green_subsidy/images/green_title.png"
-          alt=""
-        />
+        <img :src="$filters.siteUrl('green_subsidy/images/green_title.png')" alt="" />
       </h2>
       <div class="green content">
         <ul>
@@ -345,7 +305,7 @@ export default {
                 :class="[status == t ? 'active' : '']"
                 @click="goSlide(t)"
               >
-                <a @click="changeGreen(t, tab.menu)">
+                <a @click="changeGreen(t)">
                   <img :src="$filters.siteUrl(tab.image)" />
                 </a>
               </swiper-slide>
@@ -357,8 +317,9 @@ export default {
           <swiper id="greenContent" :loop="false" :modules="[Controller]" @swiper="onControlSwiper">
             <swiper-slide class="tab-content" v-for="(tab, t) in tabs">
               <component
+                v-if="products[menuGreen[t]] != undefined"
                 :is="listF"
-                :pro="product2[tab.menu]"
+                :pro="products[menuGreen[t]].Data"
                 :allowTouchMove="false"
                 :isSwiper="1"
                 :name="'g'"
@@ -374,11 +335,7 @@ export default {
 
     <!-- 政府補助 -->
     <section class="sub-box" id="sub">
-      <img
-        class="sub-bg"
-        src="https://events.cdn-tkec.tw/events_net/events_net/green_subsidy/images/sub_bg_2406.png"
-        alt=""
-      />
+      <img class="sub-bg" :src="$filters.siteUrl('green_subsidy/images/sub_bg_2406.png')" alt="" />
       <ul>
         <li class="alert1">
           <a @click="message(1)">
@@ -424,31 +381,37 @@ export default {
           v-for="(printer, p) in printers"
           :class="[stausPrinter == p ? 'active' : '']"
         >
-          <a @click="changePrinter(p, printer.menu)">{{ printer.text }}</a>
+          <a @click="changePrinter(p)">{{ printer.text }}</a>
         </li>
       </ul>
 
       <div class="tab-content" v-for="(printer, p) in printers" v-show="stausPrinter == p">
-        <component :is="listF" :pro="product2[printer.menu]"></component>
+        <component
+          v-if="products[menuPrint[p]] != undefined"
+          :is="listF"
+          :pro="products[menuPrint[p]].Data"
+        ></component>
       </div>
     </section>
 
-    <section class="scroll" v-for="(pro, p) in products">
+    <section class="scroll" v-for="(floor, f) in floorImg" :key="f">
       <h2 class="title">
-        <img :src="$filters.siteUrl(floorImg[p].image)" />
+        <img :src="$filters.siteUrl(floor.image)" />
         <a
-          :href="$filters.addGALink(floorImg[p].url)"
-          :name="`pro${pro.id}`"
-          :id="`pro${pro.id}`"
+          :href="$filters.addGALink(floor.url)"
+          :name="`pro${menu[f]}`"
+          :id="`pro${menu[f]}`"
           class="more"
           target="_blank"
-          ><img
-            src="https://events.tk3c.com/events_net/events_net/green_subsidy/images/more2.png"
-            alt=""
+          ><img :src="$filters.siteUrl('green_subsidy/images/more2.png')" alt=""
         /></a>
       </h2>
 
-      <component :is="listF" :pro="pro.datas.Data"></component>
+      <component
+        v-if="products[menu[f]] != undefined"
+        :is="listF"
+        :pro="products[menu[f]].Data"
+      ></component>
     </section>
 
     <!-- 右側選單 -->
