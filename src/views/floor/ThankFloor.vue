@@ -22,8 +22,8 @@ export default {
   data() {
     return {
       menus: [
-        7560, 7529, 7563, 7569, 7533, 7571, 7537, 7540, 7543, 7541, 7539, 7536, 7545, 7611, 7544,
-        7553, 7546
+        7560, 7529, 7563, 7564, 7569, 7533, 7571, 7537, 7540, 7543, 7541, 7539, 7536, 7545, 7611,
+        7544, 7553, 7546
       ],
       menuPrint: [7564, 7565, 7566, 7567, 7568],
       floorImg: [
@@ -304,11 +304,7 @@ export default {
       <div class="swiper-button-next next"></div>
     </div>
 
-    <component
-      v-if="f != 3 && products[menus[f]] != undefined"
-      :is="listF"
-      :pro="products[menus[f]].Data"
-    ></component>
+    <component v-if="f != 3" :is="listF" :pro="products[menus[f]].Data"> </component>
 
     <!-- 各空調品牌banner -->
     <div class="banner-brands" v-if="f == 9">

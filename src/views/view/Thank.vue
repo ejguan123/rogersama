@@ -34,7 +34,7 @@ export default {
       menuSP: [7478, 7479], //封神榜陳列編號
       menuGreen: 7517, //環保商品陳列編號
       menuGo: 7518, //速速go陳列編號
-      menuSale: [7603, 7604, 7605, 7606, 7607],
+      menuSale: [7613, 7614, 7615, 7616, 7603, 7604, 7605, 7606, 7607],
       gifts: [
         { image: '2024Thxgiving/images/C1.png' },
         { image: '2024Thxgiving/images/C2.png' },
@@ -47,6 +47,10 @@ export default {
         { image: '2024Thxgiving/images/S1-2.png' }
       ],
       sales: [
+        { image: '2024Thxgiving/images/s100.png' },
+        { image: '2024Thxgiving/images/s200.png' },
+        { image: '2024Thxgiving/images/s300.png' },
+        { image: '2024Thxgiving/images/s400.png' },
         { image: '2024Thxgiving/images/s399.png' },
         { image: '2024Thxgiving/images/s499.png' },
         { image: '2024Thxgiving/images/s599.png' },
@@ -129,12 +133,15 @@ export default {
         }, 30)
       }
     },
-    message() {
+    message(id) {
       //活動辦法
 
       let infoHtml = ''
-      //雙11搶先購物券
-      infoHtml = `
+
+      switch (id) {
+        case 1:
+          //全站滿額6000抽
+          infoHtml = `
               <ul style='text-align:left;'>
              <li style='margin-bottom:10px;'>1.於燦坤3C門市或燦坤線上購物網站購買皆可參加本活動，但本活動需具有「燦坤實體有效會員」身分，且以會員卡片背後所記載的燦坤會員卡號綁定燦坤APP，並以該「已綁定燦坤APP的燦坤實體有效會員卡」身分進行消費方符資格。如您是透過燦坤線上購物購買時，請確認您於購買(訂單成立)時已將您的「燦坤線上購物會員帳號」完成「燦坤實體有效會員」身分綁定，如購買(訂單成立)時未完成綁定，則無法參加。​</li>
              <li style='margin-bottom:10px;'>2.凡於活動期間(2024/11/13~11/30)，以會員資格消費購買全館商品(部分商品除外)，單張發票消費金額滿$6,000元(含)起，並於2024/12/15前出貨/配送完成，且後續未退貨退款者，憑發票即可獲得本活動抽獎資格(1張發票1次抽獎機會)，將抽出頭獎1名送「PlayStation5 Pro主機(市價$24,280元)」、二獎 1名送「dyson二合一吹風直髮器(市價$16,600元)」、三獎1名送「SAMSUNG Galaxy Watch7+Fit3+Buds FE(市價$15,660元)」、四獎2名送「王品商品券2張(市價$3,498元)」、五獎3名送「1000燦坤K幣(1燦坤K幣= NT$1元)」 。​</li>
@@ -152,6 +159,26 @@ export default {
               <li style='margin-bottom:10px;'>10.活動未盡事宜以燦坤3C公告為主，燦坤3C保留活動最終解釋、修改、變更之權利。</li>
         </ul>
           `
+          break
+
+        case 2:
+          //會員滿額加碼
+          infoHtml = `
+              <ul style='text-align:left;'>
+             <li style='margin-bottom:10px;'>1.本活動限僅限「燦坤實體有效會員」參加。​</li>
+             <li style='margin-bottom:10px;'>2.活動期間(2024/11/13-11/18)於任一燦坤3C門市以會員資格消費滿指定門檻，燦坤加碼贈送好禮，好禮以活動POP為準。​</li>
+               <li style='margin-bottom:10px;'>3.活動期間消費金額之計算，以實際發票開立金額為主，同日/同一門市/同一會員卡號方得累計(含門市取貨付款訂單)，每張發票限計算1次， APPLE、小米、dyson、提貨券商品之消費金額恕不累計。​</li>
+                <li style='margin-bottom:10px;'>4.好禮(贈品)以門市展示實品為準，數量有限，送完為止。</li>
+                 <li style='margin-bottom:10px;'>5.會員須遵守燦坤相關購物服務條款及其他交易有關之規定，若發票後續有取消、退貨、退款或換貨等情事或有其他爭議(如非為會員本人購買)致未達滿額門檻者，，燦坤3C將以下列方式處理：</li>
+             <li style='margin-bottom:10px;padding-left:10px;'>(1) 提供贈品前：燦坤3C將不會提供贈品。​</li>
+             <li style='margin-bottom:10px;padding-left:10px;'>(2) 提供贈品後：您需將贈品退回，倘若已使用(拆封外盒視同使用)贈品，則需返回等同贈品價值金額。​</li>
+              <li style='margin-bottom:10px;'>6.本活動不與其他優惠活動(包含指定商品最高回饋5%燦坤K幣、其他會員紅利券、銀行現折贈品券、聯名卡現折優惠券活動)併行，例如：凡有送其他燦坤3C會員紅利券或銀行現折贈品券的商品，該筆交易(發票)將無法參與本活動。</li>
+               <li style='margin-bottom:10px;'>7.特價(含變價、競價)商品、限時限量商品、出清商品等優惠商品或涉及大宗採購且(或)有議價時，因燦坤已提供非常優惠之商品價格，該筆交易(發票)將無法參與本活動。</li>
+                <li style='margin-bottom:10px;'>8.活動未盡事宜以燦坤3C公告為主，燦坤3C保留活動最終解釋、修改、變更之權利。</li>
+        </ul>
+          `
+          break
+      }
 
       Swal.fire({
         width: 1000,
@@ -211,7 +238,7 @@ export default {
           </swiper-slide>
         </swiper>
         <a
-          @click.prevent="message"
+          @click.prevent="message(1)"
           target="_blank"
           class="w:15% w:16vw@<992 w:35vw@<576 h:auto block m:auto"
         >
@@ -272,10 +299,10 @@ export default {
               slidesPerView: 2.4
             },
             600: {
-              slidesPerView: 3.3
+              slidesPerView: 4.3
             },
             992: {
-              slidesPerView: 5
+              slidesPerView: 6.3
             }
           }"
           :modules="[Controller]"
@@ -367,7 +394,7 @@ export default {
           </a>
           <a
             class="w:15% m:0|5px w:25vw@<992 w:40vw@<576"
-            href="https://www.tk3c.com.tw/Home/Index#activityinfo&8"
+            @click.prevent="message(2)"
             target="_blank"
           >
             <img :src="$filters.siteUrl('202411vip/imagesT/eventBtn.png')" />
