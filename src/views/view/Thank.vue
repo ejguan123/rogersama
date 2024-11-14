@@ -111,7 +111,7 @@ export default {
     }
 
     //撈好物封神榜樓層商品
-    this.getFloorData(this.menuSP)
+    this.getFloorSingle(this.menuSP[0])
 
     //撈取現折券樓層商品
     this.getFloorData(this.menuSale)
@@ -123,8 +123,9 @@ export default {
     this.getFloorSingle(menuGo)
   },
   methods: {
-    changeSp(id) {
+    changeSp(id, menu) {
       this.statusSp = id
+      this.getFloorSingle(menu)
     },
     changSale(id) {
       if (event) {
@@ -263,17 +264,13 @@ export default {
           v-for="(special, s) in specials"
           :class="[statusSp == s ? 'active' : '']"
           class="w:30% w:40vw@<992 w:45vw@<576 m:0|0 opacity(0.7) opacity(1).active"
-          @click="changeSp(s)"
+          @click="changeSp(s, menuSP[s])"
           ><img :src="$filters.siteUrl(special.image)"
         /></a>
       </div>
 
       <div v-for="(special, s) in specials" v-show="statusSp == s">
-        <component
-          v-if="products[menuSP[s]] != undefined"
-          :is="listD"
-          :pro="products[menuSP[s]].Data"
-        ></component>
+        <component :is="listD" :pro="product2[menuSP[s]]"></component>
       </div>
     </section>
 
