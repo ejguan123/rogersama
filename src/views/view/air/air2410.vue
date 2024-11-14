@@ -223,23 +223,26 @@ export default {
             {
               title: 'airConditionerLAB/images/2410/bra_s5.png',
               url: 'https://www.tk3c.com/dic1.aspx?cid=11225&aid=4704&strPreView=y',
-              menu: [4288, 4289, 4290, 4291],
               content: [
                 {
                   url: 'https://www.tk3c.com/dic1.aspx?cid=11225&aid=4704&strPreView=y',
-                  image: 'airConditionerLAB/images/2405/s2-1.png'
+                  image: 'airConditionerLAB/images/2405/s2-1.png',
+                  menu: 4288
                 },
                 {
                   url: 'https://www.tk3c.com/dic1.aspx?cid=11225&aid=4704&strPreView=y',
-                  image: 'airConditionerLAB/images/2405/s2-2.png'
+                  image: 'airConditionerLAB/images/2405/s2-2.png',
+                  menu: 4289
                 },
                 {
                   url: 'https://www.tk3c.com/dic1.aspx?cid=11225&aid=4704&strPreView=y',
-                  image: 'airConditionerLAB/images/2405/s2-3b.png'
+                  image: 'airConditionerLAB/images/2405/s2-3b.png',
+                  menu: 4290
                 },
                 {
                   url: 'https://www.tk3c.com/dic1.aspx?cid=11225&aid=4704&strPreView=y',
-                  image: 'airConditionerLAB/images/2405/s2-4.png'
+                  image: 'airConditionerLAB/images/2405/s2-4.png',
+                  menu: 4291
                 }
               ]
             }
@@ -248,23 +251,26 @@ export default {
             {
               title: 'airConditionerLAB/images/2410/bra_s6.png',
               url: 'https://www.tk3c.com/dic1.aspx?cid=11225&aid=4702&strPreView=y',
-              menu: [4292, 4293, 4294, 4295],
               content: [
                 {
                   url: 'https://www.tk3c.com/dic1.aspx?cid=11225&aid=4702&strPreView=y',
-                  image: 'airConditionerLAB/images/2405/s3-1.png'
+                  image: 'airConditionerLAB/images/2405/s3-1.png',
+                  menu: 4292
                 },
                 {
                   url: 'https://www.tk3c.com/dic1.aspx?cid=11225&aid=4702&strPreView=y',
-                  image: 'airConditionerLAB/images/2405/s3-2.png'
+                  image: 'airConditionerLAB/images/2405/s3-2.png',
+                  menu: 4293
                 },
                 {
                   url: 'https://www.tk3c.com/dic1.aspx?cid=11225&aid=4702&strPreView=y',
-                  image: 'airConditionerLAB/images/2405/s3-3b.png'
+                  image: 'airConditionerLAB/images/2405/s3-3b.png',
+                  menu: 4294
                 },
                 {
                   url: 'https://www.tk3c.com/dic1.aspx?cid=11225&aid=4702&strPreView=y',
-                  image: 'airConditionerLAB/images/2405/s3-4.png'
+                  image: 'airConditionerLAB/images/2405/s3-4.png',
+                  menu: 4295
                 }
               ]
             }
@@ -323,8 +329,6 @@ export default {
       menuCold: 3695, //冷暖空調
       menuWet: 7466, //除濕機用
       menuBrand: [4414, 4413, 4415, 4417, 4416, 5516, 4418, 5517, 4436, 4419, 4420, 4655], //品牌 陳列編號
-      menuFloor1: [4288, 4289, 4290, 4291],
-      menuFloor2: [4292, 4293, 4294, 4295],
       statusBrand: 0, //品牌區專區
       statusTab: 0, //商品樓層用
       statusInfo: 0,
@@ -343,7 +347,7 @@ export default {
     this.getFloorSingle(menuDis)
 
     //撈取 品牌樓層商品
-    this.getFloorData(this.menuBrand)
+    this.getFloorSingle(this.menuBrand[0])
 
     //撈取 熱銷空調樓層商品
     this.getFloorSingle(menuHot)
@@ -360,7 +364,7 @@ export default {
     for (const [f, floor] of Object.entries(floors[0])) {
       if (floor[0].content != undefined) {
         // 撈取有頁籤商品
-        this.getFloorData(floor[0].menu)
+        this.getFloorSingle(floor[0].content[0].menu)
       } else {
         //無頁籤商品樓層
         this.getFloorSingle(floor[0].menu)
@@ -388,14 +392,15 @@ export default {
     }
   },
   methods: {
-    changeBrand(id) {
+    changeBrand(id, menu) {
       if (event) {
         setTimeout(() => {
           this.statusBrand = id
+          this.getFloorSingle(menu)
         }, 100)
       }
     },
-    changeTab(id) {
+    changeTab(id, menu) {
       if (event) {
         let current = event.currentTarget,
           parentAr = current.parentNode.parentNode.parentNode.parentNode.parentNode,
@@ -404,6 +409,7 @@ export default {
 
         setTimeout(() => {
           this.showAndHide(id, `.${parentName}`)
+          this.getFloorSingle(menu)
         }, 100)
       }
     },
@@ -631,7 +637,7 @@ export default {
             class="brightness(0.65) brightness(1).active"
             :class="[statusBrand == b ? 'active' : '']"
           >
-            <a @click="changeBrand(b)">
+            <a @click="changeBrand(b, menuBrand[b])">
               <img :src="$filters.siteUrl(brand.image)" alt="" />
             </a>
           </swiper-slide>
@@ -659,9 +665,8 @@ export default {
           <img class="mobile" :src="$filters.siteUrl(brand.mobile)" alt="" />
         </a>
         <component
-          v-if="products[menuBrand[b]] != undefined"
           :is="listF"
-          :pro="products[menuBrand[b]].Data"
+          :pro="product2[menuBrand[b]]"
           :isSwiper="1"
           :name="`brand${b + 1}`"
         ></component>
@@ -888,18 +893,14 @@ export default {
         <div v-if="floor[0].content != undefined">
           <ul class="tab">
             <li v-for="(content, c) in floor[0].content" :class="[statusTab == c ? 'active' : '']">
-              <a @click="changeTab(c)">
+              <a @click="changeTab(c, content.menu)">
                 <img :src="$filters.siteUrl(content.image)" alt="" />
               </a>
             </li>
           </ul>
 
           <div class="tab-content" v-for="(content, c) in floor[0].content" v-show="statusTab == c">
-            <component
-              v-if="products[floor[0].menu[c]] != undefined"
-              :is="listF"
-              :pro="products[floor[0].menu[c]].Data"
-            ></component>
+            <component :is="listF" :pro="product2[content.menu]"></component>
           </div>
         </div>
         <component v-else :is="listF" :pro="product2[floor[0].menu]"></component>
