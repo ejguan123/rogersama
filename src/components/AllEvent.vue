@@ -8,6 +8,11 @@ const alls = [
   { image: '2024Thxgiving/images/C5.png' }
 ]
 
+const today = new Date()
+var isVip = false
+
+if (today < new Date('2024/12/01')) isVip = true
+
 //點擊彈出視窗 活動辦法
 const message = () => {
   //滿額6000抽
@@ -45,7 +50,7 @@ const message = () => {
 
 <template>
   <!-- 全站活動 -->
-  <section class="all-box">
+  <section class="all-box" v-if="isVip">
     <img
       class="w:85% w:90vw@<992 w:full@<576 h:auto abs top:5% top:2vw@<992 top:15vw@<576 left:0 left:2vw@<576 right:0 m:auto scale(1.8)@<576"
       :src="$filters.siteUrl('2024Thxgiving/images/C_BOX.png')"
