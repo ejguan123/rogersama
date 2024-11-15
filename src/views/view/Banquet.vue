@@ -113,7 +113,7 @@ export default {
   <div id="banquet-container" v-cloak>
     <div class="background">
       <h2 class="title animate__animated animate__fadeInDownBig">
-        <img :src="$filters.siteUrl('banquet/images/title.png')" />
+        <img :src="$filters.siteUrl('banquet/images/title2.png')" />
       </h2>
       <p class="product animate__animated animate__fadeInRight">
         <img :src="$filters.siteUrl('banquet/images/product.png')" />
