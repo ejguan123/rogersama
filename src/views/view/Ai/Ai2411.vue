@@ -31,16 +31,15 @@ export default {
               title: '2024083C/images/2411/S02.png',
               asidetext: '輕薄商務',
               asideUrl: '#tab1',
+              menu: [7267, 7268],
               content: [
                 {
                   url: 'https://www.tk3c.com/dictitleurl.aspx?cid=11124',
-                  image: '2024083C/images/2411/S02-1.png',
-                  menu: 7267
+                  image: '2024083C/images/2411/S02-1.png'
                 },
                 {
                   url: 'https://www.tk3c.com/dictitleurl.aspx?cid=11124',
-                  image: '2024083C/images/2411/S02-2.png',
-                  menu: 7268
+                  image: '2024083C/images/2411/S02-2.png'
                 }
               ]
             }
@@ -51,21 +50,19 @@ export default {
               url: 'https://www.tk3c.com/dictitleurl.aspx?cid=117913',
               asidetext: '飆速電競',
               asideUrl: '#tab2',
+              menu: [7269, 7270, 7271],
               content: [
                 {
                   url: 'https://www.tk3c.com/dictitleurl.aspx?cid=117913',
-                  image: '2024083C/images/2411/S03-1.png',
-                  menu: 7269
+                  image: '2024083C/images/2411/S03-1.png'
                 },
                 {
                   url: 'https://www.tk3c.com/dictitleurl.aspx?cid=117913',
-                  image: '2024083C/images/2411/S03-2.png',
-                  menu: 7270
+                  image: '2024083C/images/2411/S03-2.png'
                 },
                 {
                   url: 'https://www.tk3c.com/dictitleurl.aspx?cid=117913',
-                  image: '2024083C/images/2411/S03-3.png',
-                  menu: 7271
+                  image: '2024083C/images/2411/S03-3.png'
                 }
               ]
             }
@@ -76,21 +73,19 @@ export default {
               url: 'https://www.tk3c.com/dic1.aspx?cid=11124&aid=22124',
               asidetext: '特仕改裝升級',
               asideUrl: '#tab3',
+              menu: [7272, 7273, 7274],
               content: [
                 {
                   url: 'https://www.tk3c.com/dic1.aspx?cid=11124&aid=22124',
-                  image: '2024083C/images/2411/S05-1.png',
-                  menu: 7272
+                  image: '2024083C/images/2411/S05-1.png'
                 },
                 {
                   url: 'https://www.tk3c.com/dic1.aspx?cid=11124&aid=22124',
-                  image: '2024083C/images/2411/S05-2.png',
-                  menu: 7273
+                  image: '2024083C/images/2411/S05-2.png'
                 },
                 {
                   url: 'https://www.tk3c.com/dic1.aspx?cid=11124&aid=22124',
-                  image: '2024083C/images/2411/S05-3.png',
-                  menu: 7274
+                  image: '2024083C/images/2411/S05-3.png'
                 }
               ]
             }
@@ -101,14 +96,13 @@ export default {
               asidetext: '精選螢幕',
               asideUrl: '#tab4',
               url: 'https://www.tk3c.com/dictitleurl.aspx?cid=44823',
+              menu: [7275, 7276],
               content: [
                 {
-                  image: '2024083C/images/2411/S06-1.png',
-                  menu: 7275
+                  image: '2024083C/images/2411/S06-1.png'
                 },
                 {
-                  image: '2024083C/images/2411/S06-2.png',
-                  menu: 7276
+                  image: '2024083C/images/2411/S06-2.png'
                 }
               ]
             }
@@ -119,14 +113,13 @@ export default {
               url: 'https://www.tk3c.com/dictitleurl.aspx?cid=114130',
               asidetext: '高效桌機',
               asideUrl: '#tab5',
+              menu: [7277, 7278],
               content: [
                 {
-                  image: '2024083C/images/2411/S07-1.png',
-                  menu: 7277
+                  image: '2024083C/images/2411/S07-1.png'
                 },
                 {
-                  image: '2024083C/images/2411/S07-2.png',
-                  menu: 7278
+                  image: '2024083C/images/2411/S07-2.png'
                 }
               ]
             }
@@ -137,18 +130,16 @@ export default {
               url: 'https://www.tk3c.com/dictitleurl.aspx?cid=117896',
               asidetext: 'DIY零組件',
               asideUrl: '#tab6',
+              menu: [7279, 7280, 7281],
               content: [
                 {
-                  image: '2024083C/images/2411/S08-1.png',
-                  menu: 7279
+                  image: '2024083C/images/2411/S08-1.png'
                 },
                 {
-                  image: '2024083C/images/2411/S08-2.png',
-                  menu: 7280
+                  image: '2024083C/images/2411/S08-2.png'
                 },
                 {
-                  image: '2024083C/images/2411/S08-3.png',
-                  menu: 7281
+                  image: '2024083C/images/2411/S08-3.png'
                 }
               ]
             }
@@ -172,26 +163,23 @@ export default {
               url: 'hhttps://www.tk3c.com/dic2.aspx?cid=43403&aid=11540&hid=122073',
               asidetext: 'Wi-Fi路由器',
               asideUrl: '#tab8',
+              menu: [7285, 7282, 7284, 7283],
               content: [
                 {
                   url: 'https://www.tk3c.com/dic2.aspx?cid=43403&aid=11540&hid=122073',
-                  image: '2024083C/images/2411/D02-1.png',
-                  menu: 7285
+                  image: '2024083C/images/2411/D02-1.png'
                 },
                 {
                   url: 'https://www.tk3c.com/dic1.aspx?cid=43403&aid=17260',
-                  image: '2024083C/images/2411/D02-2.png',
-                  menu: 7282
+                  image: '2024083C/images/2411/D02-2.png'
                 },
                 {
                   url: 'https://www.tk3c.com/dic2.aspx?cid=43403&aid=11540&hid=122542',
-                  image: '2024083C/images/2411/D02-3.png',
-                  menu: 7284
+                  image: '2024083C/images/2411/D02-3.png'
                 },
                 {
                   url: 'https://www.tk3c.com/dic2.aspx?cid=43403&aid=11540&hid=122073',
-                  image: '2024083C/images/2411/D02-4.png',
-                  menu: 7283
+                  image: '2024083C/images/2411/D02-4.png'
                 }
               ]
             }
@@ -201,16 +189,15 @@ export default {
               title: '2024083C/images/2411/D03.png',
               asidetext: 'DIY組裝機',
               asideUrl: '#tab9',
+              menu: [7278, 7278],
               content: [
                 {
                   url: 'https://www.tk3c.com/dic1.aspx?cid=14719&aid=10020',
-                  image: '2024083C/images/2411/D03-1.png',
-                  menu: 7278
+                  image: '2024083C/images/2411/D03-1.png'
                 },
                 {
                   url: 'https://www.tk3c.com/dic1.aspx?cid=14719&aid=6040',
-                  image: '2024083C/images/2411/D03-2.png',
-                  menu: 7278
+                  image: '2024083C/images/2411/D03-2.png'
                 }
               ]
             }
@@ -220,16 +207,15 @@ export default {
               title: '2024083C/images/2411/D04.png',
               asidetext: '鍵盤滑鼠',
               asideUrl: '#tab10',
+              menu: [7286, 7287],
               content: [
                 {
                   url: 'https://www.tk3c.com/dic1.aspx?cid=14719&aid=10020',
-                  image: '2024083C/images/2411/D04-1.png',
-                  menu: 7286
+                  image: '2024083C/images/2411/D04-1.png'
                 },
                 {
                   url: 'https://www.tk3c.com/dic1.aspx?cid=14719&aid=6040',
-                  image: '2024083C/images/2411/D04-2.png',
-                  menu: 7287
+                  image: '2024083C/images/2411/D04-2.png'
                 }
               ]
             }
@@ -239,16 +225,15 @@ export default {
               title: '2024083C/images/2411/D05.png',
               asidetext: '硬碟',
               asideUrl: '#tab11',
+              menu: [7288, 7289],
               content: [
                 {
                   url: 'https://www.tk3c.com/dic1.aspx?cid=117896&aid=23571',
-                  image: '2024083C/images/2411/D05-1.png',
-                  menu: 7288
+                  image: '2024083C/images/2411/D05-1.png'
                 },
                 {
                   url: 'https://www.tk3c.com/dic1.aspx?cid=117896&aid=22551',
-                  image: '2024083C/images/2411/D05-2.png',
-                  menu: 7289
+                  image: '2024083C/images/2411/D05-2.png'
                 }
               ]
             }
@@ -258,16 +243,15 @@ export default {
               title: '2024083C/images/2411/D06.png',
               asidetext: '隨身碟/記憶卡',
               asideUrl: '#tab12',
+              menu: [7290, 7291],
               content: [
                 {
                   url: 'https://www.tk3c.com/dic1.aspx?cid=12356&aid=4855',
-                  image: '2024083C/images/2411/D06-1.png',
-                  menu: 7290
+                  image: '2024083C/images/2411/D06-1.png'
                 },
                 {
                   url: 'https://www.tk3c.com/dic1.aspx?cid=12356&aid=4853',
-                  image: '2024083C/images/2411/D06-2.png',
-                  menu: 7291
+                  image: '2024083C/images/2411/D06-2.png'
                 }
               ]
             }
@@ -277,16 +261,15 @@ export default {
               title: '2024083C/images/2411/D08.png',
               asidetext: '投影機/監控設備',
               asideUrl: '#tab13',
+              menu: [7292, 7293],
               content: [
                 {
                   url: 'https://www.tk3c.com/dictitleurl.aspx?cid=19729',
-                  image: '2024083C/images/2411/D08-1.png',
-                  menu: 7292
+                  image: '2024083C/images/2411/D08-1.png'
                 },
                 {
                   url: 'https://www.tk3c.com/dic1.aspx?cid=43403&aid=11545',
-                  image: '2024083C/images/2411/D08-2.png',
-                  menu: 7293
+                  image: '2024083C/images/2411/D08-2.png'
                 }
               ]
             }
@@ -296,26 +279,23 @@ export default {
               title: '2024083C/images/2411/D09.png',
               asidetext: '辦公設備',
               asideUrl: '#tab14',
+              menu: [7294, 7295, 7296, 7297],
               content: [
                 {
                   url: 'https://www.tk3c.com/dic1.aspx?cid=11684&aid=4762',
-                  image: '2024083C/images/2411/D09-1.png',
-                  menu: 7294
+                  image: '2024083C/images/2411/D09-1.png'
                 },
                 {
                   url: 'https://www.tk3c.com/dic1.aspx?cid=108783&aid=22323',
-                  image: '2024083C/images/2411/D09-2.png',
-                  menu: 7295
+                  image: '2024083C/images/2411/D09-2.png'
                 },
                 {
                   url: 'https://www.tk3c.com/dic1.aspx?cid=11684&aid=4761',
-                  image: '2024083C/images/2411/D09-3.png',
-                  menu: 7296
+                  image: '2024083C/images/2411/D09-3.png'
                 },
                 {
                   url: 'https://www.tk3c.com/dic1.aspx?cid=108783&aid=22325',
-                  image: '2024083C/images/2411/D09-4.png',
-                  menu: 7297
+                  image: '2024083C/images/2411/D09-4.png'
                 }
               ]
             }
@@ -405,13 +385,13 @@ export default {
 
     //撈取筆電區樓層商品
     for (const [t, t1] of Object.entries(tab1[0])) {
-      this.getFloorSingle(t1[0].content[0].menu)
+      this.getFloorData(t1[0].menu)
     }
 
     //撈取周邊區樓層商品
     for (const [t, t2] of Object.entries(tab2[0])) {
       if (t2[0].content != undefined) {
-        this.getFloorSingle(t2[0].content[0].menu)
+        this.getFloorData(t2[0].menu)
       } else {
         this.getFloorSingle(t2[0].menu)
       }
@@ -438,7 +418,7 @@ export default {
     changeGift(id) {
       this.statusGift = id
     },
-    change(id, menu) {
+    change(id) {
       if (event) {
         let current = event.currentTarget,
           parentAr = current.parentNode.parentNode.parentNode.parentNode,
@@ -448,7 +428,6 @@ export default {
 
         setTimeout(() => {
           this.showAndHide(id, `.${parentName}`)
-          this.getFloorSingle(menu)
           parentAr.querySelector('.title a').setAttribute('href', getUrl)
         }, 20)
       }
@@ -874,14 +853,19 @@ export default {
           <div v-if="t1[0].content != undefined">
             <ul class="tab">
               <li v-for="(content, c) in t1[0].content" :class="[statusPro == c ? 'active' : '']">
-                <a :href="$filters.addGALink(content.url)" @click.prevent="change(c, content.menu)">
+                <a :href="$filters.addGALink(content.url)" @click.prevent="change(c)">
                   <img :src="$filters.siteUrl(content.image)" alt="" />
                 </a>
               </li>
             </ul>
 
             <div class="tab-content" v-for="(content, c) in t1[0].content" v-show="statusPro == c">
-              <component :is="listF" :pro="product2[content.menu]"> </component>
+              <component
+                v-if="products[t1[0].menu[c]] != undefined"
+                :is="listF"
+                :pro="products[t1[0].menu[c]].Data"
+              >
+              </component>
             </div>
           </div>
 
@@ -916,14 +900,19 @@ export default {
           <div v-if="t2[0].content != undefined">
             <ul class="tab">
               <li v-for="(content, c) in t2[0].content" :class="[statusPro == c ? 'active' : '']">
-                <a :href="$filters.addGALink(content.url)" @click.prevent="change(c, content.menu)">
+                <a :href="$filters.addGALink(content.url)" @click.prevent="change(c)">
                   <img :src="$filters.siteUrl(content.image)" alt="" />
                 </a>
               </li>
             </ul>
 
             <div class="tab-content" v-for="(content, c) in t2[0].content" v-show="statusPro == c">
-              <component :is="listF" :pro="product2[content.menu]"> </component>
+              <component
+                v-if="products[t2[0].menu[c]] != undefined"
+                :is="listF"
+                :pro="products[t2[0].menu[c]].Data"
+              >
+              </component>
             </div>
           </div>
 

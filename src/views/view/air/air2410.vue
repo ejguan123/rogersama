@@ -223,6 +223,7 @@ export default {
             {
               title: 'airConditionerLAB/images/2410/bra_s5.png',
               url: 'https://www.tk3c.com/dic1.aspx?cid=11225&aid=4704&strPreView=y',
+              menu: [4288, 4289, 4290, 4291],
               content: [
                 {
                   url: 'https://www.tk3c.com/dic1.aspx?cid=11225&aid=4704&strPreView=y',
@@ -251,6 +252,7 @@ export default {
             {
               title: 'airConditionerLAB/images/2410/bra_s6.png',
               url: 'https://www.tk3c.com/dic1.aspx?cid=11225&aid=4702&strPreView=y',
+              menu: [4292, 4293, 4294, 4295],
               content: [
                 {
                   url: 'https://www.tk3c.com/dic1.aspx?cid=11225&aid=4702&strPreView=y',
@@ -347,7 +349,7 @@ export default {
     this.getFloorSingle(menuDis)
 
     //撈取 品牌樓層商品
-    this.getFloorSingle(this.menuBrand[0])
+    this.getFloorData(this.menuBrand)
 
     //撈取 熱銷空調樓層商品
     this.getFloorSingle(menuHot)
@@ -364,7 +366,7 @@ export default {
     for (const [f, floor] of Object.entries(floors[0])) {
       if (floor[0].content != undefined) {
         // 撈取有頁籤商品
-        this.getFloorSingle(floor[0].content[0].menu)
+        this.getFloorData(floor[0].menu)
       } else {
         //無頁籤商品樓層
         this.getFloorSingle(floor[0].menu)
@@ -392,15 +394,14 @@ export default {
     }
   },
   methods: {
-    changeBrand(id, menu) {
+    changeBrand(id) {
       if (event) {
         setTimeout(() => {
           this.statusBrand = id
-          this.getFloorSingle(menu)
-        }, 100)
+        }, 30)
       }
     },
-    changeTab(id, menu) {
+    changeTab(id) {
       if (event) {
         let current = event.currentTarget,
           parentAr = current.parentNode.parentNode.parentNode.parentNode.parentNode,
@@ -409,8 +410,7 @@ export default {
 
         setTimeout(() => {
           this.showAndHide(id, `.${parentName}`)
-          this.getFloorSingle(menu)
-        }, 100)
+        }, 20)
       }
     },
     changeInfo(id) {
@@ -637,7 +637,7 @@ export default {
             class="brightness(0.65) brightness(1).active"
             :class="[statusBrand == b ? 'active' : '']"
           >
-            <a @click="changeBrand(b, menuBrand[b])">
+            <a @click="changeBrand(b)">
               <img :src="$filters.siteUrl(brand.image)" alt="" />
             </a>
           </swiper-slide>
@@ -665,8 +665,9 @@ export default {
           <img class="mobile" :src="$filters.siteUrl(brand.mobile)" alt="" />
         </a>
         <component
+          v-if="products[menuBrand[b]] != undefined"
           :is="listF"
-          :pro="product2[menuBrand[b]]"
+          :pro="products[menuBrand[b]].Data"
           :isSwiper="1"
           :name="`brand${b + 1}`"
         ></component>
@@ -893,14 +894,18 @@ export default {
         <div v-if="floor[0].content != undefined">
           <ul class="tab">
             <li v-for="(content, c) in floor[0].content" :class="[statusTab == c ? 'active' : '']">
-              <a @click="changeTab(c, content.menu)">
+              <a @click="changeTab(c)">
                 <img :src="$filters.siteUrl(content.image)" alt="" />
               </a>
             </li>
           </ul>
 
           <div class="tab-content" v-for="(content, c) in floor[0].content" v-show="statusTab == c">
-            <component :is="listF" :pro="product2[content.menu]"></component>
+            <component
+              v-if="products[floor[0].menu[c]] != undefined"
+              :is="listF"
+              :pro="products[floor[0].menu[c]].Data"
+            ></component>
           </div>
         </div>
         <component v-else :is="listF" :pro="product2[floor[0].menu]"></component>
