@@ -304,7 +304,12 @@ export default {
       <div class="swiper-button-next next"></div>
     </div>
 
-    <component v-if="f != 3" :is="listF" :pro="products[menus[f]].Data"> </component>
+    <component
+      v-if="f != 3 && products[menus[f]] != undefined"
+      :is="listF"
+      :pro="products[menus[f]].Data"
+    >
+    </component>
 
     <!-- 各空調品牌banner -->
     <div class="banner-brands" v-if="f == 9">

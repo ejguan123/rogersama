@@ -4,6 +4,7 @@ import { ref } from 'vue'
 import listF from '../layout/listF.vue'
 import listD from '../layout/listD.vue'
 import ThankFloor from '../floor/ThankFloor.vue' //其他樓層
+import mobile3 from '../layout/mobile3.vue' //手機版選單
 
 const swiperRef1 = ref()
 const swiperRef2 = ref()
@@ -60,6 +61,7 @@ export default {
       statusSale: 0, //現折券樓層用
       asides: [
         { text: '現折券', href: '#sale' },
+        { text: '樂天信用卡', href: '#rakuten' },
         { text: '台新燦坤聯名卡', href: '#bank' },
         { text: '環保商品', href: '#green' },
         { text: 'AI筆電', href: '#pro7560' },
@@ -111,7 +113,7 @@ export default {
     }
 
     //撈好物封神榜樓層商品
-    this.getFloorSingle(this.menuSP[0])
+    this.getFloorData(this.menuSP)
 
     //撈取現折券樓層商品
     this.getFloorData(this.menuSale)
@@ -123,9 +125,8 @@ export default {
     this.getFloorSingle(menuGo)
   },
   methods: {
-    changeSp(id, menu) {
+    changeSp(id) {
       this.statusSp = id
-      this.getFloorSingle(menu)
     },
     changSale(id) {
       if (event) {
@@ -264,13 +265,17 @@ export default {
           v-for="(special, s) in specials"
           :class="[statusSp == s ? 'active' : '']"
           class="w:30% w:40vw@<992 w:45vw@<576 m:0|0 opacity(0.7) opacity(1).active"
-          @click="changeSp(s, menuSP[s])"
+          @click="changeSp(s)"
           ><img :src="$filters.siteUrl(special.image)"
         /></a>
       </div>
 
       <div v-for="(special, s) in specials" v-show="statusSp == s">
-        <component :is="listD" :pro="product2[menuSP[s]]"></component>
+        <component
+          v-if="products[menuSP[s]] != undefined"
+          :is="listD"
+          :pro="products[menuSP[s]].Data"
+        ></component>
       </div>
     </section>
 
@@ -398,6 +403,40 @@ export default {
           </a>
         </div>
       </div>
+    </section>
+
+    <!-- 樂天信用卡 -->
+    <section class="rakuten-box scroll" id="rakuten">
+      <h2 class="title">
+        <a :href="$filters.addGALink('https://pse.is/6pn6vu')" target="_blank">
+          <img :src="$filters.siteUrl('2024Thxgiving/images/raku_title.png')" />
+        </a>
+      </h2>
+
+      <ul class="gap:10">
+        <li class="w:60% w:62vw@<992 w:90vw@<576 mb:5%@<576">
+          <img :src="$filters.siteUrl('2024Thxgiving/images/raku1.png')" />
+          <a
+            class="w:25% w:30vw@<992 w:40vw@<576 mt:2%"
+            :href="
+              $filters.addGALink('https://www.tk3c.com/dic2.aspx?cid=124026&aid=23890&hid=124032')
+            "
+            target="_blank"
+          >
+            <img :src="$filters.siteUrl('2024Thxgiving/images/go.png')" />
+          </a>
+        </li>
+        <li class="w:29.5% w:31vw@<992 w:90vw@<576 mb:5%@<576">
+          <img :src="$filters.siteUrl('2024Thxgiving/images/raku2.png')" />
+          <a
+            class="w:48% w:30vw@<992 w:40vw@<576 mt:4%"
+            :href="$filters.addGALink('https://pse.is/6pn6vu')"
+            target="_blank"
+          >
+            <img :src="$filters.siteUrl('2024Thxgiving/images/go2.png')" />
+          </a>
+        </li>
+      </ul>
     </section>
 
     <!-- 聯名卡 -->
@@ -533,6 +572,8 @@ export default {
       <a href="#" class="go-top">GO TOP</a>
     </div>
   </aside>
+
+  <mobile3></mobile3>
 </template>
 
 <style lang="scss">
@@ -581,7 +622,7 @@ form#form1 {
 
 #thank-container {
   .background {
-    $image: $origin + 'KV_PC.png';
+    $image: $dir + 'KV_PC.png';
     @include bg-responsive($image, 2000, 1657);
     position: relative;
     margin: 0 auto 0;
