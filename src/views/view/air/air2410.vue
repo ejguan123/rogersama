@@ -389,8 +389,7 @@ export default {
     if (today >= new Date('2024/11/01') && today < new Date('2024/11/13')) {
       this.isDis = false
     } else {
-      this.disUrl = 'https://www.tk3c.com/dic1.aspx?cid=124026&aid=23890&strPreView=y'
-      this.isDis = false
+      this.disUrl = 'https://www.tk3c.com/dic2.aspx?cid=124026&aid=23890&hid=124044'
     }
   },
   methods: {
