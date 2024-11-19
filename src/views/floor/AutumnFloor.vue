@@ -69,16 +69,17 @@ export default {
 </script>
 
 <template>
-  <div class="floor" v-for="(pro, p) in products" :key="p">
-    <h2 class="protitle">
-      <a :name="`pro${pro.id}`" :id="`pro${pro.id}`"> </a>
-      <a :href="$filters.addGALink(floorImg[p].url)" target="_blank">
-        <img :src="$filters.siteUrl(floorImg[p].image)" />
+  <section class="floor" v-for="(floor, f) in floorImg" :key="f">
+    <h2 class="title" :id="`pro${menu[f]}`">
+      <a :href="$filters.addGALink(floor.url)" target="_blank">
+        <img :src="$filters.siteUrl(floor.image)" />
       </a>
-
-      {{ pro.datas.MenuTitle }}
     </h2>
 
-    <component :is="listF" :pro="pro.datas.Data"></component>
-  </div>
+    <component
+      v-if="products[menu[f]] != undefined"
+      :is="listF"
+      :pro="products[menu[f]].Data"
+    ></component>
+  </section>
 </template>

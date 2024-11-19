@@ -46,7 +46,7 @@ export default {
         },
         {
           url: 'https://www.tk3c.com/pt.aspx?pid=245385',
-          image: '2020TVforever/images/2411/pd5.png'
+          image: '2020TVforever/images/2411/pd6.png'
         }
       ],
       gifts: [
@@ -380,7 +380,7 @@ form#form1 {
 @include media-query('mobile', '576px') {
   #tv-container {
     .background {
-      padding-bottom: 160vw;
+      padding-bottom: 180vw;
       .title {
         left: 0;
         right: 0;
@@ -393,7 +393,10 @@ form#form1 {
         left: 8vw;
         right: 0;
         margin: 0 auto;
-        top: 93vw;
+        top: 97vw;
+        .swiper-wrapper {
+          align-items: baseline;
+        }
       }
       .gift {
         top: 22vw;
@@ -416,7 +419,7 @@ form#form1 {
   <div id="tv-container">
     <div class="background">
       <h2 class="title">
-        <img :src="$filters.siteUrl('2020TVforever/images/2411/title.png')" alt="" />
+        <img :src="$filters.siteUrl('2020TVforever/images/2411/title2.png')" alt="" />
       </h2>
 
       <p class="gift">
@@ -427,12 +430,14 @@ form#form1 {
         <swiper
           :loop="true"
           :effect="'fade'"
-          :autoplay="{ delay: 1600, disableOnInteraction: false }"
-          :observer="true"
+          :fadeEffect="{
+            crossFade: true
+          }"
           :parallax="true"
-          :modules="modules"
+          :autoplay="{ delay: 1600, disableOnInteraction: false }"
+          :modules="[EffectFade, Parallax]"
         >
-          <swiper-slide v-for="(pro, p) in proTV" :key="p" class="opacity:0 opacity:1.active">
+          <swiper-slide v-for="(pro, p) in proTV" :key="p">
             <a :href="$filters.addGALink(pro.url)" target="_blank" data-swiper-parallax-opacity="0">
               <img :src="$filters.siteUrl(pro.image)" alt="" />
             </a>

@@ -1,5 +1,4 @@
 <script setup>
-import { useHead, useScript } from 'unhead'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import listF from '../layout/listF.vue'
 import { ref } from 'vue'
@@ -12,41 +11,6 @@ const onSwiper = (swiper) => {
 const goSlide = (id) => {
   swiperRef.value.slideTo(id)
 }
-
-//META DESCRIPTION
-useHead({
-  title: '3C家電秋季購物節 | 燦坤線上購物',
-  meta: [
-    {
-      name: 'description',
-      content:
-        '3C家電秋季購物節，筆電、電視、冰箱、洗衣機、空調、生活家電、廚房家電、螢幕等商品通通有！門市下單最高回饋8%K幣，線上購物領券限折最高1000，再刷台新燦坤聯名卡最高折1100，優惠不容錯過！'
-    },
-    {
-      property: 'og:title',
-      content: '3C家電秋季購物節 | 燦坤線上購物'
-    },
-    {
-      property: 'og:description',
-      content:
-        '3C家電秋季購物節，筆電、電視、冰箱、洗衣機、空調、生活家電、廚房家電、螢幕等商品通通有！門市下單最高回饋8%K幣，線上購物領券限折最高1000，再刷台新燦坤聯名卡最高折1100，優惠不容錯過！'
-    },
-    {
-      property: 'og:image',
-      content: 'https://www.tk3c.com/images/headimg.jpg'
-    },
-    {
-      property: 'og:url',
-      content: 'https://events.tk3c.com/events_net/AutumnShopping/index.html'
-    }
-  ],
-  link: [
-    {
-      rel: 'image_src',
-      href: 'https://www.tk3c.com/images/headimg.jpg'
-    }
-  ]
-})
 </script>
 
 <script>
@@ -108,8 +72,6 @@ export default {
   },
   mounted() {
     const { menuBank, today } = this
-
-    document.querySelectorAll('.wrapper')[1].innerHTML = ''
 
     // 9/18更換現折券商品
     if (today >= new Date('2024/09/18')) {

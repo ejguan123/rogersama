@@ -509,6 +509,9 @@ export default {
         <swiper
           :loop="true"
           :effect="'fade'"
+          :fadeEffect="{
+            crossFade: true
+          }"
           :parallax="true"
           :autoplay="{ delay: 1800, disableOnInteraction: false }"
           :modules="[EffectFade, Parallax]"

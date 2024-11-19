@@ -3,8 +3,6 @@ import { Controller, EffectFlip, Parallax } from 'swiper/modules'
 import { ref } from 'vue'
 import listF from '../layout/listF.vue'
 import listD from '../layout/listD.vue'
-import ThankFloor from '../floor/ThankFloor.vue' //其他樓層
-import mobile3 from '../layout/mobile3.vue' //手機版選單
 
 const swiperRef1 = ref()
 const swiperRef2 = ref()
@@ -539,9 +537,6 @@ export default {
         <component :is="listF" :pro="product2[menuGo]" :isSwiper="1" :name="'go-box'"></component>
       </div>
     </section>
-
-    <!-- 其他樓層 -->
-    <ThankFloor></ThankFloor>
   </div>
 
   <!-- 左側選單 -->
@@ -572,8 +567,6 @@ export default {
       <a href="#" class="go-top">GO TOP</a>
     </div>
   </aside>
-
-  <mobile3></mobile3>
 </template>
 
 <style lang="scss">
