@@ -470,7 +470,7 @@ export default {
         </li>
         <li class="alert2 w:40% w:43vw@<992 w:90vw@<576">
           <a @click="message(2)"
-            ><img :src="$filters.siteUrl('icewash2209/images/2411/C2.png')" alt=""
+            ><img :src="$filters.siteUrl('icewash2209/images/2411/C2_2.png')" alt=""
           /></a>
         </li>
         <li class="long w:80% w:88vw@<992">

@@ -124,8 +124,8 @@ export default {
       this.isVip = false
     }
 
-    // 10.26-11.10 每週六日顯示
-    if (today >= new Date('2024/10/26') && today < new Date('2024/11/11')) {
+    // 10.26-11.30 每週六日顯示
+    if (today >= new Date('2024/10/26') && today < new Date('2024/12/01')) {
       if (today.getDay() == 6 || today.getDay() == 0) {
         this.isNew = true
       }
@@ -185,7 +185,7 @@ export default {
     </div>
 
     <!-- 環保3C家電產品 週末16%回饋 -->
-    <section class="new-box" v-if="isNew">
+    <section class="new-box">
       <div class="w:full flex jc:center flex-wrap:wrap gap:10 m:0|0|5% m:0|0|10%@<576">
         <a href="#info" class="w:42% w:45vw@<992 w:90vw@<576 m:0|0|4%"
           ><img :src="$filters.siteUrl('green_subsidy/images/new/btn1.png')"
@@ -210,7 +210,7 @@ export default {
         </div>
       </div>
 
-      <div class="box">
+      <div class="box" v-if="isNew">
         <!-- 頁籤 -->
         <div class="flex flex-wrap:wrap gap:10 mb:1%">
           <swiper

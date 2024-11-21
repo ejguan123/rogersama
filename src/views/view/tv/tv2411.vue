@@ -114,11 +114,11 @@ export default {
       ],
       nights: [
         {
-          url: 'https://www.tk3c.com/dic2.aspx?cid=119275&aid=23434&hid=120453',
+          url: 'https://www.tk3c.com/dic2.aspx?cid=119275&aid=23434&hid=120453&strPreView=y',
           image: '2020TVforever/images/2409/ncta2.png'
         },
         {
-          url: 'https://www.tk3c.com/dic2.aspx?cid=119275&aid=23435&hid=121793',
+          url: 'https://www.tk3c.com/dic2.aspx?cid=119275&aid=23435&hid=121793&strPreView=y',
           image: '2020TVforever/images/2409/ncta1.png'
         }
       ],
@@ -171,9 +171,9 @@ export default {
       menuSale: [5977, 4465, 4466, 4463, 4467], // 出清 陳列編號
       menuNight: [5421, 5420], //夜殺 陳列編號
       status: 0,
-      statusSale: 0,
-      statusNight: 0,
-      isNight: false,
+      statusSale: 1,
+      statusNight: 1,
+      isNight: true,
       isDis: true,
       today: new Date(),
       disUrl: ''
@@ -206,13 +206,13 @@ export default {
       if (event) {
         setTimeout(() => {
           this.statusSale = id
-        }, 100)
+        }, 20)
       }
     },
     changeNight(id) {
       setTimeout(() => {
         this.statusNight = id
-      }, 100)
+      }, 20)
     }
   }
 }

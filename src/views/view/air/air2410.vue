@@ -500,7 +500,7 @@ export default {
         />
         <img
           v-if="today >= new Date('2024/11/01')"
-          :src="$filters.siteUrl('airConditionerLAB/images/2410/title_2411.png')"
+          :src="$filters.siteUrl('airConditionerLAB/images/2410/title_2411b.png')"
           alt="暖心回饋季"
         />
       </h2>
@@ -758,7 +758,7 @@ export default {
         </li>
         <li class="alert2">
           <a @click="message(3)">
-            <img :src="$filters.siteUrl('airConditionerLAB/images/2410/b03.png')" />
+            <img :src="$filters.siteUrl('airConditionerLAB/images/2410/b03_b.png')" />
           </a>
         </li>
       </ul>
