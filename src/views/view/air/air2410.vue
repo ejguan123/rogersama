@@ -527,8 +527,13 @@ export default {
 
     <div class="background2"></div>
 
+    <!-- 政府補助 -->
+     <section class="mt:-42% min-width:30%">
+        <img :src="$filters.siteUrl('airConditionerLAB/images/2410/bn20241231.jpg')" alt="" />
+     </section>
+
     <!-- 預約 -->
-    <section class="gift-box mt:-42%" id="gift">
+    <section class="gift-box" id="gift">
       <a
         class="w:70% w:90vw@<992 w:100%@<576"
         href="https://www.tk3c.com/mobile/mob_appointment_page.aspx?BookType=type2"

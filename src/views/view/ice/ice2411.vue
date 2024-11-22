@@ -333,6 +333,11 @@ export default {
       <img :src="$filters.siteUrl('icewash2209/images/2411/item.png')" alt="" />
     </p>
 
+    <!-- 政府補助 -->
+     <section class="min-width:30%">
+        <img :src="$filters.siteUrl('airConditionerLAB/images/2410/bn20241231.jpg')" alt="" />
+     </section>
+
     <!-- 最高現折 -->
     <section class="sale-box" id="sale" v-if="isSale">
       <h2 class="title">
