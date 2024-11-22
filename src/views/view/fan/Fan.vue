@@ -65,6 +65,10 @@ export default {
           image: 'fan_hot/images/2411/s9.png',
           url:'https://www.tk3c.com/dictitleurl.aspx?cid=115927'
         },
+         {
+          image: 'fan_hot/images/2411/s10.png',
+          url:'https://www.tk3c.com/dic1.aspx?cid=11058&aid=4677'
+        },
         {
           image: 'fan_hot/images/2411/s12.png',
           type: 'listM',
