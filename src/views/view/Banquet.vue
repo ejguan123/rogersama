@@ -9,7 +9,7 @@ export default {
   mixins: [globalMixin],
   data() {
     return {
-      menus: [7617, 7618, 7619, 7620, 7621, 7622, 7623, 7624], //商品陳列編號
+      menus: [7636,7617, 7618, 7619, 7620, 7621, 7622, 7623, 7624], //商品陳列編號
       gifts: [
         { image: 'banquet/images/sp01.png' },
         { image: 'banquet/images/sp02.png' },
@@ -19,6 +19,9 @@ export default {
         { image: 'banquet/images/sp06.png' }
       ],
       floorImg: [
+         {
+          image: 'banquet/images/bar09.png'
+        },
         {
           image: 'banquet/images/bar01.png',
           url: 'https://www.tk3c.com/dictitleurl.aspx?cid=40444'
@@ -49,6 +52,7 @@ export default {
         }
       ],
       asides: [
+        { text: '千元專區' },
         { text: 'Apple' },
         { text: '三星' },
         { text: '穿戴裝置' },
@@ -76,10 +80,11 @@ export default {
     }
   },
   mounted() {
-    const { today } = this
+    const { today,menus } = this
 
     //撈好樓層商品
-    this.getFloorData(this.menus)
+    this.getFloorData(menus)
+    
   },
   methods: {
     message() {

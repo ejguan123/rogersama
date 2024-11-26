@@ -318,10 +318,6 @@ export default {
           image: '2024083C/images/2411/218927_b.png'
         },
         {
-          url: 'https://www.tk3c.com/pt.aspx?pid=249832',
-          image: '2024083C/images/2411/249832.png'
-        },
-        {
           url: 'https://www.tk3c.com/pt.aspx?pid=250262',
           image: '2024083C/images/2411/250262_b.png'
         },
