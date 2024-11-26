@@ -23,7 +23,7 @@ export default {
         },
          {
           url: 'https://www.tk3c.com/pt.aspx?pid=245362',
-          image: 'electric_heater/images/2411/245362.png'
+          image: 'electric_heater/images/2411/245362_3.png'
         },
       ],
       floorImg: [
