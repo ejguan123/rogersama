@@ -14,9 +14,9 @@ export default {
           image:'bank_ec/images/bank1.png',
           date:'2024/11/13-11/30',
           content:`
-          <p>單筆分期刷滿$26,000享 <span>現折$1,000</span></p>
-          <p>單筆分期刷滿$10,500享 <span>現折$500</span></p>
-          <p>單筆不分期刷滿$7,300享 <span>現折$300</span></p>
+          <p><b>單筆分期刷滿$26,000享</b><span>現折$1,000</span></p>
+          <p><b>單筆分期刷滿$10,500享</b><span>現折$500</span></p>
+          <p><b>單筆不分期刷滿$7,300享</b><span>現折$300</span></p>
           `,
           url:'https://www.taishinbank.com.tw/eServiceA/CreditCardAP/apply/index.jsp?pc=27&sl=1701029779',
           alertText:'https://events.tk3c.com/events_net/tk3c_creditcard/index.html?page=monthlyOffer'
@@ -24,7 +24,7 @@ export default {
         {
           image:'bank_ec/images/bank2.png',
           date:'即日起-11/30',
-          content:`<p>單筆分期刷滿$20,800享 <span>現折$800</span></p>`,
+          content:`<p><b>單筆分期刷滿$25,000享</b><span>現折$800</span></p>`,
           alertText:` <ul style='text-align:left;'>
              <li style='margin-bottom:10px;background:#d6d6d6;'>「星展銀行-燦坤線上購物現折禮遇」活動</li>
                 <li style='margin-bottom:10px;'>1.活動期間：本案獲准後執行至2024/11/30止(起始日期：即日起)</li>
@@ -38,8 +38,10 @@ export default {
         {
           image:'bank_ec/images/bank3.png',
           date:'2024/11/13-11/30',
-          content:`<p>單筆刷滿$25,000享 <span>現折$800</span></p>
-          <p>單筆刷滿$32,500享 <span>現折$2,500</span></p>
+          content:`<p><b>單筆刷滿$25,000享</b><span>現折$800</span></p>
+          <p><b>單筆刷滿$32,500享</b><span>現折$2,500</span></p>
+          <p style="margin-bottom:20px;"></p>
+          <p><b>單筆分期刷滿$50,000</b><span>登錄送5,000燦坤K幣</span>	</p>
           `,
           url:"https://events.tk3c.com/events_net/invoice_login/detail.aspx?activity_id=861",
           alertText:"https://www.tk3c.com.tw/#actsdetail&8&719",
@@ -112,23 +114,20 @@ export default {
       <ul class="gap:10 jc:left@<992 jc:center@<576">
         <li v-for="(bank,b) in banks" class="rel w:31% w:46vw@<992 w:90vw@<576 mb:15%@<992 mb:0%@<576">
            <img class="mt:14%@<576" :src="$filters.siteUrl(bank.image)" />
-           <div class="w:full max-width:18rem max-width:18.5rem@<992 max-width:18rem@<576 max-width:22rem@>2000 abs m:auto left:0 right:0 top:30% top:39vw@<576">
+           <div class="w:full max-width:19rem max-width:20rem@<992 max-width:18rem@<576 max-width:22rem@>2000 abs m:auto left:0 right:0 top:30% top:39vw@<576">
             <em class="color:#707070 mb:10px">{{ bank.date }}</em>
-            <div v-html="bank.content" class="h:9vmax h:9rem@<1440 h:15rem@<992 h:12rem@<601 h:48vw@<576 f:1.1rem f:1.5em@<992 f:1.1rem@<601 f:1.3rem@>2000 pt:14% pt:2%@<992 pt:12@<576 box:border-box"></div>
+            <div v-html="bank.content" class="h:9vmax h:9rem@<1440 h:15rem@<992 h:12rem@<601 h:48vw@<576 h:7vmax@>2500 f:1.1rem f:1.5em@<992 f:1.1rem@<601 f:1.3rem@>2000 pt:8% pt:2%@<992 pt:6%@<576 box:border-box"></div>
            <div class="flex flex-wrap:wrap jc:center m:auto gap:10 p:1% box:border-box">
              <a class="w:38% m:0|0" target="_blank" v-if="b == 0" :href="$filters.addGALink('https://www.taishinbank.com.tw/eServiceA/CreditCardAP/apply/index.jsp?pc=27&sl=1701029779')">
                <img :src="$filters.siteUrl('bank_ec/images/go.png')" />
              </a>
-              <a v-if="b == 2" class="w:38% m:0|0" :href="$filters.addGALink(bank.url)">
-              <img :src="$filters.siteUrl('bank_ec/images/login.png')" />
+              <a v-if="b == 2" class="w:38% m:0|0" :href="$filters.addGALink(bank.url)" target="_blank">
+              <img :src="$filters.siteUrl('bank_ec/images/login2.png')" />
              </a>
              <a v-if="b == 1" class="w:38% m:0|0" @click.prevent="message(bank.alertText)">
               <img :src="$filters.siteUrl('bank_ec/images/info.png')" />
              </a>
-              <a v-if="b == 2" class="w:38% m:0|0" :href="bank.alertText" target="_blank">
-              <img :src="$filters.siteUrl('bank_ec/images/login.png')" />
-             </a>
-             <a v-else class="w:38% m:0|0" :href="$filters.addGALink(bank.alertText)" target="_blank">
+              <a v-else class="w:38% m:0|0" :href="bank.alertText" target="_blank">
               <img :src="$filters.siteUrl('bank_ec/images/info.png')" />
              </a>
            </div>
@@ -277,6 +276,7 @@ section {
   p {
     display: flex;
     flex-wrap: nowrap;
+   text-align: left;
   }
   li {
     &:after {
