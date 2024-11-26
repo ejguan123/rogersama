@@ -8,6 +8,7 @@ export const globalMixin = {
       product2: [],
       percent: 0,
       tabS: null,
+      isLoading: false
     }
   },
   methods: {
@@ -42,32 +43,22 @@ export const globalMixin = {
       (Liner retry delay between requests)
     */
     async getFloorData(menu) {
-      let newPro = [],
-        newDatas = []
+      let moreUrls = []
+
+      //請求失敗重啟
+      this.retryRequest();
+
+      //取得menuid組成新url
       for (let z = 0; z < menu.length; z++) {
-        axiosRetry(axios, {
-          retries: 1,
-          shouldResetTimeout: true,
-          retryDelay: axiosRetry.linearDelay()
-        })
-        newDatas.push(
-          await axios
-            .get(
-              'https://events.tk3c.com/events_net/ashx/fkabow/GetAdSystemAll.ashx?menuid=' + menu[z]
-            )
-            .then((res) => {
-              newPro.push({
-                id: menu[z],
-                datas: res.data
-              })
-            })
-        )
+        moreUrls.push('https://events.tk3c.com/events_net/ashx/fkabow/GetAdSystemAll.ashx?menuid=' + menu[z])
       }
 
-      Promise.all(newDatas)
-        .then((res) => {
-          this.products = newPro
-        })
+      //撈取所有 url api 資料
+      await axios.all(moreUrls.map((moreUrl) => axios.get(moreUrl))).then((respon) => {
+        respon.forEach((res, r) => {
+          this.products[menu[r]] = res.data
+        });
+      })
         .catch((error) => {
           if (error.code === 'ECONNABORTED') {
             console.log('請求逾時')
@@ -79,24 +70,28 @@ export const globalMixin = {
 
     //用後台陳列編號撈取單一商品 如:2000
     async getFloorSingle(menu) {
-      axiosRetry(axios, {
-        retries: 1,
-        shouldResetTimeout: true,
-        retryDelay: axiosRetry.linearDelay()
-      })
 
-      await axios
-        .get('https://events.tk3c.com/events_net/ashx/fkabow/GetAdSystemAll.ashx?menuid=' + menu)
-        .then((res) => {
-          this.product2[menu] = res.data.Data
-        })
-        .catch((error) => {
-          if (error.code === 'ECONNABORTED') {
-            console.log('請求逾時')
-          } else {
-            console.log(error.message)
+      this.isLoading = true
+      this.retryRequest();
+
+      try {
+        const res = await axios({
+          method: 'get',
+          url: 'https://events.tk3c.com/events_net/ashx/fkabow/GetAdSystemAll.ashx?menuid=' + menu,
+          headers: {
+            'Content-Type': 'application/json',
           }
         })
+
+        this.product2[menu] = res.data.Data
+        this.isLoading = false
+      } catch (error) {
+        if (error.code === 'ECONNABORTED') {
+          console.log('請求逾時')
+        } else {
+          console.log(error.message)
+        }
+      }
     },
     //計算折數
     getProPercent(data) {
@@ -151,6 +146,55 @@ export const globalMixin = {
           }
         })
       }
+    },
+    retryRequest() {
+      //若request請求失敗則重新發送請求
+      axiosRetry(axios, {
+        retries: 2, //重新發送請求次數
+        retryDelay: axiosRetry.linearDelay(),
+        shouldResetTimeout: true,
+      })
+    },
+    /*
+    * 攔截器: 請求/回應一同處理 加快速度
+    */
+    interCatch() {
+      axios.interceptors.response.use(
+        response => response,
+        error => {
+          //如果為伺服器錯誤 重啟
+          if (error.response) {
+            switch (error.response.status) {
+              case 401:
+                console.log('tokan 不存在!')
+                break;
+
+              case 404:
+                console.log('頁面不存在!')
+                break;
+
+              case 500:
+                console.log('程式碼有誤')
+                break
+
+              default:
+                console.log(error.message)
+                break;
+            }
+
+            if (!window.navigator.onLine) {
+              console.log('refresh page')
+              return
+            }
+            axiosRetry(axios, {
+              retries: 2,
+              shouldResetTimeout: true,
+              retryDelay: axiosRetry.exponentialDelay()
+            })
+          }
+          return Promise.reject(error);
+        }
+      );
     }
   }
 }
