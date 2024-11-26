@@ -308,7 +308,7 @@ export default {
       <div class="aside-content">
         <ul>
           <li v-for="(aside, a) in asides">
-            <a :href="[a == 8 ? aside.href : `#pro${menus[a]}`]">{{ aside.text }}</a>
+            <a :href="[a == 9 ? aside.href : `#pro${menus[a]}`]">{{ aside.text }}</a>
           </li>
         </ul>
       </div>
