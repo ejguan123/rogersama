@@ -11,7 +11,7 @@ const alls = [
 const today = new Date()
 var isVip = false
 
-if (today < new Date('2024/12/01')) isVip = true
+if (today >= new Date('2024/12/01')) isVip = true
 
 //點擊彈出視窗 活動辦法
 const message = () => {
@@ -49,8 +49,22 @@ const message = () => {
 </script>
 
 <template>
-  <!-- 全站活動 -->
+  <!-- 全站活動 12月 -->
   <section class="all-box" v-if="isVip">
+    <div class="flex flex-wrap:wrap gap:10 jc:center">
+      <img class="w:45% w:90vw@<576" :src="$filters.siteUrl('double12_2024/images/1212/sp1.png')" />
+      <img class="w:45% w:90vw@<576" :src="$filters.siteUrl('double12_2024/images/1212/sp2.png')" />
+      <a
+        :href="$filters.addGALink('https://www.tk3c.com.tw/Home/Index#activityinfo&8')"
+        target="_blank"
+        class="max-width:200px max-width:40vw@<576 max-width:12vmax@>2000"
+        ><img :src="$filters.siteUrl('double12_2024/images/1212/info.png')"
+      /></a>
+    </div>
+  </section>
+
+  <!-- 全站活動 11月 -->
+  <section class="all-box" v-else>
     <img
       class="w:85% w:90vw@<992 w:full@<576 h:auto abs top:5% top:2vw@<992 top:15vw@<576 left:0 left:2vw@<576 right:0 m:auto scale(1.8)@<576"
       :src="$filters.siteUrl('2024Thxgiving/images/C_BOX.png')"
@@ -60,6 +74,7 @@ const message = () => {
       class="w:80% w:85vw@<992 w:90vw@<576 top:48% top:46vw@<992 top:99vw@<576 left:0 right:0 m:auto pt:13% pt:12%@<992 pt:19%@<576"
     >
       <swiper
+        class="overflow:hidden"
         :loop="true"
         :autoplay="{
           delay: 1300,

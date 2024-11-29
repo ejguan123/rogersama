@@ -7,8 +7,7 @@ export const globalMixin = {
       products: [],
       product2: [],
       percent: 0,
-      tabS: null,
-      isLoading: false
+      tabS: null
     }
   },
   methods: {
@@ -70,8 +69,6 @@ export const globalMixin = {
 
     //用後台陳列編號撈取單一商品 如:2000
     async getFloorSingle(menu) {
-
-      this.isLoading = true
       this.retryRequest();
 
       try {
@@ -84,7 +81,6 @@ export const globalMixin = {
         })
 
         this.product2[menu] = res.data.Data
-        this.isLoading = false
       } catch (error) {
         if (error.code === 'ECONNABORTED') {
           console.log('請求逾時')

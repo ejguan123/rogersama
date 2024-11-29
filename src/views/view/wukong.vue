@@ -263,13 +263,11 @@ export default {
           <li v-for="(t1, t) in tab1[0]">
             <a :href="t1[0].asideUrl">{{ t1[0].asidetext }}</a>
           </li>
-          <li><a href="#event">熱門活動 </a></li>
         </ul>
         <ul class="a2" v-show="status == 1">
           <li v-for="(t2, t) in tab2[0]">
             <a :href="t2[0].asideUrl">{{ t2[0].asidetext }}</a>
           </li>
-          <li><a href="#event">熱門活動 </a></li>
         </ul>
       </div>
       <a href="#" class="go-top">GO TOP</a>
