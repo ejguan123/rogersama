@@ -1,5 +1,6 @@
 <script setup>
 import listF from '../layout/listF.vue'
+import AllEvent from '@/components/AllEvent.vue'
 </script>
 
 <script>
@@ -10,7 +11,8 @@ export default {
   data() {
     return {
       status: 0,
-      menu: 7393
+      menu: 7393,
+      today: new Date()
     }
   },
   mounted() {
@@ -107,10 +109,9 @@ export default {
         <img :src="$filters.siteUrl('DjiNeo/images/air/S01.png')" />
       </h2>
 
-      <ul class="gap:10">
-        <li class="w:90% w:100%@<992">
+      <ul class="gap:10 mb:2%">
+        <li class="w:90% w:90vw@<992 w:full@<576">
           <a
-            class="mb:2% mb:3%@<992"
             :href="
               $filters.addGALink(
                 'https://events.tk3c.com/events_net/tk3c_creditcard/index.html?page=main'
@@ -118,76 +119,81 @@ export default {
             "
             target="_blank"
           >
-            <img class="pc" :src="$filters.siteUrl('DjiNeo/images/air/S1-1_PC.png')" />
-            <img class="mobile" :src="$filters.siteUrl('DjiNeo/images/air/S1-1_M.png')" />
+            <img
+              v-if="today >= new Date('2024/12/01')"
+              class="pc"
+              :src="$filters.siteUrl('double12_2024/images/1212/S3-1.png')"
+            />
+            <img v-else class="pc" :src="$filters.siteUrl('double12_2024/images/S1-1_PC.png')" />
+
+            <img
+              v-if="today >= new Date('2024/12/01')"
+              class="mobile"
+              :src="$filters.siteUrl('double12_2024/images/1212/S3-1_M.png')"
+            />
+            <img v-else class="mobile" :src="$filters.siteUrl('double12_2024/images/S1-1_M.png')" />
           </a>
         </li>
-        <li class="w:44% w:95vw@<992 mb:3%@<992">
-          <a
-            :href="
-              $filters.addGALink(
-                'https://events.tk3c.com/events_net/tk3c_creditcard/index.html?page=main'
-              )
-            "
-            target="_blank"
-            ><img :src="$filters.siteUrl('DjiNeo/images/air/S1-2.png')"
-          /></a>
-        </li>
-        <li class="w:44% w:95vw@<992">
-          <a
-            :href="
-              $filters.addGALink('https://www.tk3c.com/dictitleurl.aspx?cid=123139&strPreView=y')
-            "
-            target="_blank"
-            ><img :src="$filters.siteUrl('DjiNeo/images/air/S1-3.png')"
-          /></a>
+        <li class="w:90% w:89vw@<992 w:93vw@<576">
+          <swiper
+            :loop="false"
+            :space-between="10"
+            :autoplay="{
+              delay: 1600,
+              disableOnInteraction: false
+            }"
+            :observer="true"
+            :breakpoints="{
+              0: {
+                slidesPerView: 1.1
+              },
+              600: {
+                slidesPerView: 2
+              },
+              992: {
+                slidesPerView: 2
+              }
+            }"
+          >
+            <swiper-slide class="rel w:44% w:44vw@<992 w:94vw@<576">
+              <img
+                v-if="today >= new Date('2024/12/01')"
+                :src="$filters.siteUrl('double12_2024/images/bank7_3.png')"
+              />
+              <img v-else :src="$filters.siteUrl('double12_2024/images/S1-2.png')" />
+              <a
+                class="w:32% w:30vw@<992 w:40vw@<576 mt:3% mt:6%@<576"
+                :href="
+                  $filters.addGALink(
+                    'https://www.taishinbank.com.tw/eServiceA/CreditCardAP/apply/index.jsp?pc=27&sl=1701029779'
+                  )
+                "
+                target="_blank"
+              >
+                <img :src="$filters.siteUrl('double12_2024/images/login.png')" />
+              </a>
+            </swiper-slide>
+            <swiper-slide class="rel w:44% w:44vw@<992 w:94vw@<576">
+              <img :src="$filters.siteUrl('double12_2024/images/S1-3.png')" />
+              <a
+                class="w:32% w:30vw@<992 w:40vw@<576 mt:3% mt:6%@<576"
+                :href="
+                  $filters.addGALink(
+                    'https://events.tk3c.com/events_net/tk3c_creditcard/index.html?page=monthlyOffer'
+                  )
+                "
+                target="_blank"
+              >
+                <img :src="$filters.siteUrl('double12_2024/images/info.png')" />
+              </a>
+            </swiper-slide>
+          </swiper>
         </li>
       </ul>
     </section>
 
     <!-- 全站活動 -->
-    <section class="gift-box">
-      <h2 class="title">
-        <img :src="$filters.siteUrl('DjiNeo/images/S02.png')" />
-      </h2>
-
-      <ul class="tab mb:2% gap:20 gap:10@<576">
-        <li class="w:auto bg:#fff r:20px" :class="[status == 0 ? 'active' : '']">
-          <a @click="change(0)">線上獨家</a>
-        </li>
-        <li class="w:auto bg:#fff r:20px" :class="[status == 1 ? 'active' : '']">
-          <a @click="change(1)">會員限定</a>
-        </li>
-      </ul>
-
-      <!-- 線上獨家 -->
-      <div class="tab-content t1 flex flex-wrap:wrap jc:center" v-if="status == 0">
-        <a
-          :href="$filters.addGALink('https://www.facebook.com/TDdd331')"
-          target="_blank"
-          class="w:44% w:95vw@<992 m:0|1%|2% m:0|2%|3%@<992"
-        >
-          <img :src="$filters.siteUrl('DjiNeo/images/air/fb.png')" />
-        </a>
-        <a
-          class="w:44% w:95vw@<992 m:0|1%|2% m:0|2%|3%@<992"
-          :href="$filters.addGALink('https://page.line.me/tid7686u')"
-          target="_blank"
-        >
-          <img :src="$filters.siteUrl('DjiNeo/images/air/line.png')" />
-        </a>
-      </div>
-
-      <!-- 會員限定 -->
-      <div class="tab-content t2 flex flex-wrap:wrap jc:center" v-if="status == 1">
-        <a class="w:44% w:95vw@<992 m:0|1%|2% m:0|2%|3%@<992" @click="message(1)">
-          <img :src="$filters.siteUrl('DjiNeo/images/air/m01.png')" />
-        </a>
-        <a class="w:44% w:95vw@<992 m:0|1%|2% m:0|2%|3%@<992" @click="message(2)">
-          <img :src="$filters.siteUrl('DjiNeo/images/air/m02.png')" />
-        </a>
-      </div>
-    </section>
+    <AllEvent></AllEvent>
 
     <!-- 商品區 -->
     <section class="pro-box">
