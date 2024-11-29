@@ -89,6 +89,56 @@ export default {
           image: 'airConditionerLAB/images/2411/249121.png'
         }
       ],
+      proAir12: [
+        {
+          url: 'https://www.tk3c.com/pt.aspx?pid=180196',
+          image: 'airConditionerLAB/images/2412/180196.png'
+        },
+        {
+          url: 'https://www.tk3c.com/pt.aspx?pid=184030',
+          image: 'airConditionerLAB/images/2412/184030.png'
+        },
+        {
+          url: 'https://www.tk3c.com/pt.aspx?pid=214072',
+          image: 'airConditionerLAB/images/2412/214072.png'
+        },
+        {
+          url: 'https://www.tk3c.com/pt.aspx?pid=217011',
+          image: 'airConditionerLAB/images/2412/217011.png'
+        },
+        {
+          url: 'https://www.tk3c.com/pt.aspx?pid=224967',
+          image: 'airConditionerLAB/images/2412/224967.png'
+        },
+        {
+          url: 'https://www.tk3c.com/pt.aspx?pid=226734',
+          image: 'airConditionerLAB/images/2412/226734.png'
+        },
+        {
+          url: 'https://www.tk3c.com/pt.aspx?pid=237458',
+          image: 'airConditionerLAB/images/2412/237458.png'
+        },
+        {
+          url: 'https://www.tk3c.com/pt.aspx?pid=245825',
+          image: 'airConditionerLAB/images/2412/245825.png'
+        },
+        {
+          url: 'https://www.tk3c.com/pt.aspx?pid=246112',
+          image: 'airConditionerLAB/images/2412/246112.png'
+        },
+        {
+          url: 'https://www.tk3c.com/pt.aspx?pid=246919',
+          image: 'airConditionerLAB/images/2412/246919.png'
+        },
+        {
+          url: 'https://www.tk3c.com/pt.aspx?pid=248026',
+          image: 'airConditionerLAB/images/2412/248026.png'
+        },
+        {
+          url: 'https://www.tk3c.com/pt.aspx?pid=250028',
+          image: 'airConditionerLAB/images/2412/250028.png'
+        }
+      ],
       specials: [
         {
           url: 'https://www.tk3c.com/dic2.aspx?cid=11225&aid=23717&hid=123849',
@@ -120,17 +170,11 @@ export default {
         },
         {
           url: 'https://www.tk3c.com/dic2.aspx?cid=11225&aid=4707&hid=111598',
-          image: 'airConditionerLAB/images/2410/a08.png'
+          image: 'airConditionerLAB/images/2410/a08_2411.png'
         },
         {
           url: 'https://www.tk3c.com/dic2.aspx?cid=11225&aid=23717&hid=123854',
           image: 'airConditionerLAB/images/2410/a09.png'
-        }
-      ],
-      special_after: [
-        {
-          url: 'https://www.tk3c.com/dic2.aspx?cid=11225&aid=4707&hid=111598',
-          image: 'airConditionerLAB/images/2410/a08_2411.png'
         }
       ],
       brands: [
@@ -380,14 +424,11 @@ export default {
       }
     })
 
-    // 11月更換 fuji精選活動
-    if (today >= new Date('2024/11/01')) {
-      specials.splice(7, 1, this.special_after[0])
-    }
-
-    // 11/1-12 隱藏現折券樓層
-    if (today >= new Date('2024/11/01') && today < new Date('2024/11/13')) {
-      this.isDis = false
+    // 12月 更新現折券連結
+    if (today >= new Date('2024/12/01')) {
+      this.proAir = this.proAir12
+      specials.splice(2, 1)
+      this.disUrl = 'https://www.tk3c.com/dictitleurl.aspx?cid=124085&strPreView=y'
     } else {
       this.disUrl = 'https://www.tk3c.com/dic2.aspx?cid=124026&aid=23890&hid=124044'
     }
@@ -487,19 +528,12 @@ export default {
     <div class="background">
       <h2 class="title">
         <img
-          v-if="today < new Date('2024/11/01')"
-          class="pc"
-          :src="$filters.siteUrl('airConditionerLAB/images/2410/title.png')"
+          v-if="today >= new Date('2024/12/01')"
+          :src="$filters.siteUrl('airConditionerLAB/images/2410/title_2412.png')"
           alt="暖心回饋季"
         />
         <img
-          v-if="today < new Date('2024/11/01')"
-          class="mobile"
-          :src="$filters.siteUrl('airConditionerLAB/images/2410/m_t.png')"
-          alt="暖心回饋季"
-        />
-        <img
-          v-if="today >= new Date('2024/11/01')"
+          v-else
           :src="$filters.siteUrl('airConditionerLAB/images/2410/title_2411b.png')"
           alt="暖心回饋季"
         />
@@ -528,9 +562,9 @@ export default {
     <div class="background2"></div>
 
     <!-- 政府補助 -->
-     <section class="mt:-42% min-width:30%">
-        <img :src="$filters.siteUrl('airConditionerLAB/images/2410/bn20241231.jpg')" alt="" />
-     </section>
+    <section class="mt:-42% min-width:30%">
+      <img :src="$filters.siteUrl('airConditionerLAB/images/2410/bn20241231.jpg')" alt="" />
+    </section>
 
     <!-- 預約 -->
     <section class="gift-box" id="gift">
@@ -663,7 +697,7 @@ export default {
         </a>
 
         <a
-          v-else-if="today >= new Date('2024/11/01') && b != 10 && b != 2 && b != 8"
+          v-else-if="today >= new Date('2024/11/01') && b != 10 && b != 2 && b != 8 && b != 9"
           class="banner w:100% mb:1%"
           :href="$filters.addGALink(brand.url)"
           target="_blank"
