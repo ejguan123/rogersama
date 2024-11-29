@@ -9,7 +9,7 @@ export default {
   mixins: [globalMixin],
   data() {
     return {
-      menus: [7636,7617, 7618, 7619, 7620, 7621, 7622, 7623, 7624], //商品陳列編號
+      menus: [7636, 7617, 7618, 7619, 7620, 7621, 7622, 7623, 7624], //商品陳列編號
       gifts: [
         { image: 'banquet/images/sp01.png' },
         { image: 'banquet/images/sp02.png' },
@@ -19,7 +19,7 @@ export default {
         { image: 'banquet/images/sp06.png' }
       ],
       floorImg: [
-         {
+        {
           image: 'banquet/images/bar09.png'
         },
         {
@@ -80,11 +80,14 @@ export default {
     }
   },
   mounted() {
-    const { today,menus } = this
+    const { today, menus } = this
+
+    menus.splice(0, 1)
+    this.floorImg.splice(0, 1)
+    this.asides.splice(0, 1)
 
     //撈好樓層商品
     this.getFloorData(menus)
-    
   },
   methods: {
     message() {
