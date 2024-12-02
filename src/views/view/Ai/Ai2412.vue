@@ -319,7 +319,7 @@ export default {
         },
         {
           url: 'https://www.tk3c.com/pt.aspx?pid=250185',
-          image: '2024083C/images/2412/250185.png'
+          image: '2024083C/images/2412/250185_2.png'
         },
         {
           url: 'https://www.tk3c.com/pt.aspx?pid=251568',
@@ -328,15 +328,15 @@ export default {
       ],
       gifts: [
         {
-          url: 'https://www.tk3c.com/dic2.aspx?cid=11124&aid=22469&hid=123020',
+          url: 'https://www.tk3c.com/dic2.aspx?cid=11124&aid=22469&hid=121988',
           image: '2024083C/images/2412/NB04_2.png'
         },
         {
-          url: 'https://www.tk3c.com/dic2.aspx?cid=11124&aid=22469&hid=123019',
+          url: 'https://www.tk3c.com/dic2.aspx?cid=11124&aid=22469&hid=121986',
           image: '2024083C/images/2412/NB05_2.png'
         },
         {
-          url: 'https://www.tk3c.com/dic2.aspx?cid=11124&aid=22469&hid=123018',
+          url: 'https://www.tk3c.com/dic2.aspx?cid=11124&aid=22469&hid=121987',
           image: '2024083C/images/2412/NB06_2.png'
         }
       ],

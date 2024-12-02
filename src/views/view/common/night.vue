@@ -44,7 +44,6 @@ export default {
   },
   mounted() {
     const { today } = this
-    document.querySelectorAll('.wrapper')[1].innerHTML = ''
 
     const year = today.getFullYear(),
       month = today.getMonth() + 1,

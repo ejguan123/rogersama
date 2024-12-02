@@ -176,7 +176,7 @@ export default {
       menu: [2751, 5613, 5198, 5199, 4846, 5200, 5201, 5202],
       status: 0,
       statusSale: 1,
-      statusNight: 0,
+      statusNight: 1,
       isNight: true,
       isDis: true,
       today: new Date(),

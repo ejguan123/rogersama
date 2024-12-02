@@ -92,56 +92,54 @@ export default {
           image: 'green_subsidy/images/S8_a.png'
         }
       ],
-      newTabs:[
+      newTabs: [
         {
           image: 'green_subsidy/images/new/S-btn12.png'
         },
-         {
+        {
           image: 'green_subsidy/images/new/S-btn13.png'
         },
-         {
+        {
           image: 'green_subsidy/images/new/S-btn14.png'
         },
-         {
+        {
           image: 'green_subsidy/images/new/S-btn1.png'
         },
-         {
+        {
           image: 'green_subsidy/images/new/S-btn2.png'
         },
-          {
+        {
           image: 'green_subsidy/images/new/S-btn3.png'
         },
-         {
+        {
           image: 'green_subsidy/images/new/S-btn4.png'
         },
-          {
+        {
           image: 'green_subsidy/images/new/S-btn5.png'
         },
-         {
+        {
           image: 'green_subsidy/images/new/S-btn6.png'
         },
-          {
+        {
           image: 'green_subsidy/images/new/S-btn7.png'
         },
-         {
+        {
           image: 'green_subsidy/images/new/S-btn8.png'
         },
-          {
+        {
           image: 'green_subsidy/images/new/S-btn9.png'
         },
-         {
+        {
           image: 'green_subsidy/images/new/S-btn10.png'
         },
-         {
+        {
           image: 'green_subsidy/images/new/S-btn11.png'
-        },
+        }
       ],
       menu: [4348, 4349, 4350, 4352, 4353, 4369],
       menuGreen: [4344, 4345, 4346, 4347, 4390],
       menuPrint: [7394, 7395],
-      menuNew:[7589,7588,7587,7576,7577,7578,7579,7580,
-        7581,7582,7583,7584,7585,7586
-      ],
+      menuNew: [7589, 7588, 7587, 7576, 7577, 7578, 7579, 7580, 7581, 7582, 7583, 7584, 7585, 7586],
       status: 0,
       stausPrinter: 0,
       statusNew: 0,
@@ -173,11 +171,9 @@ export default {
       this.isVip = false
     }
 
-    // 10.26-11.30 每週六日顯示
-    if (today >= new Date('2024/10/26') && today < new Date('2024/12/01')) {
-      if (today.getDay() == 6 || today.getDay() == 0) {
-        this.isNew = true
-      }
+    // 每週六日顯示
+    if (today.getDay() == 6 || today.getDay() == 0) {
+      this.isNew = true
     }
   },
   methods: {
@@ -189,7 +185,7 @@ export default {
     changePrinter(id) {
       this.stausPrinter = id
     },
-    changeNew(id){
+    changeNew(id) {
       this.statusNew = id
     },
     message(id) {
@@ -299,16 +295,18 @@ export default {
               class="w:20% brightness(0.7) brightness(1).active"
               @click="goSlideNew(n)"
             >
-              <a @click="changeNew(n)"
-                ><img :src="$filters.siteUrl(newTab.image)"
-              /></a>
+              <a @click="changeNew(n)"><img :src="$filters.siteUrl(newTab.image)" /></a>
             </swiper-slide>
           </swiper>
         </div>
 
         <!-- 對應商品 -->
         <div class="tab-content" v-for="(newTab, n) in newTabs" v-show="statusNew == n">
-          <component v-if="products[menuNew[n]] != undefined" :is="listF" :pro="products[menuNew[n]].Data"></component>
+          <component
+            v-if="products[menuNew[n]] != undefined"
+            :is="listF"
+            :pro="products[menuNew[n]].Data"
+          ></component>
         </div>
       </div>
     </section>

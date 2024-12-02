@@ -158,7 +158,7 @@ export default {
             <swiper-slide class="rel w:44% w:44vw@<992 w:94vw@<576">
               <img
                 v-if="today >= new Date('2024/12/01')"
-                :src="$filters.siteUrl('double12_2024/images/bank7_3.png')"
+                :src="$filters.siteUrl('double12_2024/images/1212/bank7_3.png')"
               />
               <img v-else :src="$filters.siteUrl('double12_2024/images/S1-2.png')" />
               <a

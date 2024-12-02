@@ -44,9 +44,6 @@ export const globalMixin = {
     async getFloorData(menu) {
       let moreUrls = []
 
-      //請求失敗重啟
-      this.retryRequest();
-
       //取得menuid組成新url
       for (let z = 0; z < menu.length; z++) {
         moreUrls.push('https://events.tk3c.com/events_net/ashx/fkabow/GetAdSystemAll.ashx?menuid=' + menu[z])
@@ -59,6 +56,8 @@ export const globalMixin = {
         });
       })
         .catch((error) => {
+          //請求失敗重啟
+          this.retryRequest();
           if (error.code === 'ECONNABORTED') {
             console.log('請求逾時')
           } else {
@@ -69,8 +68,6 @@ export const globalMixin = {
 
     //用後台陳列編號撈取單一商品 如:2000
     async getFloorSingle(menu) {
-      this.retryRequest();
-
       try {
         const res = await axios({
           method: 'get',
@@ -82,6 +79,7 @@ export const globalMixin = {
 
         this.product2[menu] = res.data.Data
       } catch (error) {
+        this.retryRequest();
         if (error.code === 'ECONNABORTED') {
           console.log('請求逾時')
         } else {

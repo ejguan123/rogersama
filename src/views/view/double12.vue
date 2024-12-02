@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import listF from '../layout/listF.vue'
 import Double12F from '../floor/Double12F.vue'
+import AllEvent from '../../components/AllEvent.vue'
 
 const swiperRef = ref()
 const swiperBank = ref()
@@ -199,24 +200,8 @@ export default {
 
     <canvas id="canvas"></canvas>
 
-    <section>
-      <div class="flex flex-wrap:wrap gap:10 jc:center">
-        <img
-          class="w:45% w:90vw@<576"
-          :src="$filters.siteUrl('double12_2024/images/1212/sp1.png')"
-        />
-        <img
-          class="w:45% w:90vw@<576"
-          :src="$filters.siteUrl('double12_2024/images/1212/sp2.png')"
-        />
-        <a
-          :href="$filters.addGALink('https://www.tk3c.com.tw/Home/Index#activityinfo&8')"
-          target="_blank"
-          class="max-width:200px max-width:40vw@<576 max-width:12vmax@>2000"
-          ><img :src="$filters.siteUrl('double12_2024/images/1212/info.png')"
-        /></a>
-      </div>
-    </section>
+    <!-- 全站活動 -->
+    <AllEvent></AllEvent>
 
     <!-- 1212必go神物 -->
     <section class="pro-box">
@@ -640,7 +625,7 @@ section {
 @include media-query('mobile', '1440px') {
   .aside-container {
     &:not(.left) {
-      zoom: 0.8;
+      zoom: 0.4;
     }
   }
 }

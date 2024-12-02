@@ -15,13 +15,8 @@ export default {
 
 <template>
   <section class="floor scroll" v-for="(floor, f) in floors" :key="f">
-    <h2 class="title">
-      <a
-        v-if="floor.url"
-        :href="$filters.addGALink(floor.url)"
-        :name="`pro${menu[f]}`"
-        :id="`pro${menu[f]}`"
-      >
+    <h2 class="title" :name="`pro${menu[f]}`" :id="`pro${menu[f]}`">
+      <a v-if="floor.url" :href="$filters.addGALink(floor.url)">
         <img :src="$filters.siteUrl(floor.image)" />
       </a>
       <img v-else :src="$filters.siteUrl(floor.image)" />

@@ -55,7 +55,7 @@ const message = () => {
       <img class="w:45% w:90vw@<576" :src="$filters.siteUrl('double12_2024/images/1212/sp1.png')" />
       <img class="w:45% w:90vw@<576" :src="$filters.siteUrl('double12_2024/images/1212/sp2.png')" />
       <a
-        :href="$filters.addGALink('https://www.tk3c.com.tw/Home/Index#activityinfo&8')"
+        href="https://www.tk3c.com.tw/Home/Index?#actsdetail&8&729"
         target="_blank"
         class="max-width:200px max-width:40vw@<576 max-width:12vmax@>2000"
         ><img :src="$filters.siteUrl('double12_2024/images/1212/info.png')"

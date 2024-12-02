@@ -1,6 +1,6 @@
 <script setup>
-import { Swiper, SwiperSlide } from 'swiper/vue'
-import DysonFloor from '../../floor/DysonFloor.vue'
+import listM from '../../layout/listM.vue'
+import DysonFloor from '../../floor/CommonFloor.vue'
 
 const today = new Date()
 
@@ -69,6 +69,27 @@ const navs = [
   {
     url: 'https://www.tk3c.com/pt.aspx?pid=245500',
     image: 'dyson/images/icon5.png'
+  }
+]
+
+const menu = [2383, 2384, 2385, 2386, 2387]
+const floorImg = [
+  {
+    image: 'dyson/images/fl1.jpg'
+  },
+  {
+    image: 'dyson/images/fl2.jpg'
+  },
+  {
+    image: 'dyson/images/fl3.jpg',
+    type: listM
+  },
+  {
+    image: 'dyson/images/fl4.jpg',
+    type: listM
+  },
+  {
+    image: 'dyson/images/fl5.jpg'
   }
 ]
 </script>
@@ -160,7 +181,7 @@ const navs = [
     </div>
 
     <!-- 商品樓層區 -->
-    <DysonFloor></DysonFloor>
+    <DysonFloor :floors="floorImg" :menu="menu"></DysonFloor>
   </div>
 
   <!-- 右側選單 -->

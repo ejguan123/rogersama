@@ -1,5 +1,5 @@
 <script setup>
-import {Parallax } from 'swiper/modules'
+import { Parallax } from 'swiper/modules'
 import listF from '../../layout/listF.vue'
 import AllEvent from '../../../components/AllEvent.vue'
 import CommonFloor from '../../floor/CommonFloor.vue'
@@ -15,74 +15,79 @@ export default {
       proWarm: [
         {
           url: 'https://www.tk3c.com/pt.aspx?pid=221273',
-          image: 'electric_heater/images/2411/221273.png'
+          image: 'electric_heater/images/2412/221273.png'
         },
         {
-          url: 'https://www.tk3c.com/pt.aspx?pid=243314',
-          image: 'electric_heater/images/2411/243314.png'
+          url: 'https://www.tk3c.com/pt.aspx?pid=252591',
+          image: 'electric_heater/images/2412/252591.png'
         },
-         {
+        {
           url: 'https://www.tk3c.com/pt.aspx?pid=245362',
-          image: 'electric_heater/images/2411/245362_3.png'
-        },
+          image: 'electric_heater/images/2412/245362.png'
+        }
       ],
       floorImg: [
         {
           url: 'https://www.tk3c.com/dic2.aspx?cid=11058&aid=5779&hid=112699',
           image: 'electric_heater/images/2411/floor1_2.png'
         },
-         {
+        {
           url: 'https://www.tk3c.com/dic2.aspx?cid=11058&aid=5779&hid=112701',
           image: 'electric_heater/images/2411/floor2_2.png'
         },
-         {
+        {
           url: 'https://www.tk3c.com/dic2.aspx?cid=11058&aid=5779&hid=112709',
           image: 'electric_heater/images/2411/floor3_2.png'
         },
-         {
+        {
           url: 'https://www.tk3c.com/dic2.aspx?cid=108783&aid=23230&hid=119914',
           image: 'electric_heater/images/2411/floor4_2.png'
         },
-         {
+        {
           url: 'https://www.tk3c.com/dic2.aspx?cid=11058&aid=5779&hid=112703',
           image: 'electric_heater/images/2411/floor5_2.png'
         },
-         {
+        {
           url: 'https://www.tk3c.com/dictitleurl.aspx?cid=71323',
           image: 'electric_heater/images/2411/floor6_2.png'
         },
-         {
+        {
           url: 'https://www.tk3c.com/dic2.aspx?cid=11058&aid=5779&hid=112710',
           image: 'electric_heater/images/2411/floor7_2.png'
         },
-         {
+        {
           url: 'https://www.tk3c.com/dic1.aspx?cid=11058&aid=16920',
           image: 'electric_heater/images/2411/floor8_2.png'
         },
-         {
+        {
           url: 'https://www.tk3c.com/dic1.aspx?cid=108783&aid=23073',
           image: 'electric_heater/images/2411/floor9_2.png'
-        },
+        }
       ],
-      gifts:[
-         {
+      gifts: [
+        {
           url: '#sale',
-          image: 'electric_heater/images/2411/sp01.png'
+          image: 'electric_heater/images/2412/sp01.png'
         },
-          {
+        {
           url: 'https://www.tk3c.com/events/eventgift.aspx',
-          image: 'electric_heater/images/2411/sp02.png'
+          image: 'electric_heater/images/2412/sp02.png'
         },
-          {
+        {
           url: 'https://www.tk3c.com/dic2.aspx?cid=11058&aid=5779&hid=112763',
-          image: 'electric_heater/images/2411/sp03_2.png'
+          image: 'electric_heater/images/2412/sp03.png'
         },
-          {
+        {
           url: 'https://www.tk3c.com/dic2.aspx?cid=115927&aid=22750&hid=115598',
-          image: 'electric_heater/images/2411/sp04.png'
+          image: 'electric_heater/images/2412/sp04.png'
         },
+        {
+          url: 'https://www.tk3c.com/dic2.aspx?cid=11058&aid=5779&hid=116093',
+          image: 'electric_heater/images/2412/sp05.png',
+          class: 'long'
+        }
       ],
-      icons:[
+      icons: [
         {
           url: '#pro2473',
           image: 'electric_heater/images/2411/icon1.png'
@@ -95,7 +100,7 @@ export default {
           url: '#pro2475',
           image: 'electric_heater/images/2411/icon3_2.png'
         },
-          {
+        {
           url: '#pro7639',
           image: 'electric_heater/images/2411/icon9.png'
         },
@@ -118,60 +123,60 @@ export default {
         {
           url: '#pro3742',
           image: 'electric_heater/images/2411/icon8.png'
-        },
+        }
       ],
-      asides:[
+      asides: [
         {
-          text:"早鳥獨享",
-          href:'#sale'
+          text: '早鳥獨享',
+          href: '#sale'
         },
-         {
-          text:"強檔推薦",
-          href:'#special'
+        {
+          text: '強檔推薦',
+          href: '#special'
         },
-         {
-          text:"葉片式電暖器",
-          href:'#pro2473'
+        {
+          text: '葉片式電暖器',
+          href: '#pro2473'
         },
-         {
-          text:"對流/陶瓷式電暖器",
-          href:'#pro2474'
+        {
+          text: '對流/陶瓷式電暖器',
+          href: '#pro2474'
         },
-         {
-          text:"碳素/鹵素燈",
-          href:'#pro2475'
+        {
+          text: '碳素/鹵素燈',
+          href: '#pro2475'
         },
-         {
-          text:"溫熱便座",
-          href:'#pro7639'
+        {
+          text: '溫熱便座',
+          href: '#pro7639'
         },
-         {
-          text:"個人保暖",
-          href:'#pro2476'
+        {
+          text: '個人保暖',
+          href: '#pro2476'
         },
-         {
-          text:"冷暖/除溼",
-          href:'#pro2477'
+        {
+          text: '冷暖/除溼',
+          href: '#pro2477'
         },
-         {
-          text:"烘被/烘衣/乾鞋機",
-          href:'#pro2478'
+        {
+          text: '烘被/烘衣/乾鞋機',
+          href: '#pro2478'
         },
-         {
-          text:"循環對流",
-          href:'#pro3741'
+        {
+          text: '循環對流',
+          href: '#pro3741'
         },
-         {
-          text:"健康保健",
-          href:'#pro3742'
-        },
+        {
+          text: '健康保健',
+          href: '#pro3742'
+        }
       ],
-      menus: [2473,2474,2475,7639,2476,2477,2478,3741,3742],
+      menus: [2473, 2474, 2475, 7639, 2476, 2477, 2478, 3741, 3742],
       menuSp: 2472,
       menuSale: [7637, 7638],
       statusGift: 0,
-      statusSale:0,
-      today: new Date(),
+      statusSale: 0,
+      today: new Date()
     }
   },
   mounted() {
@@ -187,7 +192,7 @@ export default {
     change(id) {
       this.statusGift = id
     },
-    changeSale(id){
+    changeSale(id) {
       this.statusSale = id
     }
   }
@@ -197,19 +202,17 @@ export default {
 <template>
   <div id="warm-container" v-cloak>
     <div class="background">
-      <h2
-        class="title"
-      >
-        <img :src="$filters.siteUrl('electric_heater/images/2411/title.png')" alt=" " />
+      <h2 class="title">
+        <img :src="$filters.siteUrl('electric_heater/images/2412/title.png')" alt=" " />
       </h2>
 
       <div class="subtitle grid-cols:2 gap:10">
         <img :src="$filters.siteUrl('electric_heater/images/2411/C1.png')" alt=" " />
-        <img :src="$filters.siteUrl('electric_heater/images/2411/C2.png')" alt=" " />
+        <img :src="$filters.siteUrl('electric_heater/images/2412/C2.png')" alt=" " />
       </div>
 
       <div class="product">
-       <swiper
+        <swiper
           :loop="true"
           :parallax="true"
           :autoplay="{ delay: 1500, disableOnInteraction: false }"
@@ -227,55 +230,58 @@ export default {
         <img :src="$filters.siteUrl('electric_heater/images/2411/clo1.png')" alt=" " />
       </p>
 
-       <p class="cloud c2">
+      <p class="cloud c2">
         <img :src="$filters.siteUrl('electric_heater/images/2411/clo2.png')" alt=" " />
       </p>
 
-       <p class="cloud c3">
+      <p class="cloud c3">
         <img :src="$filters.siteUrl('electric_heater/images/2411/clo3.png')" alt=" " />
       </p>
     </div>
 
     <p class="item">
-       <img :src="$filters.siteUrl('electric_heater/images/2411/de2.png')" alt=" " />
+      <img :src="$filters.siteUrl('electric_heater/images/2411/de2.png')" alt=" " />
     </p>
 
     <!-- 暖心優惠一把抓 -->
     <section class="gift-box">
       <h2 class="title">
-        <img :src="$filters.siteUrl('electric_heater/images/2411/bar_sp.png')" alt="本週環保小尖兵" />
+        <img :src="$filters.siteUrl('electric_heater/images/2411/bar_sp.png')" alt=" " />
       </h2>
       <ul class="w:35% w:50vw@<992 w:75vw@<576 mt:4% mb:1% grid-cols:2 gap:10">
         <li :class="[statusGift == 0 ? 'active' : '']" class="contrast(0.5) contrast(1).active">
           <a @click="change(0)">
-            <img :src="$filters.siteUrl('electric_heater/images/2411/1-bt_01.png')">
+            <img :src="$filters.siteUrl('electric_heater/images/2411/1-bt_01.png')" />
           </a>
         </li>
         <li :class="[statusGift == 1 ? 'active' : '']" class="contrast(0.5) contrast(1).active">
-           <a @click="change(1)">
-            <img :src="$filters.siteUrl('electric_heater/images/2411/1-bt_02.png')">
+          <a @click="change(1)">
+            <img :src="$filters.siteUrl('electric_heater/images/2411/1-bt_02.png')" />
           </a>
         </li>
       </ul>
 
       <!-- 線上獨家 -->
-      <div class="w:80% w:90vw@<992 w:full@<576 m:auto bg:#fff p:4% r:20px r:10px@<576 b:4px|solid|#eaa651 box:border-box" v-if="statusGift == 0">
-        <ul class="grid-cols:2 grid-cols:1@<576 gap:10">
-          <li v-for="(gift,g) in gifts">
+      <div
+        class="content w:80% w:90vw@<992 w:full@<576 m:auto bg:#fff p:2% r:20px r:10px@<576 b:4px|solid|#eaa651 box:border-box"
+        v-if="statusGift == 0"
+      >
+        <ul class="ai:baseline">
+          <li v-for="(gift, g) in gifts" :class="[gift.class ? gift.class : '']">
             <a v-if="g == 0" :href="gift.url">
-              <img :src="$filters.siteUrl(gift.image)">
+              <img :src="$filters.siteUrl(gift.image)" />
             </a>
-              <a v-else :href="$filters.addGALink(gift.url)" target="_blank">
-              <img :src="$filters.siteUrl(gift.image)">
+            <a v-else :href="$filters.addGALink(gift.url)" target="_blank">
+              <img :src="$filters.siteUrl(gift.image)" />
             </a>
           </li>
         </ul>
       </div>
 
       <!-- 全站活動 -->
-       <div v-if="statusGift == 1">
+      <div v-if="statusGift == 1">
         <AllEvent></AllEvent>
-       </div>
+      </div>
     </section>
 
     <!-- 本早鳥獨享 領券再現折 -->
@@ -284,22 +290,36 @@ export default {
         <img :src="$filters.siteUrl('electric_heater/images/2411/bar01.png')" alt=" " />
       </h2>
 
-      <ul class="w:42% w:50vw@<992 w:75vw@<576 mt:5% grid-cols:2 gap:10 mb:2%">
+      <ul class="w:42% w:60vw@<992 w:85vw@<576 mt:5% grid-cols:2 gap:10 mb:2%">
         <li :class="[statusSale == 0 ? 'active' : '']" class="brightness(0.8) brightness(1).active">
           <a @click="changeSale(0)">
-            <img :src="$filters.siteUrl('electric_heater/images/2411/2-bt100.png')">
+            <b>現折112</b>
           </a>
         </li>
         <li :class="[statusSale == 1 ? 'active' : '']" class="brightness(0.8) brightness(1).active">
-           <a @click="changeSale(1)">
-            <img :src="$filters.siteUrl('electric_heater/images/2411/2-bt200.png')">
+          <a @click="changeSale(1)">
+            <b>現折212</b>
           </a>
         </li>
       </ul>
-      <div class="box" v-for="(i,index) in 2" v-show="statusSale == index">
-        <component v-if="products[menuSale[index]] != undefined" :is="listF" :isSwiper="1" :name="'sale-area'" :pro="products[menuSale[index]].Data"></component>
-         <a class="more" :href="$filters.addGALink('https://www.tk3c.com/dic2.aspx?cid=124026&aid=23890&hid=124083&strPreView=y')" target="_blank">
-          <img :src="$filters.siteUrl('electric_heater/images/2411/more.png')"/>
+      <div class="box" v-for="(i, index) in 2" v-show="statusSale == index">
+        <component
+          v-if="products[menuSale[index]] != undefined"
+          :is="listF"
+          :isSwiper="1"
+          :name="'sale-area'"
+          :pro="products[menuSale[index]].Data"
+        ></component>
+        <a
+          class="more"
+          :href="
+            $filters.addGALink(
+              'https://www.tk3c.com/dic2.aspx?cid=124026&aid=23890&hid=124083&strPreView=y'
+            )
+          "
+          target="_blank"
+        >
+          <img :src="$filters.siteUrl('electric_heater/images/2411/more.png')" />
         </a>
       </div>
     </section>
@@ -309,72 +329,76 @@ export default {
       <h2 class="title">
         <img :src="$filters.siteUrl('electric_heater/images/2411/bar02.png')" alt=" " />
       </h2>
-     
+
       <div class="specials">
         <component :is="listF" :pro="product2[menuSp]"></component>
-        <a class="more" :href="$filters.addGALink('https://www.tk3c.com/dic1.aspx?cid=11058&aid=5779')" target="_blank">
-          <img :src="$filters.siteUrl('electric_heater/images/2411/more.png')"/>
+        <a
+          class="more"
+          :href="$filters.addGALink('https://www.tk3c.com/dic1.aspx?cid=11058&aid=5779')"
+          target="_blank"
+        >
+          <img :src="$filters.siteUrl('electric_heater/images/2411/more.png')" />
         </a>
       </div>
     </section>
 
     <!-- ICON 區 -->
-     <section class="icon-group">
+    <section class="icon-group">
       <swiper
-      :loop="false"
-      :breakpoints="{
-        0:{
-           slidesPerView:2.2,
-            spaceBetween:-20,
-           grid: {
+        :loop="false"
+        :breakpoints="{
+          0: {
+            slidesPerView: 2.2,
+            spaceBetween: -20,
+            grid: {
               fill: 'row',
               rows: 2
             }
-        },
-        600:{
-          slidesPerView:3.3,
-           spaceBetween:-30,
-           grid: {
+          },
+          600: {
+            slidesPerView: 3.3,
+            spaceBetween: -30,
+            grid: {
               fill: 'row',
               rows: 2
             }
-        },
-        992:{
-          slidesPerView:5,
-          spaceBetween:-40,
-           grid: {
+          },
+          992: {
+            slidesPerView: 5,
+            spaceBetween: -40,
+            grid: {
               fill: 'row',
               rows: 2
             }
-        }
-      }"
-       :pagination="{
-            el: '.icon-group .swiper-pagination',
-            clickable:true
-          }"
+          }
+        }"
+        :pagination="{
+          el: '.icon-group .swiper-pagination',
+          clickable: true
+        }"
       >
-      <swiper-slide v-for="(icon,i) in icons">
-        <a :href="icon.url">
-          <img :src="$filters.siteUrl(icon.image)" alt=" ">
-        </a>
-      </swiper-slide>
+        <swiper-slide v-for="(icon, i) in icons">
+          <a :href="icon.url">
+            <img :src="$filters.siteUrl(icon.image)" alt=" " />
+          </a>
+        </swiper-slide>
       </swiper>
       <div class="swiper-pagination"></div>
-     </section>
-  
-     <!-- 其他樓層 -->
-      <CommonFloor :floors="floorImg" :menu="menus"></CommonFloor>
+    </section>
+
+    <!-- 其他樓層 -->
+    <CommonFloor :floors="floorImg" :menu="menus"></CommonFloor>
 
     <!-- 右側選單 -->
     <aside class="aside-container">
-       <span class="collaspe"><i class="fas fa-chevron-right"></i></span>
+      <span class="collaspe"><i class="fas fa-chevron-right"></i></span>
       <div class="aside-wrap">
         <h3 class="aside-header"></h3>
         <div class="aside-content">
           <ul>
-           <li v-for="aside in asides">
-            <a :href="aside.href">{{ aside.text }}</a>
-           </li>
+            <li v-for="aside in asides">
+              <a :href="aside.href">{{ aside.text }}</a>
+            </li>
           </ul>
         </div>
         <a href="#" class="go-top">GO TOP</a>
@@ -384,7 +408,7 @@ export default {
 </template>
 
 <style lang="scss">
-  @import '../../../assets/sass/module/base';
+@import '../../../assets/sass/module/base';
 $dir: 'https://events.cdn-tkec.tw/events_net/events_net/electric_heater/images/2411/';
 $origin: 'https://events.tk3c.com/events_net/events_net/electric_heater/images/2411/';
 
@@ -429,37 +453,37 @@ body {
       top: 17%;
       animation: zoomInNormal 1.6s linear;
     }
-   .product{
-    width: 30%;
-    position: absolute;
-    right: 12%;
-    top: 14%;
-   }
-   .subtitle {
-    width: 27%;
-    position: absolute;
-    left: 22%;
-    top: 67%;
-   }
-   .cloud {
-    width: 8%;
-    position: absolute;
-    &.c1 {
-      left: 5%;
-      top: 49%;
-      animation: slowMove 0.6s infinite alternate;
+    .product {
+      width: 30%;
+      position: absolute;
+      right: 12%;
+      top: 14%;
     }
-    &.c2 {
-      left: 52%;
-      top: 13%;
-      animation: slowMove 1.3s infinite alternate;
+    .subtitle {
+      width: 27%;
+      position: absolute;
+      left: 22%;
+      top: 67%;
     }
-    &.c3 {
-      right: 3%;
-      top: 69%;
-      animation: slowMove 0.8s infinite alternate;
+    .cloud {
+      width: 8%;
+      position: absolute;
+      &.c1 {
+        left: 5%;
+        top: 49%;
+        animation: slowMove 0.6s infinite alternate;
+      }
+      &.c2 {
+        left: 52%;
+        top: 13%;
+        animation: slowMove 1.3s infinite alternate;
+      }
+      &.c3 {
+        right: 3%;
+        top: 69%;
+        animation: slowMove 0.8s infinite alternate;
+      }
     }
-   }
   }
 }
 
@@ -477,11 +501,41 @@ body {
   }
 }
 
+.sale-group {
+  b {
+    width: auto;
+    height: auto;
+    display: block;
+    background: #5b22df;
+    border-radius: 25px;
+    padding: 2%;
+    color: #fff;
+    font-weight: bold;
+    font-size: 2rem;
+    border: 1px solid #000;
+    box-sizing: border-box;
+  }
+}
+
+.gift-box {
+  .content {
+    li {
+      width: 47%;
+      margin: 0 5px 1%;
+      &.long {
+        width: 96%;
+      }
+    }
+  }
+}
+
 @include media-query('mobile', '992px') {
   body {
     &:before {
       background-size: 120% auto;
-      background-position: -13vw 4vw,top;
+      background-position:
+        -13vw 4vw,
+        top;
     }
   }
 
@@ -523,23 +577,24 @@ body {
 }
 
 @include media-query('mobile', '576px') {
-   .fix_btn {
+  .fix_btn {
     display: block;
     .dropdown-menu {
       display: none;
     }
   }
 
-
   body {
     &:before {
       background-size: 180% auto;
-      background-position: -45vw 21vw,top;
+      background-position:
+        -45vw 21vw,
+        top;
     }
   }
 
   #warm-container {
-    .background  {
+    .background {
       padding-bottom: 90vw;
       .title {
         width: 50vw;
@@ -579,6 +634,12 @@ body {
     .title {
       width: 120%;
       margin: 0 -9% 2%;
+    }
+  }
+
+  .sale-group {
+    b {
+      font-size: 1.5rem;
     }
   }
 }

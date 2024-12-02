@@ -129,7 +129,7 @@ export default {
             },
             {
               url: 'https://events.tk3c.com/events_net/icewash2209/index.html',
-              image: 'double12_2024/images/1212/S15BN-2.png'
+              image: 'double12_2024/images/1212/S15BN-2b.png'
             }
           ]
         },
